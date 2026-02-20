@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fernando Sanchez-Rodriguez — Portfolio Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0d1b2a;
+    --deep: #111d2e;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --muted: #8a9ab5;
+    --border: rgba(201,168,76,0.2);
+  }
+
+  html { scroll-behavior: smooth; font-size: 18px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(13,27,42,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600;
+    color: var(--gold); letter-spacing: 0.05em;
+      text-decoration: none;
+
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: linear-gradient(135deg, #1a2f4a 0%, #0d1b2a 60%);
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: linear-gradient(var(--gold) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--gold) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--gold);
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 300; line-height: 1.1;
+    color: var(--cream); margin-bottom: 1rem;
+  }
+  h1 span { color: var(--gold); font-weight: 600; }
+  .hero-subtitle {
+    font-size: 0.95rem; color: var(--muted); line-height: 1.8;
+    max-width: 480px; margin-bottom: 2.5rem;
+  }
+  .hero-badges {
+    display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+  }
+  .badge {
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-btns { display: flex; gap: 1rem; }
+  .btn-primary {
+     padding: 0.9rem 2rem;
+  background: var(--gold); color: var(--navy);
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  border: none; cursor: pointer; transition: all 0.3s;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-outline {
+    padding: 0.9rem 2rem;
+    background: transparent; color: var(--cream);
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--border); cursor: pointer; transition: all 0.3s;
+    font-family: 'DM Sans', sans-serif;
+  }
+.btn-secondary {
+     padding: 0.9rem 2rem;
+  background: #2a364a; color: var(--cream);
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  border: 1px solid var(--gold); cursor: pointer; transition: all 0.3s;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  }
+.btn-secondary:hover { background: #2a364a; border-color: var(--gold-light); }
+  .btn-outline {
+    padding: 0.9rem 2rem;
+    background: transparent; color: var(--cream);
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--border); cursor: pointer; transition: all 0.3s;
+    font-family: 'DM Sans', sans-serif;
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  }
+  /* HERO PHOTO SIDE */
+  .hero-photo-side {
+    position: relative; z-index: 2;
+    display: flex; justify-content: center; align-items: center;
+  }
+  .photo-frame {
+    width: 320px; height: 400px;
+    border: 1px solid var(--border);
+    position: relative;
+    background: linear-gradient(160deg, #1a3050 0%, #0d1b2a 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .photo-frame::before {
+    content: ''; position: absolute;
+    top: -12px; left: -12px; right: 12px; bottom: 12px;
+    border: 1px solid var(--border);
+    z-index: -1;
+  }
+  .photo-placeholder {
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    color: var(--muted);
+  }
+  .photo-icon {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: rgba(201,168,76,0.1);
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+  }
+  .photo-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* STATS */
+  .stats {
+    padding: 4rem;
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--deep);
+    gap: 0;
+  }
+  .stat {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 600;
+    color: var(--gold); line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .stat-label {
+    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); line-height: 1.5;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 6rem 4rem;
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 4rem; align-items: start;
+  }
+  .section-label {
+    font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300;
+    line-height: 1.2; color: var(--cream);
+  }
+  .about-text {
+    font-size: 1.05rem; color: var(--muted); line-height: 1.9;
+  }
+  .about-text p + p { margin-top: 1.2rem; }
+  .highlight { color: var(--cream); }
+
+  /* EXPERIENCE */
+  .experience {
+    padding: 6rem 4rem;
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+  }
+  .experience-header { margin-bottom: 4rem; }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: ''; position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .timeline-item {
+    padding: 0 0 3rem 3rem;
+    position: relative;
+  }
+  .timeline-item::before {
+    content: ''; position: absolute;
+    left: -4px; top: 6px;
+    width: 9px; height: 9px;
+    border: 1px solid var(--gold);
+    background: var(--navy);
+    transform: rotate(45deg);
+  }
+  .timeline-date {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .timeline-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 600;
+    color: var(--cream); margin-bottom: 0.2rem;
+  }
+  .timeline-company {
+    font-size: 0.8rem; color: var(--muted); margin-bottom: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+  .timeline-desc {
+    font-size: 1rem; color: var(--muted); line-height: 1.8;
+    max-width: 600px;
+  }
+  .timeline-tags {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem;
+  }
+  .tag {
+    padding: 0.2rem 0.7rem;
+    border: 1px solid var(--border);
+    font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); border-radius: 1px;
+  }
+
+  /* SKILLS */
+  .skills {
+    padding: 6rem 4rem;
+    border-top: 1px solid var(--border);
+  }
+  .skills-header { margin-bottom: 3rem; }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 1px; border: 1px solid var(--border);
+  }
+  .skill-item {
+    padding: 1.5rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+  .skill-item:hover { background: rgba(201,168,76,0.05); }
+  .skill-icon { font-size: 1.2rem; margin-bottom: 0.6rem; }
+  .skill-name {
+    font-size: 0.9rem; color: var(--cream); line-height: 1.4;
+  }
+
+  /* LANGUAGES */
+  .languages {
+    padding: 4rem;
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    display: grid; grid-template-columns: 1fr 3fr;
+    gap: 4rem; align-items: center;
+  }
+  .lang-items { display: flex; gap: 3rem; }
+  .lang-item { flex: 1; }
+  .lang-flag { font-size: 2rem; margin-bottom: 0.5rem; }
+  .lang-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; color: var(--cream); margin-bottom: 0.2rem;
+  }
+  .lang-level { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; }
+  .lang-bar {
+    height: 2px; background: var(--border);
+    margin-top: 0.8rem; border-radius: 2px; overflow: hidden;
+  }
+  .lang-fill { height: 100%; background: var(--gold); }
+
+  /* CONTACT */
+  .contact {
+    padding: 6rem 4rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .contact-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300; color: var(--cream);
+    margin-bottom: 1rem;
+  }
+  .contact-title span { color: var(--gold); }
+  .contact-sub {
+    font-size: 0.9rem; color: var(--muted);
+    max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.8;
+  }
+  .contact-details {
+    display: flex; justify-content: center; gap: 3rem;
+    margin-bottom: 3rem; flex-wrap: wrap;
+  }
+  .contact-item {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 0.85rem; color: var(--muted);
+  }
+  .contact-item span:first-child { color: var(--gold); }
+
+  footer {
+    padding: 1.5rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-text { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.05em; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  h1 { animation-delay: 0.2s; }
+  .hero-subtitle { animation-delay: 0.3s; }
+  .hero-badges { animation-delay: 0.4s; }
+  .hero-btns { animation-delay: 0.5s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+<a href="#">
+  <img src="logo ok.png" alt="Fernando Sanchez-Rodriguez" 
+       style="height: 60px; width: auto; display: block;">
+</a>  <div class="nav-links">
+
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Digital Transformation Leader</div>
+    <h1>Fernando<br><span>Sanchez-</span><br>Rodriguez</h1>
+    <p class="hero-subtitle">Operations and innovation leader combining 25+ years of cross-industry experience with AI-enabled strategy, design thinking, and measurable results.</p>
+    <div class="hero-badges">
+      <span class="badge">🌍 EU Citizen</span>
+      <span class="badge">📍 Bayern, Germany</span>
+      <span class="badge">💼 Open to Remote/Hybrid</span>
+    </div>
+    <div class="hero-btns">
+<a href="https://fernandosrsan.wixsite.com/fernandosanro" target="_blank" class="btn-primary">My Resume Site</a>
+<a href="https://fernandosrsan.wixstudio.com/fsceramics" target="_blank" class="btn-secondary">Ceramics Portfolio</a>
+<a href="https://www.linkedin.com/in/fs-creative/" target="_blank" class="btn-outline">Let's Connect</a>
+    </div>
+  </div>
+  <div class="hero-photo-side">
+    <div class="photo-frame">
+  <img src="io.jpg" 
+       alt="Fernando Sanchez-Rodriguez"
+       style="width:100%; height:100%; object-fit:cover; display:block;">
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat"><div class="stat-number">25+</div><div class="stat-label">Years of Experience</div></div>
+  <div class="stat"><div class="stat-number">+30%</div><div class="stat-label">Revenue Growth</div></div>
+  <div class="stat"><div class="stat-number">−50%</div><div class="stat-label">IT Response Time</div></div>
+  <div class="stat"><div class="stat-number">1K+</div><div class="stat-label">Professionals Trained</div></div>
+  <div class="stat"><div class="stat-number">38</div><div class="stat-label">Facilities Managed</div></div>
+  <div class="stat"><div class="stat-number">70</div><div class="stat-label">Team Members Led</div></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div>
+    <div class="section-label">About Me</div>
+    <h2 class="section-title">A rare mix of design thinking & operational discipline</h2>
+  </div>
+  <div class="about-text">
+    <p>I'm an operations and innovation leader with a background in <span class="highlight">industrial design</span> combined with hands-on executive management across manufacturing, IT, education, and services — in Mexico, Portugal, and Germany.</p>
+    <p>My work has delivered real results: <span class="highlight">30% revenue growth</span>, <span class="highlight">50% faster IT operations</span>, and over <span class="highlight">1,000 professionals trained</span>. I build cross-functional teams, implement KPI-driven models, and integrate digital tools and AI into real workflows.</p>
+    <p>Today I'm channeling that foundation into digital transformation and AI-enabled leadership — backed by Google Career Certificates in Data Analytics, UX Design, Artificial Intelligence, and Business Intelligence. Based in Bayern, Germany. EU citizen. Available for remote or hybrid roles across Europe.</p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="experience-header">
+    <div class="section-label">Professional Journey</div>
+    <h2 class="section-title">25 Years Across Four Industries</h2>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">2023 – Present · Bayern, Germany</div>
+      <div class="timeline-role">Nursing Assistant</div>
+      <div class="timeline-company">AZURIT Seniorenzentrum</div>
+      <div class="timeline-desc">Transitional role during professional relocation to Germany. Reinforced high-stakes decision-making, empathy under pressure, and direct people responsibility.</div>
+      <div class="timeline-tags"><span class="tag">People Leadership</span><span class="tag">Change Management</span></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2022 – 2023 · Lisbon, Portugal</div>
+      <div class="timeline-role">Web Product Implementation Specialist</div>
+      <div class="timeline-company">Teleperformance / Google</div>
+      <div class="timeline-desc">Supported EMEA clients in a KPI-driven environment on behalf of Google. Mentored new hires and contributed to onboarding optimization in a multilingual setting.</div>
+      <div class="timeline-tags"><span class="tag">Google</span><span class="tag">EMEA</span><span class="tag">KPIs</span></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2012 – 2019 · Puebla, Mexico</div>
+      <div class="timeline-role">Manufacturing & Sales Manager</div>
+      <div class="timeline-company">Uriarte Talavera — Premium Ceramics</div>
+      <div class="timeline-desc">Led 70-person team across all ceramic production lines. Delivered +30% revenue growth, +15 NPS points via 5S & QA, and −20% lead times through KPI dashboards.</div>
+      <div class="timeline-tags"><span class="tag">+30% Revenue</span><span class="tag">Lean / 5S</span><span class="tag">Team of 70</span></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2008 – 2022 · Puebla, Mexico</div>
+      <div class="timeline-role">Professor — Digital Teaching Tools</div>
+      <div class="timeline-company">UPAEP University</div>
+      <div class="timeline-desc">Trained 1,000+ students over 14 years in digital platforms and collaborative tools. 90%+ course completion rates through structured, interactive methodologies.</div>
+      <div class="timeline-tags"><span class="tag">1,000+ Students</span><span class="tag">EdTech</span><span class="tag">14 Years</span></div>
+    </div>
+    <div class="timeline-item" style="padding-bottom:0">
+      <div class="timeline-date">1995 – 2011 · Puebla, Mexico</div>
+      <div class="timeline-role">IT Operations Manager</div>
+      <div class="timeline-company">ISSSTE — Mexican State Workers Institute</div>
+      <div class="timeline-desc">Led 25+ staff across 38 facilities. Reduced IT service response times by 50% through training programs, workflow standardization, and process optimization.</div>
+      <div class="timeline-tags"><span class="tag">−50% Response Time</span><span class="tag">38 Facilities</span><span class="tag">IT Ops</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="skills-header">
+    <div class="section-label">Core Competencies</div>
+    <h2 class="section-title">What I Bring to the Table</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-item"><div class="skill-icon">🤖</div><div class="skill-name">AI & Data-Driven Decision Making</div></div>
+    <div class="skill-item"><div class="skill-icon">🔄</div><div class="skill-name">Digital Transformation & Innovation</div></div>
+    <div class="skill-item"><div class="skill-icon">⚙️</div><div class="skill-name">Operations & Process Optimization (Lean / 5S)</div></div>
+    <div class="skill-item"><div class="skill-icon">📊</div><div class="skill-name">KPI Design & Performance Management</div></div>
+    <div class="skill-item"><div class="skill-icon">🌱</div><div class="skill-name">Change Management & Org. Development</div></div>
+    <div class="skill-item"><div class="skill-icon">🧑‍🤝‍🧑</div><div class="skill-name">Cross-Functional Team Leadership</div></div>
+    <div class="skill-item"><div class="skill-icon">🎨</div><div class="skill-name">Design Thinking Applied to Strategy</div></div>
+    <div class="skill-item"><div class="skill-icon">🌍</div><div class="skill-name">International Business Development</div></div>
+    <div class="skill-item"><div class="skill-icon">🏫</div><div class="skill-name">Training & Capability Building</div></div>
+    <div class="skill-item"><div class="skill-icon">💻</div><div class="skill-name">Enterprise Technology Integration</div></div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section class="languages">
+  <div>
+    <div class="section-label">Languages</div>
+    <h2 class="section-title">Multilingual</h2>
+  </div>
+  <div class="lang-items">
+    <div class="lang-item">
+      <div class="lang-flag">🇪🇸</div>
+      <div class="lang-name">Spanish</div>
+      <div class="lang-level">Native</div>
+      <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+    </div>
+    <div class="lang-item">
+      <div class="lang-flag">🇬🇧</div>
+      <div class="lang-name">English</div>
+      <div class="lang-level">C1 — Professional</div>
+      <div class="lang-bar"><div class="lang-fill" style="width:85%"></div></div>
+    </div>
+    <div class="lang-item">
+      <div class="lang-flag">🇩🇪</div>
+      <div class="lang-name">German</div>
+      <div class="lang-level">B1 — Conversational</div>
+      <div class="lang-bar"><div class="lang-fill" style="width:55%"></div></div>
+    </div>
+  </div>
+</section>
+
+      <!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="contact-title">Let's Build Something<br><span>Better Together</span></h2>
+  <p class="contact-sub">Open to operational leadership, digital transformation, and innovation consulting roles across the EU — remote or hybrid.</p>
+  <div class="contact-details">
+    <div class="contact-item"><span>📧</span><a href="mailto:fernandosr.san@gmail.com" style="color:var(--muted); text-decoration:none;">fernandosr.san@gmail.com</a></div>
+    <div class="contact-item"><span>📞</span><span>(+49) 176 4806 8696</span></div>
+    <div class="contact-item"><span>📍</span><span>Bayern, Germany</span></div>
+    <div class="contact-item"><span>🔗</span><a href="https://www.linkedin.com/in/fs-creative" target="_blank" style="color:var(--muted); text-decoration:none;">linkedin.com/in/fs-creative</a></div>
+  </div>
+    <a href="mailto:fernandosr.san@gmail.com?subject=Let's Connect — Fernando Sanchez-Rodriguez" class="btn-primary" style="text-decoration:none; display:inline-block;">Send Me a Message</a>
+</section>
+
+<footer>
+  <div class="footer-text">Fernando Sanchez-Rodriguez · Bayern, Germany · EU Citizen</div>
+  <div class="footer-text">Available for Remote & Hybrid Roles Across Europe</div>
+</footer>
+
+</body>
+</html>
