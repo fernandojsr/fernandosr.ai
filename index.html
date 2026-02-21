@@ -111,7 +111,10 @@
   border: none; cursor: pointer; transition: all 0.3s;
   font-family: 'DM Sans', sans-serif;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   }
   .btn-primary:hover { background: var(--gold-light); }
   .btn-outline {
@@ -128,7 +131,10 @@
   border: 1px solid var(--gold); cursor: pointer; transition: all 0.3s;
   font-family: 'DM Sans', sans-serif;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   }
 .btn-secondary:hover { background: #2a364a; border-color: var(--gold-light); }
   .btn-outline {
@@ -137,8 +143,30 @@
     font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
     border: 1px solid var(--border); cursor: pointer; transition: all 0.3s;
     font-family: 'DM Sans', sans-serif;
+   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 
   .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.btn-download {
+  padding: 0.9rem 2rem;
+  background: transparent; 
+  color: var(--gold-light);
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  border: 1px solid var(--gold-light); 
+  cursor: pointer; transition: all 0.3s;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.btn-download:hover { background: rgba(232,201,122,0.1); }
+   
   }
   /* HERO PHOTO SIDE */
   .hero-photo-side {
@@ -407,6 +435,7 @@
 <a href="https://fernandosrsan.wixsite.com/fernandosanro" target="_blank" class="btn-primary">My Resume Site</a>
 <a href="https://fernandosrsan.wixstudio.com/fsceramics" target="_blank" class="btn-secondary">Ceramics Portfolio</a>
 <a href="https://www.linkedin.com/in/fs-creative/" target="_blank" class="btn-outline">Let's Connect</a>
+<a href="fernando-sanchez-rodriguez-cv.pdf" download="Fernando_Sanchez-Rodriguez_CV.pdf" class="btn-download">⬇ Download CV</a>
 
   <a href="fernando-sanchez-rodriguez-cv.pdf" 
    download="Fernando_Sanchez-Rodriguez_CV.pdf" 
@@ -607,6 +636,10 @@
    class="btn-outline">⬇ Download My CV</a>
  
     <a href="mailto:fernandosr.san@gmail.com?subject=Let's Connect — Fernando Sanchez-Rodriguez" class="btn-primary" style="text-decoration:none; display:inline-block;">Send Me a Message</a>
+  <a href="fernando-sanchez-rodriguez-cv.pdf" 
+     download="Fernando_Sanchez-Rodriguez_CV.pdf" 
+     class="btn-download">⬇ Download My CV</a>
+</div>
 </section>
 
 <footer>
