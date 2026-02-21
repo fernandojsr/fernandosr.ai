@@ -137,17 +137,19 @@
   text-align: center;
   }
 .btn-secondary:hover { background: #2a364a; border-color: var(--gold-light); }
-  .btn-outline {
-    padding: 0.9rem 2rem;
-    background: transparent; color: var(--cream);
-    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-    border: 1px solid var(--border); cursor: pointer; transition: all 0.3s;
-    font-family: 'DM Sans', sans-serif;
-   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+ .btn-outline {
+  padding: 0.9rem 2rem;
+  ...
   text-align: center;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.btn-download {
+  padding: 0.9rem 2rem;
+  ...
+  text-align: center;
+}
+.btn-download:hover { background: rgba(232,201,122,0.1); }
 
   .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
@@ -424,7 +426,7 @@
   <div class="hero-grid"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Digital Transformation Leader</div>
-    <h1>Fernando<br><span>Sanchez-Rodriguez</h1>
+    <h1>Fernando<br><span>Sanchez-Rodriguez</span></h1>
     <p class="hero-subtitle">Operations and innovation leader combining 25+ years of cross-industry experience with AI-enabled strategy, design thinking, and measurable results.</p>
     <div class="hero-badges">
       <span class="badge">🌍 EU Citizen</span>
@@ -444,8 +446,6 @@
   <img src="io.jpg" 
        alt="Fernando Sanchez-Rodriguez"
        style="width:100%; height:100%; object-fit:cover; display:block;">
-</div>
-      </div>
     </div>
   </div>
 </section>
@@ -554,15 +554,16 @@
 </section>
  
 <!-- AI WORK VIDEO -->
-<section style="padding:6rem 4rem; border-top:1px solid var(--border);" id="video">
+<section style="padding:6rem 4rem; border-top:1px solid var(--border); text-align:center;" id="video">
   <div class="section-label">AI In Action</div>
-  <h2 class="section-title">A short demonstration of AI tools.</h2>
- <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:4rem; margin-top:3rem; align-items:start;">
-
-  <div style="max-width:450px; margin:0 auto; border:1px solid var(--border); overflow:hidden;">
-    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7371932075941117952?compact=1" 
-      height="450" width="450" frameborder="0" 
-      allowfullscreen="" title="Embedded post">
+  <h2 class="section-title">See My Work</h2>
+  <p style="color:var(--muted); font-size:0.85rem; max-width:600px; margin:1rem auto 3rem; line-height:1.8;">
+    A glimpse into my AI work — real tools, real workflows, hands-on execution.
+  </p>
+  <div style="max-width:800px; margin:0 auto; border:1px solid var(--border); overflow:hidden;">
+    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7371932075941117952?compact=1"
+      height="450" width="100%" frameborder="0"
+      allowfullscreen="" allow="encrypted-media" title="Embedded post">
     </iframe>
   </div>
 </section>
