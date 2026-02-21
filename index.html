@@ -103,73 +103,67 @@
     font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
     color: var(--muted);
   }
-  .hero-btns { display: flex; gap: 1rem; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  /* BUTTONS */
   .btn-primary {
-     padding: 0.9rem 2rem;
-  background: var(--gold); color: var(--navy);
-  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-  border: none; cursor: pointer; transition: all 0.3s;
-  font-family: 'DM Sans', sans-serif;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    padding: 0.9rem 2rem;
+    background: var(--gold); color: var(--navy);
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    border: none; cursor: pointer; transition: all 0.3s;
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-secondary {
+    padding: 0.9rem 2rem;
+    background: #2a364a; color: var(--cream);
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--gold); cursor: pointer; transition: all 0.3s;
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .btn-secondary:hover { background: #2a364a; border-color: var(--gold-light); }
+
   .btn-outline {
     padding: 0.9rem 2rem;
     background: transparent; color: var(--cream);
     font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
     border: 1px solid var(--border); cursor: pointer; transition: all 0.3s;
     font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
-.btn-secondary {
-     padding: 0.9rem 2rem;
-  background: #2a364a; color: var(--cream);
-  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-  border: 1px solid var(--gold); cursor: pointer; transition: all 0.3s;
-  font-family: 'DM Sans', sans-serif;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  }
-.btn-secondary:hover { background: #2a364a; border-color: var(--gold-light); }
- .btn-outline {
-  padding: 0.9rem 2rem;
-  ...
-  text-align: center;
-}
-.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-
-.btn-download {
-  padding: 0.9rem 2rem;
-  ...
-  text-align: center;
-}
-.btn-download:hover { background: rgba(232,201,122,0.1); }
-
   .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-.btn-download {
-  padding: 0.9rem 2rem;
-  background: transparent; 
-  color: var(--gold-light);
-  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-  border: 1px solid var(--gold-light); 
-  cursor: pointer; transition: all 0.3s;
-  font-family: 'DM Sans', sans-serif;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.btn-download:hover { background: rgba(232,201,122,0.1); }
-   
+  .btn-download {
+    padding: 0.9rem 2rem;
+    background: transparent;
+    color: var(--gold-light);
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--gold-light);
+    cursor: pointer; transition: all 0.3s;
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
+  .btn-download:hover { background: rgba(232,201,122,0.1); }
+
   /* HERO PHOTO SIDE */
   .hero-photo-side {
     position: relative; z-index: 2;
@@ -188,19 +182,7 @@
     border: 1px solid var(--border);
     z-index: -1;
   }
-  .photo-placeholder {
-    display: flex; flex-direction: column; align-items: center; gap: 1rem;
-    color: var(--muted);
-  }
-  .photo-icon {
-    width: 80px; height: 80px; border-radius: 50%;
-    background: rgba(201,168,76,0.1);
-    border: 2px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2rem;
-  }
-  .photo-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
-
+ 
   /* STATS */
   .stats {
     padding: 4rem;
