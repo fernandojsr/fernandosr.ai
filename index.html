@@ -43,11 +43,11 @@
       text-decoration: none;
 
   }
-  .nav-links { display: flex; gap: 2rem; }
+.nav-links { display: flex; gap: 1.5rem; flex-wrap: nowrap; }
   .nav-links a {
     color: var(--muted); text-decoration: none;
-    font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
-    transition: color 0.3s;
+font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+transition: color 0.3s; white-space: nowrap;
   }
   .nav-links a:hover { color: var(--gold); }
 
@@ -400,8 +400,10 @@
 
   /* TABLET — up to 1024px */
   @media (max-width: 1024px) {
-    nav { padding: 1rem 2rem; }
-
+nav { padding: 1rem 1.5rem; }
+.nav-links { gap: 1rem; }
+.nav-links a { font-size: 0.68rem; }
+   
     .hero {
       grid-template-columns: 1fr;
       padding: 7rem 2rem 4rem;
