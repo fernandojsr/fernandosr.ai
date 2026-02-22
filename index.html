@@ -378,6 +378,21 @@
   .hero-subtitle { animation-delay: 0.3s; }
   .hero-badges { animation-delay: 0.4s; }
   .hero-btns { animation-delay: 0.5s; }
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 1024px) {
+    .posts-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  @media (max-width: 640px) {
+    .posts-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+ 
   /* =====================
      RESPONSIVE / MOBILE
      ===================== */
@@ -617,8 +632,8 @@
 <section style="padding:6rem 4rem; border-top:1px solid var(--border);" id="posts">
   <div class="section-label">Featured Posts</div>
   <h2 class="section-title">Insights & Perspectives</h2>
- <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:4rem; margin-top:3rem; align-items:start;">
-
+<div class="posts-grid">
+ 
   <!-- Post 1 -->
  <a href="https://www.linkedin.com/posts/fs-creative_your-post-id" 
    target="_blank" style="display:block; cursor:pointer;">
