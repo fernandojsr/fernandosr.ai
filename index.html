@@ -454,13 +454,49 @@ nav { padding: 1rem 1.5rem; }
     footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 
+  /* HAMBURGER MENU */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--gold);
+    transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+ 
   /* MOBILE — up to 640px */
   @media (max-width: 640px) {
     html { font-size: 16px; }
 
     nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1rem; }
-    .nav-links a { font-size: 0.7rem; }
+
+    .hamburger { display: flex; }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 70px; left: 0; right: 0;
+      background: rgba(13,27,42,0.98);
+      backdrop-filter: blur(12px);
+      padding: 2rem;
+      gap: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 1rem; letter-spacing: 0.1em; }
 
     h1 { font-size: clamp(2.5rem, 10vw, 3.5rem); }
 
@@ -522,10 +558,16 @@ nav { padding: 1rem 1.5rem; }
 
 <!-- NAV -->
 <nav>
-<a href="#">
-  <img src="logo ok.PNG"  
-       style="height: 60px; width: auto; display: block;">
-</a>  <div class="nav-links">
+  <a href="#">
+    <img src="logo ok.PNG" alt="Fernando Sanchez-Rodriguez Logo"
+         style="height: 60px; width: auto; display: block;">
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
     <a href="#posts">Posts</a>
@@ -755,5 +797,36 @@ nav { padding: 1rem 1.5rem; }
   <div class="footer-text">Available for Remote & Hybrid Roles Across Europe</div>
 </footer>
 
+ 
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Hamburger menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  // Close menu when a link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+
+  // Scroll spy
+  const scrollNavLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (window.scrollY >= sectionTop) current = section.getAttribute('id');
+    });
+    scrollNavLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>
