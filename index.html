@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fernando Sanchez-Rodriguez — Digital Transformation Leader | Bayern, Germany</title>
+<title>Fernando Sanchez-Rodriguez</title>
 <meta name="description" content="Fernando Sanchez-Rodriguez is a Digital Transformation & Innovation Leader with 25+ years of cross-industry experience in operations, AI strategy, and design thinking. Based in Bayern, Germany. EU citizen. Available for remote and hybrid roles across Europe.">
 <meta name="keywords" content="Digital Transformation, Bavaria, Bayern, Germany, Operations Leader, AI Strategy, Innovation, Fernando Sanchez-Rodriguez, EU Citizen, Remote, Hybrid, KPI, Design Thinking, Google Certified">
 <meta name="author" content="Fernando Sanchez-Rodriguez">
@@ -490,6 +490,71 @@ transition: color 0.3s; white-space: nowrap;
     @page { margin: 1.5cm; }
   }
 
+  
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2px;
+  }
+  .project-card {
+    background: var(--deep); border: 1px solid var(--border);
+    padding: 2.5rem 2rem; position: relative; overflow: hidden;
+    cursor: default; transition: border-color 0.3s, transform 0.3s;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .project-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--gold) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .project-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+  .project-card:hover::before { opacity: 0.04; }
+  .card-category { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+  .card-number { position: absolute; top: 1.5rem; right: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--border); line-height: 1; user-select: none; transition: color 0.3s; }
+  .project-card:hover .card-number { color: #2a3a4a; }
+  .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; line-height: 1.25; color: var(--cream); max-width: 240px; }
+  .card-divider { width: 32px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .card-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; flex: 1; }
+  .card-result {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.2);
+    padding: 6px 12px; font-size: 0.78rem; color: var(--gold); font-weight: 500; align-self: flex-start;
+  }
+  .card-result::before { content: '▲'; font-size: 0.6rem; }
+  .card-result.down::before { content: '▼'; }
+  .card-result.star::before { content: '★'; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .card-link { margin-top: 8px; display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #5b8fa8; text-decoration: none; font-weight: 500; transition: gap 0.2s; }
+  .card-link:hover { gap: 14px; }
+  .card-link::after { content: '→'; }
+  .project-card.featured { grid-column: span 2; background: linear-gradient(135deg, #1a2535 0%, var(--deep) 100%); border-color: var(--border); flex-direction: row; gap: 3rem; align-items: flex-start; }
+  .project-card.featured .card-content { flex: 1; display: flex; flex-direction: column; gap: 14px; }
+  .project-card.featured .card-highlight { flex: 0 0 180px; display: flex; flex-direction: column; gap: 1.5rem; padding-top: 4px; }
+  .highlight-stat { text-align: right; }
+  .hs-value { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold); line-height: 1; }
+  .hs-label { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .projects-cta { margin-top: 2rem; display: flex; align-items: center; gap: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+  .cta-text { font-size: 0.85rem; color: var(--muted); line-height: 1.6; flex: 1; min-width: 200px; }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent; border: 1px solid var(--gold); color: var(--gold);
+    padding: 12px 24px; font-family: 'DM Sans', sans-serif; font-size: 0.78rem;
+    font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; white-space: nowrap; transition: background 0.25s, color 0.25s;
+  }
+  .cta-btn:hover { background: var(--gold); color: var(--navy); }
+  .cta-btn::after { content: '→'; }
+  @media (max-width: 1024px) {
+    .project-card.featured { grid-column: span 1; flex-direction: column; gap: 1.5rem; }
+    .project-card.featured .card-highlight { flex: none; flex-direction: row; flex-wrap: wrap; gap: 1rem; }
+    .highlight-stat { text-align: left; }
+  }
+  @media (max-width: 640px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .projects-cta { flex-direction: column; align-items: flex-start; }
+  }
+   
   /* HAMBURGER */
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; background: none; border: none; outline: none; line-height: 0; font-size: 0; }
   .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
@@ -673,6 +738,7 @@ nav { padding: 1rem 1.5rem; }
   <div class="nav-links" id="nav-links">
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
     <a href="#posts">Posts</a>
     <a href="#video">AI Work</a>
     <a href="#skills">Skills</a>
@@ -776,6 +842,101 @@ nav { padding: 1rem 1.5rem; }
   </div>
 </section>
 
+<!-- SELECTED PROJECTS -->
+<section style="padding:6rem 4rem; border-top:1px solid var(--border);" id="projects">
+  <div class="section-label">Selected Projects</div>
+  <h2 class="section-title">Work that moved the needle</h2>
+  <p style="color:var(--muted); font-size:0.9rem; max-width:480px; line-height:1.8; margin-top:1rem; margin-bottom:3rem;">A curated view of initiatives I led or contributed to across operations, design, and digital transformation — each with a measurable result.</p>
+
+  <div class="projects-grid">
+
+    <!-- FEATURED -->
+    <div class="project-card featured">
+      <div class="card-content">
+        <span class="card-category">IT Operations · ISSSTE</span>
+        <div class="card-number">01</div>
+        <h3 class="card-title">Government IT Service Transformation</h3>
+        <div class="card-divider"></div>
+        <p class="card-desc">Led a multi-site IT overhaul across 38 state healthcare facilities, managing a team of 25+ technicians. Introduced structured training programs, standardized workflows, and a ticketing model that slashed response times across the entire network — without increasing headcount.</p>
+        <div class="card-result down">50% faster IT response time</div>
+        <div class="card-tags">
+          <span class="tag">Process Optimization</span><span class="tag">Team Leadership</span><span class="tag">Workflow Design</span><span class="tag">Public Sector</span><span class="tag">38 Facilities</span>
+        </div>
+      </div>
+      <div class="card-highlight">
+        <div class="highlight-stat"><div class="hs-value">38</div><div class="hs-label">Facilities managed</div></div>
+        <div class="highlight-stat"><div class="hs-value">25+</div><div class="hs-label">Staff led</div></div>
+        <div class="highlight-stat"><div class="hs-value">−50%</div><div class="hs-label">Response time</div></div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="project-card">
+      <span class="card-category">Manufacturing · Uriarte Talavera</span>
+      <div class="card-number">02</div>
+      <h3 class="card-title">Revenue & Quality Scale-Up</h3>
+      <div class="card-divider"></div>
+      <p class="card-desc">Managed all production lines of a premium ceramics company with 70 people. Implemented 5S and KPI dashboards to raise output quality, reduce lead times by 20%, and grow revenue by 30% — while elevating NPS by 15 points.</p>
+      <div class="card-result">+30% revenue growth</div>
+      <div class="card-tags"><span class="tag">Lean / 5S</span><span class="tag">KPIs</span><span class="tag">Team of 70</span><span class="tag">NPS +15</span></div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="project-card">
+      <span class="card-category">Education · UPAEP University</span>
+      <div class="card-number">03</div>
+      <h3 class="card-title">Digital Capability Building at Scale</h3>
+      <div class="card-divider"></div>
+      <p class="card-desc">Over 14 years, designed and delivered hands-on training programs in digital tools and collaborative platforms, reaching 1,000+ students with 90%+ course completion rates.</p>
+      <div class="card-result star">1,000+ professionals trained</div>
+      <div class="card-tags"><span class="tag">EdTech</span><span class="tag">Curriculum Design</span><span class="tag">Digital Tools</span><span class="tag">90%+ Completion</span></div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="project-card">
+      <span class="card-category">Digital Products · Teleperformance / Google</span>
+      <div class="card-number">04</div>
+      <h3 class="card-title">EMEA Web Product Implementation</h3>
+      <div class="card-divider"></div>
+      <p class="card-desc">Supported EMEA clients in deploying web-based products in a KPI-driven environment on behalf of Google. Mentored new hires and contributed to onboarding optimization across a multilingual team.</p>
+      <div class="card-result star">Multi-country rollout</div>
+      <div class="card-tags"><span class="tag">Google</span><span class="tag">EMEA</span><span class="tag">KPIs</span><span class="tag">Onboarding</span><span class="tag">Cross-functional</span></div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="project-card">
+      <span class="card-category">Design & Production · Ceramics</span>
+      <div class="card-number">05</div>
+      <h3 class="card-title">Premium Client Projects — Rosewood, Zurich & Lance Wyman</h3>
+      <div class="card-divider"></div>
+      <p class="card-desc">Led design and manufacturing of bespoke ceramic collections for international clients: Talavera tiles for Rosewood Hotels Puebla, floor installations for Zurich Insurance Mexico, and a fusion collection with designer Lance Wyman.</p>
+      <div class="card-result star">Luxury & institutional clients</div>
+      <div class="card-tags"><span class="tag">Design Leadership</span><span class="tag">Talavera</span><span class="tag">Artisan Production</span><span class="tag">International Clients</span></div>
+      <a class="card-link" href="https://fernandosrsan.wixsite.com/fernandosanro/experience" target="_blank">See full portfolio</a>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="project-card">
+      <span class="card-category">Recognition · Design Awards</span>
+      <div class="card-number">06</div>
+      <h3 class="card-title">International Design Recognition</h3>
+      <div class="card-divider"></div>
+      <p class="card-desc">Selected for the 7th Utilitarian Ceramics Biennial at Franz Mayer Museum (Mexico City, 2015–2016). Received Honourable Mention at the International Luggage Design Competition Toyooka '94 — among 1,912 entries from 32 countries.</p>
+      <div class="card-result star">Honourable Mention — 32 countries</div>
+      <div class="card-tags"><span class="tag">Franz Mayer Museum</span><span class="tag">Ceramics Biennial</span><span class="tag">Japan '94</span><span class="tag">Industrial Design</span></div>
+      <a class="card-link" href="https://fernandosrsan.wixsite.com/fernandosanro/projects" target="_blank">See projects</a>
+    </div>
+
+  </div>
+
+  <!-- CTA row -->
+  <div class="projects-cta">
+    <p class="cta-text">These are highlights — the full breadth of work, including ceramics collections, UX design studies, and AI tools, lives across my extended portfolio.</p>
+    <a class="cta-btn" href="https://fernandosrsan.wixsite.com/fernandosanro" target="_blank">Full Portfolio</a>
+    <a class="cta-btn" href="https://fernandosrsan.wixstudio.com/fsceramics" target="_blank" style="border-color:#5b8fa8; color:#5b8fa8;">Ceramics Site</a>
+  </div>
+</section>
+ 
  <!-- LINKEDIN POSTS -->
 <section style="padding:6rem 4rem; border-top:1px solid var(--border);" id="posts">
   <div class="section-label">Featured Posts</div>
