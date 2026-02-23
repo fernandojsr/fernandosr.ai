@@ -489,51 +489,57 @@ transition: color 0.3s; white-space: nowrap;
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     @page { margin: 1.5cm; }
   }
-
   
   /* PROJECTS */
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
   .project-card {
     background: var(--deep); border: 1px solid var(--border);
     padding: 2.5rem 2rem; position: relative; overflow: hidden;
-    cursor: default; transition: border-color 0.3s, transform 0.3s;
-    display: flex; flex-direction: column; gap: 14px;
+    cursor: default; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    display: flex; flex-direction: column; gap: 14px; border-radius: 2px;
   }
   .project-card::before {
     content: ''; position: absolute; inset: 0;
     background: linear-gradient(135deg, var(--gold) 0%, transparent 60%);
     opacity: 0; transition: opacity 0.4s;
   }
-  .project-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+  .project-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
   .project-card:hover::before { opacity: 0.04; }
   .card-category { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
-  .card-number { position: absolute; top: 1.5rem; right: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--border); line-height: 1; user-select: none; transition: color 0.3s; }
-  .project-card:hover .card-number { color: #2a3a4a; }
-  .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; line-height: 1.25; color: var(--cream); max-width: 240px; }
+  .card-number { position: absolute; top: 1.5rem; right: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: rgba(255,255,255,0.06); line-height: 1; user-select: none; transition: color 0.3s; }
+  .project-card:hover .card-number { color: rgba(255,255,255,0.1); }
+  .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; line-height: 1.25; color: var(--cream); max-width: 260px; }
   .card-divider { width: 32px; height: 1px; background: var(--gold); opacity: 0.5; }
   .card-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; flex: 1; }
   .card-result {
     display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.2);
-    padding: 6px 12px; font-size: 0.78rem; color: var(--gold); font-weight: 500; align-self: flex-start;
+    background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25);
+    padding: 6px 12px; font-size: 0.78rem; color: var(--gold); font-weight: 500;
+    align-self: flex-start; margin-top: auto;
   }
   .card-result::before { content: '▲'; font-size: 0.6rem; }
   .card-result.down::before { content: '▼'; }
   .card-result.star::before { content: '★'; }
-  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
+  .card-tags .tag { background: rgba(255,255,255,0.04); border: 1px solid var(--border); padding: 3px 9px; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.05em; }
   .card-link { margin-top: 8px; display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #5b8fa8; text-decoration: none; font-weight: 500; transition: gap 0.2s; }
   .card-link:hover { gap: 14px; }
   .card-link::after { content: '→'; }
-  .project-card.featured { grid-column: span 2; background: linear-gradient(135deg, #1a2535 0%, var(--deep) 100%); border-color: var(--border); flex-direction: row; gap: 3rem; align-items: flex-start; }
+  .project-card.featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #1a2535 0%, var(--deep) 100%);
+    border-color: rgba(201,168,76,0.25);
+    flex-direction: row; gap: 4rem; align-items: flex-start;
+  }
   .project-card.featured .card-content { flex: 1; display: flex; flex-direction: column; gap: 14px; }
-  .project-card.featured .card-highlight { flex: 0 0 180px; display: flex; flex-direction: column; gap: 1.5rem; padding-top: 4px; }
+  .project-card.featured .card-highlight { flex: 0 0 200px; display: flex; flex-direction: column; gap: 2rem; padding-top: 4px; border-left: 1px solid var(--border); padding-left: 3rem; }
   .highlight-stat { text-align: right; }
-  .hs-value { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold); line-height: 1; }
-  .hs-label { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .hs-value { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold); line-height: 1; }
+  .hs-label { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.2rem; }
   .projects-cta { margin-top: 2rem; display: flex; align-items: center; gap: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
   .cta-text { font-size: 0.85rem; color: var(--muted); line-height: 1.6; flex: 1; min-width: 200px; }
   .cta-btn {
@@ -546,12 +552,14 @@ transition: color 0.3s; white-space: nowrap;
   .cta-btn:hover { background: var(--gold); color: var(--navy); }
   .cta-btn::after { content: '→'; }
   @media (max-width: 1024px) {
-    .project-card.featured { grid-column: span 1; flex-direction: column; gap: 1.5rem; }
-    .project-card.featured .card-highlight { flex: none; flex-direction: row; flex-wrap: wrap; gap: 1rem; }
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    .project-card.featured { grid-column: span 2; flex-direction: column; gap: 1.5rem; }
+    .project-card.featured .card-highlight { flex: none; flex-direction: row; flex-wrap: wrap; gap: 1.5rem; border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 1.5rem; }
     .highlight-stat { text-align: left; }
   }
   @media (max-width: 640px) {
     .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: span 1; }
     .projects-cta { flex-direction: column; align-items: flex-start; }
   }
    
