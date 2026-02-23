@@ -340,8 +340,6 @@ transition: color 0.3s; white-space: nowrap;
   .testimonial-name { font-size: 0.82rem; color: var(--cream); font-weight: 500; }
   .testimonial-role { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.05em; }
 
-
- 
   /* LANGUAGES */
   .languages {
     padding: 4rem;
@@ -923,22 +921,12 @@ nav { padding: 1rem 1.5rem; }
 </div>
 </section>
  
-
-<!-- BACK TO TOP -->
-<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
 <footer>
   <div class="footer-text">Fernando Sanchez-Rodriguez · Bayern, Germany · EU Citizen</div>
   <div class="footer-text">Available for Remote & Hybrid Roles Across Europe</div>
 </footer>
 
 <script>
-  // Back to top
-  const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('visible', window.scrollY > 400);
-  });
-
   // Hamburger menu
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
