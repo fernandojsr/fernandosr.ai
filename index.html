@@ -311,6 +311,37 @@ transition: color 0.3s; white-space: nowrap;
     font-size: 0.9rem; color: var(--cream); line-height: 1.4;
   }
 
+/* CERTIFICATIONS */
+  .cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .cert-card {
+    padding: 2rem 1.5rem; border: 1px solid var(--border); background: var(--deep);
+    text-align: center; transition: border-color 0.3s, transform 0.3s;
+  }
+  .cert-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .cert-icon { margin-bottom: 1rem; }
+  .cert-icon img { width: 100px; height: 100px; object-fit: contain; }
+  .cert-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--cream); margin-bottom: 0.4rem; }
+  .cert-issuer { font-size: 0.72rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; }
+  .cert-year { font-size: 0.68rem; color: var(--muted); margin-top: 0.3rem; }
+
+  /* TESTIMONIALS */
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
+  .testimonial-card { padding: 2rem; border: 1px solid var(--border); background: var(--navy); transition: border-color 0.3s; }
+  .testimonial-card:hover { border-color: var(--gold); }
+  .testimonial-quote { font-size: 3rem; line-height: 1; color: var(--gold); opacity: 0.4; font-family: 'Cormorant Garamond', serif; margin-bottom: 0.5rem; }
+  .testimonial-text { font-size: 0.85rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 0.8rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  .testimonial-avatar {
+    width: 42px; height: 42px; border-radius: 50%; overflow: hidden;
+    background: rgba(201,168,76,0.15); border: 1px solid var(--border);
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  }
+  .testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .testimonial-name { font-size: 0.82rem; color: var(--cream); font-weight: 500; }
+  .testimonial-role { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.05em; }
+
+
+ 
   /* LANGUAGES */
   .languages {
     padding: 4rem;
@@ -793,6 +824,7 @@ nav { padding: 1rem 1.5rem; }
   </div>
 </section>
 
+
 <!-- TESTIMONIALS -->
 <section style="padding:6rem 4rem; background:var(--deep); border-top:1px solid var(--border);" id="testimonials">
   <div class="section-label">What People Say</div>
@@ -831,7 +863,7 @@ nav { padding: 1rem 1.5rem; }
       <div class="testimonial-quote">"</div>
       <p class="testimonial-text">En mi opinión, Fernando es uno de los expertos en producción de cerámica fina y artesanal más relevantes de México. Su labor al frente del área de producción Uriarte Talavera fue notable, pues modernizó los estándares de calidad de una firma cerámica emblemática y bicentenaria que, sin duda alguna, está entre las más importantes del mundo.</p>
       <div class="testimonial-author">
-        <div class="testimonial-avatar">👤</div>
+        <div class="testimonial-avatar"><img src="https://media.licdn.com/dms/image/v2/D4E03AQEsh_tngvJI-g/profile-displayphoto-scale_400_400/B4EZqInp7.KkAg-/0/1763228689580?e=1773273600&v=beta&t=7YEs044p6DyAgzdEJqv6niGo1XyAIMpInfppCmUalQ8" alt="Raul Alfaro Segovia" onerror="this.style.display='none'; this.parentElement.innerHTML='👤';"</div>
         <div>
           <div class="testimonial-name">Raúl Alfaro Segovia</div>
           <div class="testimonial-role">Socio Director · RPA</div>
@@ -890,15 +922,30 @@ nav { padding: 1rem 1.5rem; }
      class="btn-download">⬇ Download My CV</a>
 </div>
 </section>
+ 
 
-  // Hamburger menu toggle
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<footer>
+  <div class="footer-text">Fernando Sanchez-Rodriguez · Bayern, Germany · EU Citizen</div>
+  <div class="footer-text">Available for Remote & Hybrid Roles Across Europe</div>
+</footer>
+
+<script>
+  // Back to top
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // Hamburger menu
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     navLinks.classList.toggle('open');
   });
-  // Close menu when a link is clicked
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
@@ -907,12 +954,12 @@ nav { padding: 1rem 1.5rem; }
   });
 
   // Scroll spy
+  const sections = document.querySelectorAll('section[id]');
   const scrollNavLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (window.scrollY >= sectionTop) current = section.getAttribute('id');
+      if (window.scrollY >= section.offsetTop - 100) current = section.getAttribute('id');
     });
     scrollNavLinks.forEach(link => {
       link.classList.remove('active');
