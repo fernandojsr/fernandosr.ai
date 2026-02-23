@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fernando Sanchez-Rodriguez — Portfolio Preview</title>
+<title>Fernando Sanchez-Rodriguez — Digital Transformation Leader | Bayern, Germany</title>
+<meta name="description" content="Fernando Sanchez-Rodriguez is a Digital Transformation & Innovation Leader with 25+ years of cross-industry experience in operations, AI strategy, and design thinking. Based in Bayern, Germany. EU citizen. Available for remote and hybrid roles across Europe.">
+<meta name="keywords" content="Digital Transformation, Bavaria, Bayern, Germany, Operations Leader, AI Strategy, Innovation, Fernando Sanchez-Rodriguez, EU Citizen, Remote, Hybrid, KPI, Design Thinking, Google Certified">
+<meta name="author" content="Fernando Sanchez-Rodriguez">
+<meta property="og:title" content="Fernando Sanchez-Rodriguez — Digital Transformation Leader">
+<meta property="og:description" content="Operations and innovation leader combining 25+ years of cross-industry experience with AI-enabled strategy, design thinking, and measurable results.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fernandojsr.github.io/fernandosr.ai/"> 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -423,6 +430,72 @@ transition: color 0.3s; white-space: nowrap;
   @media (max-width: 640px) {
     .posts-grid { grid-template-columns: 1fr; gap: 1.5rem; }
        .posts-grid iframe { height: 300px; }
+
+
+  /* PAGE LOADING ANIMATION */
+  body { opacity: 0; transition: opacity 0.6s ease; }
+  body.loaded { opacity: 1; }
+
+  /* PRINT FRIENDLY */
+  @media print {
+    nav, .hero-btns, .hero::before, .hero-grid,
+    section[id="posts"], section[id="video"],
+    footer, .hamburger { display: none !important; }
+
+    body { background: #fff; color: #111; font-size: 12pt; }
+    .hero {
+      grid-template-columns: 1fr 1fr;
+      min-height: auto; padding: 2rem 0;
+    }
+    h1 { font-size: 28pt; color: #111; }
+    h1 span { color: #8a6914; }
+    .hero-subtitle { color: #444; }
+    .badge { border-color: #ccc; color: #444; }
+    .section-label { color: #8a6914; }
+    .section-title { color: #111; font-size: 18pt; }
+    .stats { background: #f5f5f5; border-color: #ddd; }
+    .stat-number { color: #8a6914; font-size: 22pt; }
+    .stat-label { color: #555; }
+    .about { padding: 1.5rem 0; }
+    .about-text { color: #333; }
+    .highlight { color: #111; font-weight: 600; }
+    .experience { background: #fff; padding: 1.5rem 0; }
+    .timeline::before { background: #ccc; }
+    .timeline-date { color: #8a6914; }
+    .timeline-role { color: #111; }
+    .timeline-company, .timeline-desc { color: #444; }
+    .tag { border-color: #ccc; color: #555; }
+    .skills { padding: 1.5rem 0; }
+    .skills-grid { border-color: #ddd; }
+    .skill-item { border-color: #ddd; }
+    .skill-name { color: #111; }
+    .cert-card { border-color: #ddd; background: #f9f9f9; }
+    .cert-name { color: #111; }
+    .cert-issuer { color: #8a6914; }
+    .cert-year { color: #666; }
+    .testimonial-card { border-color: #ddd; background: #f9f9f9; }
+    .testimonial-text { color: #444; }
+    .testimonial-name { color: #111; }
+    .testimonial-role { color: #666; }
+    .languages { background: #f5f5f5; padding: 1.5rem 0; }
+    .lang-name { color: #111; }
+    .lang-level { color: #555; }
+    .lang-fill { background: #8a6914; }
+    .contact { padding: 1.5rem 0; }
+    .contact-title { color: #111; }
+    .contact-sub { color: #444; }
+    .contact-item { color: #444; }
+    .photo-frame { border-color: #ccc; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { margin: 1.5cm; }
+  }
+
+  /* HAMBURGER */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); 
   }
  
   /* =====================
@@ -926,7 +999,13 @@ nav { padding: 1rem 1.5rem; }
   <div class="footer-text">Available for Remote & Hybrid Roles Across Europe</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Page loading animation
+  window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
+
+ 
   // Hamburger menu
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
