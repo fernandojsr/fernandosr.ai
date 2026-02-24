@@ -40,10 +40,10 @@
 
   /* NAV */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
     display: flex; justify-content: space-between; align-items: center;
     padding: 1.2rem 4rem;
-    background: rgba(13,27,42,0.92);
+    background: rgba(13,27,42,0.96);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
@@ -267,7 +267,7 @@
     color: var(--muted); border-radius: 1px;
   }
 
-  /* ─── PROJECTS ─────────────────────────────────── */
+  /* PROJECTS */
   .projects-section {
     padding: 6rem 4rem;
     border-top: 1px solid var(--border);
@@ -279,15 +279,11 @@
     max-width: 520px; line-height: 1.8;
     margin-top: 1rem; margin-bottom: 3.5rem;
   }
-
-  /* Grid: featured spans full width, then 3 cols */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
-
-  /* ── Base card ── */
   .project-card {
     background: var(--deep);
     border: 1px solid var(--border);
@@ -313,8 +309,6 @@
     box-shadow: 0 16px 48px rgba(0,0,0,0.5);
   }
   .project-card:hover::after { opacity: 0.04; }
-
-  /* ── Featured card: full row ── */
   .project-card.featured {
     grid-column: 1 / -1;
     flex-direction: row;
@@ -349,8 +343,6 @@
     letter-spacing: 0.1em; text-transform: uppercase;
     margin-top: 0.2rem;
   }
-
-  /* ── Card elements ── */
   .card-number {
     position: absolute; top: 1.5rem; right: 1.5rem;
     font-family: 'Cormorant Garamond', serif;
@@ -360,7 +352,6 @@
     transition: color 0.3s;
   }
   .project-card:hover .card-number { color: rgba(255,255,255,0.09); }
-
   .card-category {
     font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--gold); font-weight: 500;
@@ -390,7 +381,6 @@
   .card-result::before { content: '▲'; font-size: 0.55rem; }
   .card-result.down::before { content: '▼'; }
   .card-result.star::before { content: '★'; }
-
   .card-tags {
     display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;
   }
@@ -401,7 +391,6 @@
     font-size: 0.65rem; color: var(--muted);
     letter-spacing: 0.05em; text-transform: uppercase;
   }
-
   .card-link {
     display: inline-flex; align-items: center; gap: 8px;
     font-size: 0.78rem; color: #5b8fa8;
@@ -411,8 +400,6 @@
   }
   .card-link:hover { gap: 14px; }
   .card-link::after { content: '→'; }
-
-  /* ── CTA row ── */
   .projects-cta {
     display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
     padding-top: 2rem; margin-top: 2rem;
@@ -477,6 +464,8 @@
   .testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
   .testimonial-name { font-size: 0.82rem; color: var(--cream); font-weight: 500; }
   .testimonial-role { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.05em; }
+  /* Read-more button — hidden on desktop */
+  .testimonial-read-more { display: none; }
 
   /* LANGUAGES */
   .languages {
@@ -527,18 +516,34 @@
   .hero-badges { animation-delay: 0.4s; }
   .hero-btns { animation-delay: 0.5s; }
 
-  /* HAMBURGER */
+  /* ── HAMBURGER ──
+     Defined here, shown only at ≤640px via the mobile breakpoint.
+     Keep it in the DOM always so the JS toggle works. */
   .hamburger {
-    display: none; flex-direction: column; gap: 5px;
-    cursor: pointer; padding: 0.5rem;
-    background: none; border: none; outline: none;
+    display: none;           /* hidden on desktop */
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    outline: none;
+    z-index: 1100;
+    flex-shrink: 0;
   }
-  .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--gold);
+    transition: all 0.3s;
+    border-radius: 1px;
+  }
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  /* ── RESPONSIVE ── */
+  /* ── RESPONSIVE 1024px ── */
   @media (max-width: 1024px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { gap: 1rem; }
@@ -566,6 +571,13 @@
     footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
     .posts-grid { grid-template-columns: 1fr; }
 
+    /* Certifications: 2 columns at tablet */
+    .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .cert-icon img { width: 80px; height: 80px; }
+
+    /* Testimonials: single column at tablet */
+    .testimonials-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
     /* Projects responsive */
     .projects-section { padding: 4rem 2rem; }
     .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
@@ -581,21 +593,37 @@
     }
   }
 
+  /* ── RESPONSIVE 640px (mobile) ── */
   @media (max-width: 640px) {
     html { font-size: 16px; }
-    nav { padding: 1rem 1.5rem; }
+
+    /* ── FIX: Hamburger — show on mobile ── */
+    nav { padding: 0.9rem 1.25rem; }
     .hamburger { display: flex; }
     .nav-links {
-      display: none; flex-direction: column;
-      position: fixed; top: 70px; left: 0; right: 0;
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 64px;
+      left: 0; right: 0;
       background: rgba(13,27,42,0.98);
       backdrop-filter: blur(12px);
-      padding: 2rem; gap: 1.5rem;
+      padding: 1.25rem 1.5rem 1.5rem;
+      gap: 0;
       border-bottom: 1px solid var(--border);
-      z-index: 99;
+      z-index: 999;
+      max-height: calc(100vh - 64px);
+      overflow-y: auto;
     }
     .nav-links.open { display: flex; }
-    .nav-links a { font-size: 1rem; letter-spacing: 0.1em; }
+    .nav-links a {
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+      width: 100%;
+    }
+    .nav-links a:last-child { border-bottom: none; }
 
     h1 { font-size: clamp(2.5rem, 10vw, 3.5rem); }
     .hero { padding: 6rem 1.5rem 3rem; }
@@ -625,6 +653,69 @@
     .projects-grid { grid-template-columns: 1fr; gap: 1rem; }
     .project-card.featured { grid-column: 1; }
     .projects-cta { flex-direction: column; align-items: flex-start; }
+
+    /* ── FIX 1: Credentials — 2-col compact grid, no overflow ── */
+    section[id="certifications"] { padding: 3rem 1.5rem; }
+    .cert-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+    .cert-card {
+      padding: 1.25rem 0.75rem;
+    }
+    .cert-icon { margin-bottom: 0.6rem; }
+    .cert-icon img {
+      width: 60px;
+      height: 60px;
+    }
+    .cert-name { font-size: 0.88rem; }
+    .cert-issuer { font-size: 0.62rem; }
+    .cert-year { font-size: 0.6rem; }
+
+    /* ── FIX 2: Recommendations — compact + expandable text ── */
+    section[id="testimonials"] { padding: 3rem 1.5rem; }
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .testimonial-card { padding: 1.25rem; }
+    .testimonial-quote { font-size: 2rem; margin-bottom: 0.25rem; }
+    .testimonial-text {
+      font-size: 0.78rem;
+      line-height: 1.65;
+      margin-bottom: 0.5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .testimonial-card.expanded .testimonial-text {
+      display: block;
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
+    /* Show read-more button only on mobile */
+    .testimonial-read-more {
+      display: inline-block;
+      font-size: 0.7rem;
+      color: var(--gold);
+      cursor: pointer;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border: none;
+      background: none;
+      font-family: 'DM Sans', sans-serif;
+      padding: 0;
+    }
+    .testimonial-author { padding-top: 0.75rem; }
+    .testimonial-name { font-size: 0.78rem; }
+    .testimonial-role { font-size: 0.63rem; }
+    .testimonial-avatar { width: 34px; height: 34px; }
+
+    /* Posts & video sections */
+    section[id="posts"] { padding: 3rem 1.5rem; }
+    section[id="video"] { padding: 3rem 1.5rem; }
   }
 
   @media print {
@@ -643,19 +734,18 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-YRZ1B7EZJ0');
-</script> 
+</script>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
+<nav id="main-nav">
   <a href="#">
     <img src="logo ok.PNG" alt="Fernando Sanchez-Rodriguez Logo"
          style="height: 60px; width: auto; display: block;">
   </a>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
     <span></span>
     <span></span>
     <span></span>
@@ -676,14 +766,14 @@
   <div class="hero-grid"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Operations & Digital Transformation Leader</div>
-      <h1>Fernando<br><span>Sanchez-Rodriguez</span></h1>
+    <h1>Fernando<br><span>Sanchez-Rodriguez</span></h1>
     <p class="hero-subtitle">Experienced leader with 25+ years driving operational excellence, process optimization, and digital modernization across manufacturing, IT, education, and service environments. Proven track record scaling teams, implementing KPI-driven systems, and integrating AI-enabled solutions in multi-site and international settings.</p>
     <div class="hero-badges">
       <span class="badge">🌍 EU Citizen</span>
       <span class="badge">📍 Germany-Based · Remote/Hybrid EU</span>
       <span class="badge">💼 Operations · AI · Process Excellence</span>
     </div>
-<div class="hero-btns" style="display:flex; flex-wrap:wrap; gap:1rem; max-width:480px;">
+    <div class="hero-btns" style="display:flex; flex-wrap:wrap; gap:1rem; max-width:480px;">
       <a href="https://www.linkedin.com/in/fs-creative/" target="_blank" class="btn-outline">Let's Connect</a>
       <a href="fernando-sanchez-rodriguez-cv.pdf" download="Fernando_Sanchez-Rodriguez_CV.pdf" class="btn-download">⬇ Download CV</a>
     </div>
@@ -772,8 +862,6 @@
   <p class="projects-subtitle">A curated selection of cross-functional initiatives focused on operational scale, process optimization, and digital modernization — each with quantifiable business outcomes.</p>
 
   <div class="projects-grid">
-
-    <!-- 01 -->
     <div class="project-card">
       <span class="card-category">IT Operations · ISSSTE</span>
       <div class="card-number">01</div>
@@ -783,14 +871,13 @@
       <div class="card-result">50% faster IT response time</div>
       <div class="card-tags">
         <span class="tag">Process Optimization</span>
-          <span class="tag">Team Leadership</span>
-          <span class="tag">Workflow Design</span>
-          <span class="tag">Public Sector</span>
-          <span class="tag">38 Facilities</span>
+        <span class="tag">Team Leadership</span>
+        <span class="tag">Workflow Design</span>
+        <span class="tag">Public Sector</span>
+        <span class="tag">38 Facilities</span>
       </div>
     </div>
 
-    <!-- 02 -->
     <div class="project-card">
       <span class="card-category">Manufacturing · Uriarte Talavera</span>
       <div class="card-number">02</div>
@@ -806,7 +893,6 @@
       </div>
     </div>
 
-    <!-- 03 -->
     <div class="project-card">
       <span class="card-category">Education · UPAEP University</span>
       <div class="card-number">03</div>
@@ -822,7 +908,6 @@
       </div>
     </div>
 
-    <!-- 04 -->
     <div class="project-card">
       <span class="card-category">Digital Products · Teleperformance / Google</span>
       <div class="card-number">04</div>
@@ -839,7 +924,6 @@
       </div>
     </div>
 
-    <!-- 05 -->
     <div class="project-card">
       <span class="card-category">Design & Production · Ceramics</span>
       <div class="card-number">05</div>
@@ -856,7 +940,6 @@
       <a class="card-link" href="https://fernandosrsan.wixsite.com/fernandosanro/experience" target="_blank">See full portfolio</a>
     </div>
 
-    <!-- 06 -->
     <div class="project-card">
       <span class="card-category">Recognition · Design Awards</span>
       <div class="card-number">06</div>
@@ -872,8 +955,7 @@
       </div>
       <a class="card-link" href="https://fernandosrsan.wixsite.com/fernandosanro/projects" target="_blank">See projects</a>
     </div>
-
-  </div><!-- /projects-grid -->
+  </div>
 
   <div class="projects-cta">
     <p class="cta-text">These are highlights — the full breadth of work, including ceramics collections, UX design studies, and AI tools, lives across my extended portfolio.</p>
@@ -881,42 +963,27 @@
     <a class="cta-btn" href="https://fernandosrsan.wixstudio.com/fsceramics" target="_blank" style="border-color:#5b8fa8; color:#5b8fa8;">Ceramics Site</a>
   </div>
 </section>
- 
- <!-- LINKEDIN POSTS -->
+
+<!-- LINKEDIN POSTS -->
 <section style="padding:6rem 4rem; border-top:1px solid var(--border);" id="posts">
   <div class="section-label">Featured Posts</div>
   <h2 class="section-title">Insights & Perspectives</h2>
-<div class="posts-grid">
- 
-  <!-- Post 1 -->
- <a href="https://www.linkedin.com/posts/fs-creative_your-post-id" 
-   target="_blank" style="display:block; cursor:pointer;">
-   <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7396858200962084864?collapsed=1"
-    height="450" width="100%" frameborder="0" 
-    allowfullscreen="" title="Embedded post">
-  </iframe>
-</a>
-
-  <!-- Post 2 -->
-    <a href="https://www.linkedin.com/posts/fs-creative_your-post-id" 
-       target="_blank" style="display:block; cursor:pointer;">
-      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7371937615857532928?collapsed=1"
-        height="450" width="100%" frameborder="0" 
-        allowfullscreen="" title="Embedded post">
-      </iframe>
+  <div class="posts-grid">
+    <a href="https://www.linkedin.com/posts/fs-creative_your-post-id" target="_blank" style="display:block; cursor:pointer;">
+      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7396858200962084864?collapsed=1"
+        height="450" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
     </a>
-
-    <!-- Post 3 -->
-    <a href="https://www.linkedin.com/posts/fs-creative_your-post-id" 
-       target="_blank" style="display:block; cursor:pointer;">
+    <a href="https://www.linkedin.com/posts/fs-creative_your-post-id" target="_blank" style="display:block; cursor:pointer;">
+      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7371937615857532928?collapsed=1"
+        height="450" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+    </a>
+    <a href="https://www.linkedin.com/posts/fs-creative_your-post-id" target="_blank" style="display:block; cursor:pointer;">
       <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7371927206916382721?collapsed=1"
-        height="450" width="100%" frameborder="0" 
-        allowfullscreen="" title="Embedded post">
-      </iframe>
+        height="450" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
     </a>
   </div>
 </section>
- 
+
 <!-- AI WORK VIDEO -->
 <section style="padding:6rem 4rem; border-top:1px solid var(--border);" id="video">
   <div class="section-label">AI In Action</div>
@@ -927,11 +994,10 @@
   <div style="max-width:800px; border:1px solid var(--border); overflow:hidden;">
     <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7371932075941117952?compact=1"
       height="450" width="100%" frameborder="0"
-      allowfullscreen="" allow="encrypted-media" title="Embedded post">
-    </iframe>
+      allowfullscreen="" allow="encrypted-media" title="Embedded post"></iframe>
   </div>
 </section>
- 
+
 <!-- SKILLS -->
 <section class="skills" id="skills">
   <div class="skills-header">
@@ -1009,6 +1075,7 @@
     <div class="testimonial-card">
       <div class="testimonial-quote">"</div>
       <p class="testimonial-text">Working alongside Fernando at Teleperformance was key to the success of our Google Ads HTML implementation project. His strategic vision and ability to optimize processes not only improved operational efficiency but also drove innovation in automation and advanced technical solutions. From day one, Fernando became a technology scrum master, enhancing HTML integration in digital advertising and optimizing workflows with a data-driven approach. His impact was both immediate and long-lasting, solidifying him as an expert in digital transformation.</p>
+      <button class="testimonial-read-more" aria-label="Expand testimonial">Read more ↓</button>
       <div class="testimonial-author">
         <div class="testimonial-avatar">
           <img src="https://media.licdn.com/dms/image/v2/D4E03AQErFHR0hGX0sw/profile-displayphoto-scale_100_100/B4EZvyLdhsH8Ac-/0/1769294652268?e=1773273600&v=beta&t=7tLzNUgwG3ZYYNzFLrKh3KVTDgru2WlAKUCgysGIBp0" alt="Rui Florez" onerror="this.style.display='none'; this.parentElement.innerHTML='👤';">
@@ -1023,6 +1090,7 @@
     <div class="testimonial-card">
       <div class="testimonial-quote">"</div>
       <p class="testimonial-text">I had the opportunity to witness Fernando's positive attitude in a very dynamic working environment, where he demonstrated to keep strong relationships with stakeholders along with his ability to remain calm and composed when under pressure. He consistently delivered high-quality work by keeping a customer driven attitude, delivering an excellent customer service.</p>
+      <button class="testimonial-read-more" aria-label="Expand testimonial">Read more ↓</button>
       <div class="testimonial-author">
         <div class="testimonial-avatar">
           <img src="https://media.licdn.com/dms/image/v2/D4D35AQEP_PVVZXadbw/profile-framedphoto-shrink_100_100/B4DZm2QtnBJgAo-/0/1759699458820?e=1772438400&v=beta&t=AETVy5A5yS6qhW-GsSNaf_gmf997SurHsCsHphW07sk" alt="Michela Di Noia" onerror="this.style.display='none'; this.parentElement.innerHTML='👤';">
@@ -1037,6 +1105,7 @@
     <div class="testimonial-card">
       <div class="testimonial-quote">"</div>
       <p class="testimonial-text">En mi opinión, Fernando es uno de los expertos en producción de cerámica fina y artesanal más relevantes de México. Su labor al frente del área de producción Uriarte Talavera fue notable, pues modernizó los estándares de calidad de una firma cerámica emblemática y bicentenaria que, sin duda alguna, está entre las más importantes del mundo.</p>
+      <button class="testimonial-read-more" aria-label="Expand testimonial">Read more ↓</button>
       <div class="testimonial-author">
         <div class="testimonial-avatar">
           <img src="https://media.licdn.com/dms/image/v2/D4E03AQEsh_tngvJI-g/profile-displayphoto-scale_400_400/B4EZqInp7.KkAg-/0/1763228689580?e=1773273600&v=beta&t=7YEs044p6DyAgzdEJqv6niGo1XyAIMpInfppCmUalQ8" alt="Raúl Alfaro Segovia" onerror="this.style.display='none'; this.parentElement.innerHTML='👤';">
@@ -1050,7 +1119,7 @@
 
   </div>
 </section>
- 
+
 <!-- LANGUAGES -->
 <section class="languages">
   <div>
@@ -1079,7 +1148,7 @@
   </div>
 </section>
 
-      <!-- CONTACT -->
+<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="section-label">Get In Touch</div>
   <h2 class="contact-title">Let's Build Something<br><span>Better Together</span></h2>
@@ -1090,43 +1159,57 @@
     <div class="contact-item"><span>📍</span><span>Bayern, Germany</span></div>
     <div class="contact-item"><span>🔗</span><a href="https://www.linkedin.com/in/fs-creative" target="_blank" style="color:var(--muted); text-decoration:none;">linkedin.com/in/fs-creative</a></div>
   </div>
-
-<div style="display:flex; flex-direction:column; align-items:center; gap:1rem;">
-  <a href="mailto:fernandosr.san@gmail.com?subject=Let's Connect — Fernando Sanchez-Rodriguez" 
-     class="btn-primary" style="text-decoration:none; display:inline-flex;">Send Me a Message</a>
-  <a href="fernando-sanchez-rodriguez-cv.pdf" 
-     download="Fernando_Sanchez-Rodriguez_CV.pdf" 
-     class="btn-download">⬇ Download My CV</a>
-</div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:1rem;">
+    <a href="mailto:fernandosr.san@gmail.com?subject=Let's Connect — Fernando Sanchez-Rodriguez"
+       class="btn-primary" style="text-decoration:none; display:inline-flex;">Send Me a Message</a>
+    <a href="fernando-sanchez-rodriguez-cv.pdf"
+       download="Fernando_Sanchez-Rodriguez_CV.pdf"
+       class="btn-download">⬇ Download My CV</a>
+  </div>
 </section>
- 
+
 <footer>
   <div class="footer-text">Fernando Sanchez-Rodriguez · Bayern, Germany · EU Citizen</div>
   <div class="footer-text">Available for Remote & Hybrid Roles Across Europe</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Page loading animation
   window.addEventListener('load', () => {
     document.body.classList.add('loaded');
   });
 
- 
-  // Hamburger menu
+  // ── FIX: Hamburger menu ──
   const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    navLinks.classList.toggle('open');
+  const navLinks  = document.getElementById('nav-links');
+  const mainNav   = document.getElementById('main-nav');
+
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
   });
+
+  // Close on link click
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
       navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
     });
   });
 
-// Scroll spy
+  // Close on outside tap
+  document.addEventListener('click', (e) => {
+    if (!mainNav.contains(e.target) && navLinks.classList.contains('open')) {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Scroll spy
   const sections = document.querySelectorAll('section[id]');
   const scrollNavLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
@@ -1137,6 +1220,15 @@
     scrollNavLinks.forEach(link => {
       link.classList.remove('active');
       if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+    });
+  });
+
+  // ── FIX: Testimonial expand/collapse (mobile only) ──
+  document.querySelectorAll('.testimonial-read-more').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.testimonial-card');
+      const isExpanded = card.classList.toggle('expanded');
+      btn.textContent = isExpanded ? 'Read less ↑' : 'Read more ↓';
     });
   });
 </script>
