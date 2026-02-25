@@ -1,0 +1,76 @@
+{
+  "projects": [
+    {
+      "id": "ceramic-ops-01",
+      "category": "Manufacturing & Operations",
+      "title": "Revenue & Quality Scale-Up: Uriarte Talavera",
+      "period": "2012 – 2019",
+      "location": "Puebla, Mexico",
+      "metrics": {
+        "primary": "+30% Revenue Growth",
+        "secondary": [
+          "+15 NPS Points",
+          "-20% Lead Times",
+          "+15% Operational Efficiency"
+        ]
+      },
+      "problem": "A 200-year-old premium brand facing traditional production bottlenecks, lack of standardized quality control, and stagnant international sales.",
+      "action": [
+        "Led end-to-end production for 70 staff across all ceramic lines.",
+        "Built the Quality Assurance department and 5S methodology from the ground up.",
+        "Deployed real-time operational dashboards for production control.",
+        "Developed a dedicated Quality Guide for Talavera authentication."
+      ],
+      "result": "Grew annual revenue by 30% and expanded the client portfolio by 20%, including luxury mandates for Rosewood Hotels and Zurich Insurance.",
+      "tags": ["Lean Six Sigma", "P&L Management", "KPI Design", "Change Management"],
+      "image_placeholder": "assets/projects/uriarte-talavera.webp"
+    },
+    {
+      "id": "it-ops-02",
+      "category": "IT & Infrastructure",
+      "title": "Institutional IT Transformation: ISSSTE",
+      "period": "1995 – 2011",
+      "location": "Puebla, Mexico",
+      "metrics": {
+        "primary": "-50% Response Time",
+        "secondary": [
+          "38 Facilities Managed",
+          "120 Staff Trained",
+          "370 Voice/Data Nodes Mapped"
+        ]
+      },
+      "problem": "Fragmented IT support across 38 healthcare facilities leading to critical delays in medical administrative workflows.",
+      "action": [
+        "Standardized IT service processes and implemented a state-wide ticketing model.",
+        "Directed the rollout of the 'ISSSTEMED' Electronic Medical Record system.",
+        "Trained 120 employees as distributed IT supporters to decentralize technical expertise."
+      ],
+      "result": "Halved institutional IT response times and ensured operational continuity for the state healthcare network.",
+      "tags": ["Infrastructure", "Digital Literacy", "Public Sector", "Resource Optimization"],
+      "image_placeholder": "assets/projects/issste-it.webp"
+    },
+    {
+      "id": "ed-tech-03",
+      "category": "Education & Digital Adoption",
+      "title": "Digital Capability Building at Scale: UPAEP",
+      "period": "2008 – 2022",
+      "metrics": {
+        "primary": "1,000+ Students Trained",
+        "secondary": [
+          "90%+ Completion Rate",
+          "14-Year Tenure",
+          "Standardized Curriculum"
+        ]
+      },
+      "problem": "Bridging the gap between traditional educational methodologies and the required digital literacy for modern professional environments.",
+      "action": [
+        "Designed and delivered curriculum for digital platforms and collaborative tools.",
+        "Developed structured capability-building frameworks applicable to corporate change.",
+        "Pivoted 100% of delivery to interactive digital methodologies."
+      ],
+      "result": "Established a departmental standard for digital tool adoption with consistently high engagement metrics.",
+      "tags": ["Curriculum Design", "User-Centered Execution", "Mentorship"],
+      "image_placeholder": "assets/projects/upaep-digital.webp"
+    }
+  ]
+}
