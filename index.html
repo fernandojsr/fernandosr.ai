@@ -659,7 +659,7 @@
     nav { padding: 0.9rem 1.25rem; }
     .hamburger { display: flex !important; }
     .nav-links {
-      display: none;
+      display: none !important;
       flex-direction: column;
       position: fixed;
       top: 64px;
@@ -673,7 +673,7 @@
       max-height: calc(100vh - 64px);
       overflow-y: auto;
     }
-    .nav-links.open { display: flex; }
+    .nav-links.open { display: flex !important; }
     .nav-links a {
       font-size: 0.9rem;
       letter-spacing: 0.1em;
