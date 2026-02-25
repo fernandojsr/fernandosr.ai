@@ -570,32 +570,74 @@
   .hero-badges { animation-delay: 0.4s; }
   .hero-btns { animation-delay: 0.5s; }
 
-  /* ── HAMBURGER ──
-     Defined here, shown only at ≤640px via the mobile breakpoint.
-     Keep it in the DOM always so the JS toggle works. */
-  .hamburger {
-    display: none;           /* hidden on desktop */
+  /* ── MOBILE MENU TOGGLE BUTTON ── */
+  .mob-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 2000;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    cursor: pointer;
-    padding: 0.5rem;
-    background: none;
-    border: none;
-    outline: none;
-    z-index: 1100;
-    flex-shrink: 0;
   }
-  .hamburger span {
+  .mob-menu-btn span {
     display: block;
     width: 24px; height: 2px;
     background: var(--gold);
+    border-radius: 1px;
     transition: all 0.3s;
+  }
+  .mob-menu-btn.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .mob-menu-btn.is-open span:nth-child(2) { opacity: 0; }
+  .mob-menu-btn.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── FULLSCREEN OVERLAY ── */
+  .mob-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--navy);
+    z-index: 1500;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 6rem 2.5rem 3rem;
+    gap: 0;
+  }
+  .mob-overlay.is-open { display: flex; }
+  .mob-overlay a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--cream);
+    text-decoration: none;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .mob-overlay a:last-child { border-bottom: none; }
+  .mob-overlay a:hover { color: var(--gold); }
+  .mob-overlay-close {
+    position: absolute;
+    top: 1.2rem; right: 1.25rem;
+    background: none; border: none;
+    cursor: pointer;
+    display: flex; flex-direction: column;
+    gap: 5px; padding: 0.5rem;
+  }
+  .mob-overlay-close span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--gold);
     border-radius: 1px;
   }
-  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mob-overlay-close span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .mob-overlay-close span:nth-child(2) { opacity: 0; }
+  .mob-overlay-close span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   /* ── RESPONSIVE 1024px ── */
   @media (max-width: 1024px) {
@@ -657,38 +699,8 @@
 
     /* ── MOBILE NAV ── */
     nav { padding: 0.9rem 1.25rem; }
-    .hamburger { display: flex !important; }
-
-    .nav-links {
-      flex-direction: column !important;
-      flex-wrap: wrap !important;
-      gap: 0 !important;
-      position: fixed;
-      top: 64px;
-      left: 0; right: 0;
-      background: rgba(13,27,42,0.98);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      z-index: 999;
-      transition: max-height 0.35s ease, padding 0.3s ease;
-    }
-    .nav-links a {
-      font-size: 0.9rem !important;
-      letter-spacing: 0.1em;
-      padding: 0.8rem 0;
-      border-bottom: 1px solid rgba(201,168,76,0.08);
-      width: 100%;
-      white-space: normal;
-    }
-    .nav-links a:last-child { border-bottom: none; }
-    .nav-links a {
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      padding: 0.8rem 0;
-      border-bottom: 1px solid rgba(201,168,76,0.08);
-      width: 100%;
-    }
-    .nav-links a:last-child { border-bottom: none; }
+    .mob-menu-btn { display: flex; }
+    .nav-links { display: none; }
 
     h1 { font-size: clamp(2.5rem, 10vw, 3.5rem); }
     .hero { padding: 6rem 1.5rem 3rem; }
@@ -792,8 +804,7 @@
   @media print {
     nav, .hero-btns, .hero::before, .hero-grid,
     section[id="posts"], section[id="video"],
-    footer { display: none !important; }
-    .hamburger { display: none !important; }
+    footer, .mob-menu-btn, .mob-overlay { display: none !important; }
     body { background: #fff; color: #111; font-size: 12pt; opacity: 1; }
     h1 { font-size: 28pt; color: #111; }
     h1 span { color: #8a6914; }
@@ -817,12 +828,10 @@
     <img src="logo ok.PNG" alt="Fernando Sanchez-Rodriguez Logo"
          style="height: 60px; width: auto; display: block;">
   </a>
-  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-    <span></span>
-    <span></span>
-    <span></span>
+  <button class="mob-menu-btn" id="mob-menu-btn" aria-label="Open menu">
+    <span></span><span></span><span></span>
   </button>
-  <div class="nav-links" id="nav-links" style="max-height:0; overflow:hidden; padding:0 1.5rem;">
+  <div class="nav-links" id="nav-links">
     <a href="#about">About</a>
     <a href="#mandate">Open To</a>
     <a href="#experience">Experience</a>
@@ -831,6 +840,46 @@
     <a href="#contact">Contact</a>
   </div>
 </nav>
+
+<!-- MOBILE BOTTOM SHEET MENU -->
+<div id="mob-sheet" style="
+  display:block;
+  position:fixed;
+  bottom:0; left:0; right:0;
+  background:#0d1b2a;
+  border-top:2px solid #c9a84c;
+  z-index:9999;
+  padding:2rem 2rem 3rem;
+  transform:translateY(100%);
+  transition:transform 0.3s ease;
+">
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+    <span style="color:#c9a84c; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase;">Navigation</span>
+    <button id="mob-sheet-close" style="background:none;border:none;cursor:pointer;color:#c9a84c;font-size:1.5rem;line-height:1;padding:0;">✕</button>
+  </div>
+  <a href="#about"      onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.15);">About</a>
+  <a href="#mandate"    onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.15);">Open To</a>
+  <a href="#experience" onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.15);">Experience</a>
+  <a href="#projects"   onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.15);">Projects</a>
+  <a href="#skills"     onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.15);">Skills</a>
+  <a href="#contact"    onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;">Contact</a>
+</div>
+<div id="mob-sheet-backdrop" onclick="closeMobSheet()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9998;"></div>
+
+<script>
+  function openMobSheet() {
+    document.getElementById('mob-sheet').style.transform = 'translateY(0)';
+    document.getElementById('mob-sheet-backdrop').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobSheet() {
+    document.getElementById('mob-sheet').style.transform = 'translateY(100%)';
+    document.getElementById('mob-sheet-backdrop').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('mob-menu-btn').onclick = openMobSheet;
+  document.getElementById('mob-sheet-close').onclick = closeMobSheet;
+</script>
 
 <!-- HERO -->
 <section class="hero">
@@ -1283,71 +1332,6 @@
   try {
     window.addEventListener('load', () => { document.body.classList.add('loaded'); });
   } catch(e) {}
-
-  // ── Hamburger — inline style approach, bypasses all CSS cascade conflicts ──
-  (function() {
-    var btn  = document.getElementById('hamburger');
-    var menu = document.getElementById('nav-links');
-    if (!btn || !menu) return;
-
-    var isOpen = false;
-
-    // On desktop clear inline styles so nav shows normally
-    function applyDesktopStyles() {
-      menu.style.maxHeight = '';
-      menu.style.overflow  = '';
-      menu.style.padding   = '';
-    }
-    function applyClosedStyles() {
-      menu.style.maxHeight = '0';
-      menu.style.overflow  = 'hidden';
-      menu.style.padding   = '0 1.5rem';
-    }
-    function applyOpenStyles() {
-      menu.style.maxHeight = '500px';
-      menu.style.overflow  = 'visible';
-      menu.style.padding   = '1.25rem 1.5rem 1.5rem';
-    }
-
-    // Apply correct initial state
-    if (window.innerWidth > 640) { applyDesktopStyles(); }
-
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 640) {
-        applyDesktopStyles();
-        isOpen = false;
-        btn.classList.remove('open');
-      } else if (!isOpen) {
-        applyClosedStyles();
-      }
-    });
-
-    btn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      isOpen = !isOpen;
-      if (isOpen) { applyOpenStyles(); } else { applyClosedStyles(); }
-      btn.classList.toggle('open', isOpen);
-      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-
-    menu.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        isOpen = false;
-        applyClosedStyles();
-        btn.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    document.addEventListener('click', function(e) {
-      if (isOpen && !document.getElementById('main-nav').contains(e.target)) {
-        isOpen = false;
-        applyClosedStyles();
-        btn.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  })();
 
   // Scroll spy
   const sections = document.querySelectorAll('section[id]');
