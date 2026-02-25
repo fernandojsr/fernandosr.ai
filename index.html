@@ -822,7 +822,7 @@
     <span></span>
     <span></span>
   </button>
-  <div class="nav-links" id="nav-links">
+  <div class="nav-links" id="nav-links" style="max-height:0; overflow:hidden; padding:0 1.5rem;">
     <a href="#about">About</a>
     <a href="#mandate">Open To</a>
     <a href="#experience">Experience</a>
@@ -1292,39 +1292,40 @@
 
     var isOpen = false;
 
-    // Force closed state via inline style on load
-    if (window.innerWidth <= 640) {
+    // On desktop clear inline styles so nav shows normally
+    function applyDesktopStyles() {
+      menu.style.maxHeight = '';
+      menu.style.overflow  = '';
+      menu.style.padding   = '';
+    }
+    function applyClosedStyles() {
       menu.style.maxHeight = '0';
       menu.style.overflow  = 'hidden';
       menu.style.padding   = '0 1.5rem';
     }
+    function applyOpenStyles() {
+      menu.style.maxHeight = '500px';
+      menu.style.overflow  = 'visible';
+      menu.style.padding   = '1.25rem 1.5rem 1.5rem';
+    }
+
+    // Apply correct initial state
+    if (window.innerWidth > 640) { applyDesktopStyles(); }
 
     window.addEventListener('resize', function() {
       if (window.innerWidth > 640) {
-        menu.style.maxHeight = '';
-        menu.style.overflow  = '';
-        menu.style.padding   = '';
+        applyDesktopStyles();
         isOpen = false;
         btn.classList.remove('open');
       } else if (!isOpen) {
-        menu.style.maxHeight = '0';
-        menu.style.overflow  = 'hidden';
-        menu.style.padding   = '0 1.5rem';
+        applyClosedStyles();
       }
     });
 
     btn.addEventListener('click', function(e) {
       e.stopPropagation();
       isOpen = !isOpen;
-      if (isOpen) {
-        menu.style.maxHeight = '500px';
-        menu.style.overflow  = 'visible';
-        menu.style.padding   = '1.25rem 1.5rem 1.5rem';
-      } else {
-        menu.style.maxHeight = '0';
-        menu.style.overflow  = 'hidden';
-        menu.style.padding   = '0 1.5rem';
-      }
+      if (isOpen) { applyOpenStyles(); } else { applyClosedStyles(); }
       btn.classList.toggle('open', isOpen);
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
@@ -1332,9 +1333,7 @@
     menu.querySelectorAll('a').forEach(function(a) {
       a.addEventListener('click', function() {
         isOpen = false;
-        menu.style.maxHeight = '0';
-        menu.style.overflow  = 'hidden';
-        menu.style.padding   = '0 1.5rem';
+        applyClosedStyles();
         btn.classList.remove('open');
         btn.setAttribute('aria-expanded', 'false');
       });
@@ -1343,9 +1342,7 @@
     document.addEventListener('click', function(e) {
       if (isOpen && !document.getElementById('main-nav').contains(e.target)) {
         isOpen = false;
-        menu.style.maxHeight = '0';
-        menu.style.overflow  = 'hidden';
-        menu.style.padding   = '0 1.5rem';
+        applyClosedStyles();
         btn.classList.remove('open');
         btn.setAttribute('aria-expanded', 'false');
       }
