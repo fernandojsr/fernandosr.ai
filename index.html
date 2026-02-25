@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fernando Sanchez-Rodriguez</title>
-<meta name="description" content="Fernando Sanchez-Rodriguez is a Digital Transformation & Innovation Leader with 25+ years of cross-industry experience in operations, AI strategy, and design thinking. Based in Bayern, Germany. EU citizen. Available for remote and hybrid roles across Europe.">
-<meta name="keywords" content="Digital Transformation, Bavaria, Bayern, Germany, Operations Leader, AI Strategy, Innovation, Fernando Sanchez-Rodriguez, EU Citizen, Remote, Hybrid, KPI, Design Thinking, Google Certified">
+<title>Fernando Sanchez-Rodriguez — Digital Transformation &amp; Operations Consultant</title>
+<meta name="description" content="Digital Transformation & Operations Consultant with 25+ years turning operational complexity into scalable systems — across IT, manufacturing, and education, in three countries and three languages. Based in Bavaria, Germany. EU citizen. Available for consulting and leadership mandates across Europe.">
+<meta name="keywords" content="Digital Transformation Consultant, Change Management, EMEA, Bavaria, Bayern, Germany, Operations Excellence, AI Strategy, Process Optimization, Fernando Sanchez-Rodriguez, EU Citizen, Remote, Hybrid, Google Certified, Capgemini, NTT Data">
 <meta name="author" content="Fernando Sanchez-Rodriguez">
-<meta property="og:title" content="Fernando Sanchez-Rodriguez — Digital Transformation Leader">
-<meta property="og:description" content="Operations and innovation leader combining 25+ years of cross-industry experience with AI-enabled strategy, design thinking, and measurable results.">
+<meta property="og:title" content="Fernando Sanchez-Rodriguez — Digital Transformation Consultant">
+<meta property="og:description" content="I help organisations turn operational complexity into systems that scale. 25 years of cross-industry transformation experience, now focused on AI-enabled consulting across Europe.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fernandojsr.github.io/fernandosr.ai/">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -28,13 +28,16 @@
 
   html { scroll-behavior: smooth; font-size: 18px; }
 
+  @keyframes bodyReveal {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--navy);
     color: var(--cream);
     overflow-x: hidden;
-    opacity: 0;
-    transition: opacity 0.6s ease;
+    animation: bodyReveal 0.6s ease 0.1s both;
   }
   body.loaded { opacity: 1; }
 
@@ -225,6 +228,57 @@
   .about-text { font-size: 1.05rem; color: var(--muted); line-height: 1.9; }
   .about-text p + p { margin-top: 1.2rem; }
   .highlight { color: var(--cream); }
+
+  /* MANDATE / OPEN TO */
+  .mandate-section {
+    padding: 6rem 4rem;
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .mandate-header { /* left column — same pattern as .about > div */ }
+  .mandate-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .mandate-card {
+    padding: 2rem 1.75rem;
+    border: 1px solid var(--border);
+    background: var(--navy);
+    transition: border-color 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .mandate-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+  }
+  .mandate-icon { font-size: 1.3rem; margin-bottom: 0.4rem; }
+  .mandate-card-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .mandate-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--cream);
+    line-height: 1.25;
+    margin-bottom: 0.3rem;
+  }
+  .mandate-card-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.75;
+  }
 
   /* EXPERIENCE */
   .experience {
@@ -575,6 +629,10 @@
     .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .cert-icon img { width: 80px; height: 80px; }
 
+    /* Mandate section */
+    .mandate-section { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 2rem; }
+    .mandate-cards { grid-template-columns: 1fr 1fr; }
+
     /* Testimonials: single column at tablet */
     .testimonials-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 
@@ -716,6 +774,12 @@
     /* Posts & video sections */
     section[id="posts"] { padding: 3rem 1.5rem; }
     section[id="video"] { padding: 3rem 1.5rem; }
+
+    /* Mandate / Open To section */
+    .mandate-section { padding: 3rem 1.5rem; gap: 1.5rem; }
+    .mandate-cards { grid-template-columns: 1fr; gap: 1rem; }
+    .mandate-card { padding: 1.5rem; }
+    .mandate-card-title { font-size: 1.1rem; }
   }
 
   @media print {
@@ -752,10 +816,9 @@
   </button>
   <div class="nav-links" id="nav-links">
     <a href="#about">About</a>
+    <a href="#mandate">Open To</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
-    <a href="#posts">Posts</a>
-    <a href="#video">AI Work</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </div>
@@ -765,13 +828,13 @@
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Operations & Digital Transformation Leader</div>
+    <div class="hero-eyebrow">Digital Transformation &amp; Operations Consultant · EMEA</div>
     <h1>Fernando<br><span>Sanchez-Rodriguez</span></h1>
-    <p class="hero-subtitle">Experienced leader with 25+ years driving operational excellence, process optimization, and digital modernization across manufacturing, IT, education, and service environments. Proven track record scaling teams, implementing KPI-driven systems, and integrating AI-enabled solutions in multi-site and international settings.</p>
+    <p class="hero-subtitle">The consultant who has actually run the operations. 25 years turning complexity into measurable outcomes — across government IT, manufacturing, and education, in three countries and three languages. I help organisations design smarter processes, build digital capability, and lead change that sticks. Based in Bavaria. Available for consulting and leadership mandates across Europe.</p>
     <div class="hero-badges">
-      <span class="badge">🌍 EU Citizen</span>
-      <span class="badge">📍 Germany-Based · Remote/Hybrid EU</span>
-      <span class="badge">💼 Operations · AI · Process Excellence</span>
+      <span class="badge">🌍 EU Citizen · ES / EN / DE</span>
+      <span class="badge">📍 Bavaria · Remote &amp; Hybrid EU</span>
+      <span class="badge">🤖 Google Certified · AI &amp; BI</span>
     </div>
     <div class="hero-btns" style="display:flex; flex-wrap:wrap; gap:1rem; max-width:480px;">
       <a href="https://www.linkedin.com/in/fs-creative/" target="_blank" class="btn-outline">Let's Connect</a>
@@ -801,12 +864,46 @@
 <section class="about" id="about">
   <div>
     <div class="section-label">About Me</div>
-    <h2 class="section-title">A rare mix of design thinking & operational discipline</h2>
+    <h2 class="section-title">The consultant who has actually run the operations</h2>
   </div>
   <div class="about-text">
-    <p>I'm an operations and innovation leader with a background in <span class="highlight">industrial design</span> combined with hands-on executive management across manufacturing, IT, education, and services — in Mexico, Portugal, and Germany.</p>
-    <p>My work has delivered real results: <span class="highlight">30% revenue growth</span>, <span class="highlight">50% faster IT operations</span>, and over <span class="highlight">1,000 professionals trained</span>. I build cross-functional teams, implement KPI-driven models, and integrate digital tools and AI into real workflows.</p>
-    <p>Today I'm channeling that foundation into digital transformation and AI-enabled leadership — backed by Google Career Certificates in Data Analytics, UX Design, Artificial Intelligence, and Business Intelligence. Based in Bayern, Germany. EU citizen. Available for remote or hybrid roles across Europe.</p>
+    <p>Most consultants advise from the outside. I have been inside — managing <span class="highlight">38 government facilities</span>, leading a <span class="highlight">70-person production team</span>, building digital curricula from scratch, and implementing KPI systems that survived long after I left. That operational depth is what I bring to every engagement.</p>
+    <p>My background spans industrial design, IT operations, manufacturing management, and large-scale training delivery — across Mexico, Portugal, and Germany. I know what it looks like when process improvements don't get adopted, when digital tools get deployed without the people ready to use them, and when change management is an afterthought. I fix those gaps.</p>
+    <p>Today I pair that hands-on experience with structured AI and data capabilities — <span class="highlight">Google Career Certificates</span> in Data Analytics, UX Design, Artificial Intelligence, and Business Intelligence — to help organisations move faster and smarter. Trilingual in Spanish, English, and German. EU citizen. Based in Bavaria, available for remote and hybrid mandates across Europe.</p>
+  </div>
+</section>
+
+<!-- WHAT I'M LOOKING FOR -->
+<section class="mandate-section" id="mandate">
+  <div class="mandate-header">
+    <div class="section-label">Open To</div>
+    <h2 class="section-title">What I'm<br>looking for</h2>
+  </div>
+  <div class="mandate-cards">
+    <div class="mandate-card">
+      <div class="mandate-icon">🔄</div>
+      <div class="mandate-card-label">Role Type</div>
+      <div class="mandate-card-title">Digital Transformation Lead</div>
+      <p class="mandate-card-desc">Operations Consultant · Change Management Manager · Process Excellence Lead · Digital Adoption Manager</p>
+    </div>
+    <div class="mandate-card">
+      <div class="mandate-icon">🏢</div>
+      <div class="mandate-card-label">Company Type</div>
+      <div class="mandate-card-title">Consulting & Tech-Enabled Services</div>
+      <p class="mandate-card-desc">Boutique or mid-size consultancies · Enterprise software firms · EMEA-facing organisations · Professional services</p>
+    </div>
+    <div class="mandate-card">
+      <div class="mandate-icon">🌍</div>
+      <div class="mandate-card-label">Location</div>
+      <div class="mandate-card-title">Remote or Hybrid · EU-Wide</div>
+      <p class="mandate-card-desc">Based in Bavaria, Germany · DACH, Benelux, Nordics, and UK all welcome · EU citizen — no visa required</p>
+    </div>
+    <div class="mandate-card">
+      <div class="mandate-icon">🤝</div>
+      <div class="mandate-card-label">Engagement</div>
+      <div class="mandate-card-title">Permanent, Contract or Freelance</div>
+      <p class="mandate-card-desc">Open to all structures — permanent, fixed-term, or freelance mandate. Results matter more than format.</p>
+    </div>
   </div>
 </section>
 
@@ -814,43 +911,43 @@
 <section class="experience" id="experience">
   <div class="experience-header">
     <div class="section-label">Professional Journey</div>
-    <h2 class="section-title">25 Years Across Four Industries</h2>
+    <h2 class="section-title">Cross-Industry Depth — Four Sectors, Three Countries</h2>
   </div>
   <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-date">2023 – Present · Bayern, Germany</div>
-      <div class="timeline-role">Nursing Assistant</div>
-      <div class="timeline-company">AZURIT Seniorenzentrum</div>
-      <div class="timeline-desc">Transitional role during professional relocation to Germany. Reinforced high-stakes decision-making, empathy under pressure, and direct people responsibility.</div>
-      <div class="timeline-tags"><span class="tag">People Leadership</span><span class="tag">Change Management</span></div>
-    </div>
     <div class="timeline-item">
       <div class="timeline-date">2022 – 2023 · Lisbon, Portugal</div>
       <div class="timeline-role">Web Product Implementation Specialist</div>
       <div class="timeline-company">Teleperformance / Google</div>
-      <div class="timeline-desc">Supported EMEA clients in a KPI-driven environment on behalf of Google. Mentored new hires and contributed to onboarding optimization in a multilingual setting.</div>
-      <div class="timeline-tags"><span class="tag">Google</span><span class="tag">EMEA</span><span class="tag">KPIs</span></div>
+      <div class="timeline-desc">KPI-driven web product rollouts for EMEA clients on behalf of Google. Redesigned onboarding workflows for new-hire cohorts — reducing ramp time and raising first-month quality scores.</div>
+      <div class="timeline-tags"><span class="tag">Google · EMEA</span><span class="tag">KPI Management</span><span class="tag">Process Design</span><span class="tag">Multilingual</span></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2023 – Present · Bayern, Germany</div>
+      <div class="timeline-role">Nursing Assistant &amp; Professional Reskilling</div>
+      <div class="timeline-company">AZURIT Seniorenzentrum · Bavaria, Germany</div>
+      <div class="timeline-desc">Temporary role taken during international relocation to Germany, focused on direct people support and reinforcing empathy, calm decision-making, and cross-cultural responsibility. In parallel, completed four Google Career Certificates in AI, Data Analytics, Business Intelligence, and UX Design — building German language fluency and integrating into the DACH professional ecosystem.</div>
+      <div class="timeline-tags"><span class="tag">Google AI Essentials</span><span class="tag">Data Analytics</span><span class="tag">Business Intelligence</span><span class="tag">UX Design</span><span class="tag">German B1</span><span class="tag">DACH Integration</span></div>
     </div>
     <div class="timeline-item">
       <div class="timeline-date">2012 – 2019 · Puebla, Mexico</div>
-      <div class="timeline-role">Manufacturing & Sales Manager</div>
+      <div class="timeline-role">Manufacturing &amp; Sales Manager</div>
       <div class="timeline-company">Uriarte Talavera — Premium Ceramics</div>
-      <div class="timeline-desc">Led 70-person team across all ceramic production lines. Delivered +30% revenue growth, +15 NPS points via 5S & QA, and −20% lead times through KPI dashboards.</div>
-      <div class="timeline-tags"><span class="tag">+30% Revenue</span><span class="tag">Lean / 5S</span><span class="tag">Team of 70</span></div>
+      <div class="timeline-desc">Full P&amp;L ownership across a 70-person operation. Lean / 5S implementation and real-time KPI dashboards delivered +30% revenue growth, −20% lead times, and +15 NPS points.</div>
+      <div class="timeline-tags"><span class="tag">+30% Revenue</span><span class="tag">Lean / 5S</span><span class="tag">Team of 70</span><span class="tag">P&amp;L</span><span class="tag">NPS +15</span></div>
     </div>
     <div class="timeline-item">
       <div class="timeline-date">2008 – 2022 · Puebla, Mexico</div>
-      <div class="timeline-role">Professor — Digital Teaching Tools</div>
+      <div class="timeline-role">Professor — Digital Tools &amp; Platforms</div>
       <div class="timeline-company">UPAEP University</div>
-      <div class="timeline-desc">Trained 1,000+ students over 14 years in digital platforms and collaborative tools. 90%+ course completion rates through structured, interactive methodologies.</div>
-      <div class="timeline-tags"><span class="tag">1,000+ Students</span><span class="tag">EdTech</span><span class="tag">14 Years</span></div>
+      <div class="timeline-desc">Designed and delivered digital capability programmes for 1,000+ students over 14 years. 90%+ course completion. Curriculum became the departmental standard.</div>
+      <div class="timeline-tags"><span class="tag">1,000+ Trained</span><span class="tag">Curriculum Design</span><span class="tag">Digital Adoption</span><span class="tag">90%+ Completion</span></div>
     </div>
     <div class="timeline-item" style="padding-bottom:0">
       <div class="timeline-date">1995 – 2011 · Puebla, Mexico</div>
       <div class="timeline-role">IT Operations Manager</div>
       <div class="timeline-company">ISSSTE — Mexican State Workers Institute</div>
-      <div class="timeline-desc">Led 25+ staff across 38 facilities. Reduced IT service response times by 50% through training programs, workflow standardization, and process optimization.</div>
-      <div class="timeline-tags"><span class="tag">−50% Response Time</span><span class="tag">38 Facilities</span><span class="tag">IT Ops</span></div>
+      <div class="timeline-desc">Built and led IT operations across 38 state healthcare facilities with 25+ technicians. Standardised workflows and a new ticketing model cut response times by 50% — without adding headcount.</div>
+      <div class="timeline-tags"><span class="tag">−50% Response Time</span><span class="tag">38 Facilities</span><span class="tag">IT Transformation</span><span class="tag">Team of 25+</span></div>
     </div>
   </div>
 </section>
@@ -955,10 +1052,11 @@
       </div>
       <a class="card-link" href="https://fernandosrsan.wixsite.com/fernandosanro/projects" target="_blank">See projects</a>
     </div>
-  </div>
+
+  </div><!-- /projects-grid -->
 
   <div class="projects-cta">
-    <p class="cta-text">These are highlights — the full breadth of work, including ceramics collections, UX design studies, and AI tools, lives across my extended portfolio.</p>
+    <p class="cta-text">These are highlights from a 25-year career across four industries. The full portfolio — including UX design studies, AI workflow projects, and ceramic design work — is available on request.</p>
     <a class="cta-btn" href="https://fernandosrsan.wixsite.com/fernandosanro" target="_blank">Full Portfolio</a>
     <a class="cta-btn" href="https://fernandosrsan.wixstudio.com/fsceramics" target="_blank" style="border-color:#5b8fa8; color:#5b8fa8;">Ceramics Site</a>
   </div>
@@ -1154,14 +1252,13 @@
   <h2 class="contact-title">Let's Build Something<br><span>Better Together</span></h2>
   <p class="contact-sub">Open to operational leadership, digital transformation, and innovation consulting roles across the EU — remote or hybrid.</p>
   <div class="contact-details">
-    <div class="contact-item"><span>📧</span><a href="mailto:fernandosr.san@gmail.com" style="color:var(--muted); text-decoration:none;">fernandosr.san@gmail.com</a></div>
+    <div class="contact-item"><span>📧</span><a href="/cdn-cgi/l/email-protection#553330273b343b313a26277b26343b153238343c397b363a38" style="color:var(--muted); text-decoration:none;"><span class="__cf_email__" data-cfemail="c8aeadbaa6a9a6aca7bbbae6bba9a688afa5a9a1a4e6aba7a5">[email&#160;protected]</span></a></div>
     <div class="contact-item"><span>📞</span><span>(+49) 176 4806 8696</span></div>
     <div class="contact-item"><span>📍</span><span>Bayern, Germany</span></div>
     <div class="contact-item"><span>🔗</span><a href="https://www.linkedin.com/in/fs-creative" target="_blank" style="color:var(--muted); text-decoration:none;">linkedin.com/in/fs-creative</a></div>
   </div>
   <div style="display:flex; flex-direction:column; align-items:center; gap:1rem;">
-    <a href="mailto:fernandosr.san@gmail.com?subject=Let's Connect — Fernando Sanchez-Rodriguez"
-       class="btn-primary" style="text-decoration:none; display:inline-flex;">Send Me a Message</a>
+    <a href="/cdn-cgi/l/email-protection#f99f9c8b9798979d968a8bd78a9897b99e94989095d79a9694c68a8c9b939c9a8dc4b59c8dde8ad9ba9697979c9a8dd91b796dd9bf9c8b9798979d96d9aa98979a919c83d4ab969d8b909e8c9c83" class="btn-primary" style="text-decoration:none; display:inline-flex;">Send Me a Message</a>
     <a href="fernando-sanchez-rodriguez-cv.pdf"
        download="Fernando_Sanchez-Rodriguez_CV.pdf"
        class="btn-download">⬇ Download My CV</a>
@@ -1173,11 +1270,11 @@
   <div class="footer-text">Available for Remote & Hybrid Roles Across Europe</div>
 </footer>
 
-<script>
-  // Page loading animation
-  window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-  });
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Body is revealed via CSS animation — JS addClass is a fallback only
+  try {
+    window.addEventListener('load', () => { document.body.classList.add('loaded'); });
+  } catch(e) {}
 
   // ── FIX: Hamburger menu ──
   const hamburger = document.getElementById('hamburger');
@@ -1223,14 +1320,4 @@
     });
   });
 
-  // ── FIX: Testimonial expand/collapse (mobile only) ──
-  document.querySelectorAll('.testimonial-read-more').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const card = btn.closest('.testimonial-card');
-      const isExpanded = card.classList.toggle('expanded');
-      btn.textContent = isExpanded ? 'Read less ↑' : 'Read more ↓';
-    });
-  });
-</script>
-</body>
-</html>
+  // ── FIX: Testimonial expand/collapse (mobile only)
