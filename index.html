@@ -1347,4 +1347,14 @@
     });
   });
 
-  // ── FIX: Testimonial expand/collapse (mobile only)
+    // ── FIX: Testimonial expand/collapse (mobile only)
+    document.querySelectorAll('.testimonial-read-more').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.target.closest('.testimonial-card').classList.toggle('expanded');
+        e.target.textContent = e.target.closest('.testimonial-card').classList.contains('expanded') ? 'Read less ↑' : 'Read more ↓';
+      });
+    });
+  </script>
+  
+  </body>
+</html>
