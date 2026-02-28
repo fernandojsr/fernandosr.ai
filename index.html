@@ -239,7 +239,7 @@
     gap: 1rem;
     align-items: start;
   }
-  .mandate-header { /* left column — same pattern as .about > div */ }
+  .mandate-header { }
   .mandate-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -462,7 +462,7 @@
   .cta-text {
     font-size: 0.85rem; color: var(--muted); line-height: 1.7; flex: 1; min-width: 200px;
   }
- .cta-btn {
+  .cta-btn {
     display: inline-flex; 
     align-items: center; 
     gap: 6px;
@@ -481,10 +481,95 @@
     white-space: nowrap;
     border-radius: 2px;
     transition: all 0.2s ease;
-}
   }
   .cta-btn:hover { background: var(--gold); color: var(--navy); }
   .cta-btn::after { content: '→'; }
+
+  /* ── PROJECT LIGHTBOX BUTTON (shared style) ── */
+  .project-lb-btn {
+    margin-top: 0.8rem;
+    margin-left: auto; /* This pushes the button to the far right */
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: none; border: 1px solid var(--gold);
+    color: var(--gold); cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+  .project-lb-btn:hover { background: rgba(201,168,76,0.1); }
+
+  /* ── UNIVERSAL PROJECT LIGHTBOX ── */
+  .project-lightbox {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 99999;
+    align-items: center; justify-content: center;
+    padding: 1.5rem;
+  }
+  .project-lightbox.is-open { display: flex; }
+  .project-lightbox-inner {
+    position: relative;
+    width: 100%; max-width: 860px;
+    background: #0d1b2a;
+    border: 1px solid rgba(201,168,76,0.3);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.8);
+  }
+  .project-lightbox-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.8rem 1.2rem;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .project-lightbox-label {
+    color: #c9a84c; font-size: 0.68rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+  .project-lightbox-close {
+    background: none; border: none; cursor: pointer;
+    color: #8a9ab5; font-size: 1.3rem; line-height: 1; padding: 0;
+    transition: color 0.2s;
+  }
+  .project-lightbox-close:hover { color: var(--cream); }
+  .project-lightbox-body {
+    padding: 2.5rem;
+  }
+  /* Stats row inside lightbox */
+  .lb-stats {
+    display: flex; gap: 2rem; flex-wrap: wrap;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    margin: 1.5rem 0;
+  }
+  .lb-stat-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; color: var(--gold); line-height: 1;
+  }
+  .lb-stat-label {
+    font-size: 0.65rem; color: var(--muted);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+  .lb-desc {
+    font-size: 0.88rem; color: var(--muted); line-height: 1.85;
+  }
+  .lb-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1.5rem; }
+  .lb-tags .tag {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    font-size: 0.65rem; color: var(--muted);
+    letter-spacing: 0.05em; text-transform: uppercase;
+    border-radius: 1px;
+  }
+  /* Video wrapper inside lightbox */
+  .lb-video-wrap {
+    position: relative; width: 100%; aspect-ratio: 16/9; background: #000;
+  }
+  .lb-video-wrap video { width: 100%; height: 100%; display: block; outline: none; }
 
   /* SKILLS */
   .skills { padding: 6rem 4rem; border-top: 1px solid var(--border); }
@@ -529,7 +614,6 @@
   .testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
   .testimonial-name { font-size: 0.82rem; color: var(--cream); font-weight: 500; }
   .testimonial-role { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.05em; }
-  /* Read-more button — hidden on desktop */
   .testimonial-read-more { display: none; }
 
   /* LANGUAGES */
@@ -655,7 +739,6 @@
     nav { padding: 1rem 1.5rem; }
     .nav-links { gap: 1rem; }
     .nav-links a { font-size: 0.68rem; }
-
     .hero { grid-template-columns: 1fr; padding: 7rem 2rem 4rem; text-align: center; }
     .hero::before { display: none; }
     .hero-eyebrow { justify-content: center; }
@@ -664,7 +747,6 @@
     .hero-badges { justify-content: center; }
     .hero-btns { justify-content: center; }
     .hero-photo-side { margin-top: 3rem; }
-
     .stats { grid-template-columns: repeat(3, 1fr); padding: 2rem; }
     .stat:nth-child(3) { border-right: none; }
     .about { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 2rem; }
@@ -677,53 +759,39 @@
     .contact-details { gap: 1.5rem; flex-direction: column; align-items: center; }
     footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
     .posts-grid { grid-template-columns: 1fr; }
-
-    /* Certifications: 2 columns at tablet */
     .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .cert-icon img { width: 80px; height: 80px; }
-
-    /* Mandate section */
     .mandate-section { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 2rem; }
     .mandate-cards { grid-template-columns: 1fr 1fr; }
-
-    /* Testimonials: single column at tablet */
     .testimonials-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-
-    /* Projects responsive */
     .projects-section { padding: 4rem 2rem; }
     .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
-    .project-card.featured {
-      grid-column: 1 / -1;
-      flex-direction: column; gap: 1.5rem;
-    }
+    .project-card.featured { grid-column: 1 / -1; flex-direction: column; gap: 1.5rem; }
     .featured-stats {
       flex-direction: row; flex-wrap: wrap; gap: 1.5rem;
       border-left: none; padding-left: 0;
       border-top: 1px solid var(--border); padding-top: 1.5rem;
       min-width: unset;
     }
+    .project-lightbox-body { padding: 1.5rem; }
+    .lb-stats { gap: 1.2rem; }
   }
 
   /* ── RESPONSIVE 640px (mobile) ── */
   @media (max-width: 640px) {
     html { font-size: 16px; }
-
-    /* ── MOBILE NAV ── */
     nav { padding: 0.9rem 1.25rem; }
     .mob-menu-btn { display: flex; }
     .nav-links { display: none; }
-
     h1 { font-size: clamp(2.5rem, 10vw, 3.5rem); }
     .hero { padding: 6rem 1.5rem 3rem; }
     .hero-btns { flex-direction: column; width: 100%; }
     .btn-primary, .btn-secondary, .btn-outline, .btn-download { width: 100%; flex: unset; }
     .photo-frame { width: 260px; height: 320px; }
-
     .stats { grid-template-columns: repeat(2, 1fr); padding: 1.5rem; }
     .stat:nth-child(2) { border-right: none; }
     .stat:nth-child(3) { border-right: 1px solid var(--border); }
     .stat-number { font-size: 2.5rem; }
-
     .about { padding: 3rem 1.5rem; }
     .section-title { font-size: 2rem; }
     .experience { padding: 3rem 1.5rem; }
@@ -735,81 +803,46 @@
     .contact { padding: 3rem 1.5rem; }
     .contact-title { font-size: 2rem; }
     footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
-
-    /* Projects mobile */
     .projects-section { padding: 3rem 1.5rem; }
     .projects-grid { grid-template-columns: 1fr; gap: 1rem; }
     .project-card.featured { grid-column: 1; }
     .projects-cta { flex-direction: column; align-items: flex-start; }
-
-    /* ── FIX 1: Credentials — 2-col compact grid, no overflow ── */
     section[id="certifications"] { padding: 3rem 1.5rem; }
-    .cert-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
-    }
-    .cert-card {
-      padding: 1.25rem 0.75rem;
-    }
+    .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .cert-card { padding: 1.25rem 0.75rem; }
     .cert-icon { margin-bottom: 0.6rem; }
-    .cert-icon img {
-      width: 60px;
-      height: 60px;
-    }
+    .cert-icon img { width: 60px; height: 60px; }
     .cert-name { font-size: 0.88rem; }
     .cert-issuer { font-size: 0.62rem; }
     .cert-year { font-size: 0.6rem; }
-
-    /* ── FIX 2: Recommendations — compact + expandable text ── */
     section[id="testimonials"] { padding: 3rem 1.5rem; }
-    .testimonials-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
+    .testimonials-grid { grid-template-columns: 1fr; gap: 1rem; }
     .testimonial-card { padding: 1.25rem; }
     .testimonial-quote { font-size: 2rem; margin-bottom: 0.25rem; }
     .testimonial-text {
-      font-size: 0.78rem;
-      line-height: 1.65;
-      margin-bottom: 0.5rem;
-      display: -webkit-box;
-      -webkit-line-clamp: 5;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      font-size: 0.78rem; line-height: 1.65; margin-bottom: 0.5rem;
+      display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden;
     }
-    .testimonial-card.expanded .testimonial-text {
-      display: block;
-      -webkit-line-clamp: unset;
-      overflow: visible;
-    }
-    /* Show read-more button only on mobile */
+    .testimonial-card.expanded .testimonial-text { display: block; -webkit-line-clamp: unset; overflow: visible; }
     .testimonial-read-more {
-      display: inline-block;
-      font-size: 0.7rem;
-      color: var(--gold);
-      cursor: pointer;
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      border: none;
-      background: none;
-      font-family: 'DM Sans', sans-serif;
-      padding: 0;
+      display: inline-block; font-size: 0.7rem; color: var(--gold);
+      cursor: pointer; margin-bottom: 0.75rem; letter-spacing: 0.05em;
+      text-transform: uppercase; border: none; background: none;
+      font-family: 'DM Sans', sans-serif; padding: 0;
     }
     .testimonial-author { padding-top: 0.75rem; }
     .testimonial-name { font-size: 0.78rem; }
     .testimonial-role { font-size: 0.63rem; }
     .testimonial-avatar { width: 34px; height: 34px; }
-
-    /* Posts & video sections */
     section[id="posts"] { padding: 3rem 1.5rem; }
     section[id="video"] { padding: 3rem 1.5rem; }
-
-    /* Mandate / Open To section */
     .mandate-section { padding: 3rem 1.5rem; gap: 1.5rem; }
     .mandate-cards { grid-template-columns: 1fr; gap: 1rem; }
     .mandate-card { padding: 1.5rem; }
     .mandate-card-title { font-size: 1.1rem; }
+    .project-lightbox-body { padding: 1.2rem; }
+    .lb-stats { flex-direction: column; gap: 1rem; }
+    .lb-stat-value { font-size: 1.8rem; }
   }
 
   @media print {
@@ -1027,6 +1060,8 @@
   <p class="projects-subtitle">A curated selection of cross-functional initiatives focused on operational scale, process optimization, and digital modernization — each with quantifiable business outcomes.</p>
 
   <div class="projects-grid">
+
+    <!-- PROJECT 01 -->
     <div class="project-card">
       <span class="card-category">Digital Products · Teleperformance / Google</span>
       <div class="card-number">01</div>
@@ -1041,23 +1076,10 @@
         <span class="tag">Mentoring</span>
         <span class="tag">Cross-functional</span>
       </div>
-
-         <button onclick="openVideoLightbox()" style="
-        margin-top:0.8rem;
-        margin-left: auto;
-        display:inline-flex; align-items:center; gap:0.5rem;
-        background:none; border:1px solid var(--gold);
-        color:var(--gold); cursor:pointer;
-        font-family:'DM Sans',sans-serif;
-        font-size:0.72rem; font-weight:500;
-        letter-spacing:0.1em; text-transform:uppercase;
-        padding:0.5rem 1rem;
-        transition:all 0.2s;
-      " onmouseover="this.style.background='rgba(201,168,76,0.1)'" onmouseout="this.style.background='none'">
-        ▶ Watch Project Video
-      </button>
+      <button class="project-lb-btn" onclick="openProjectLightbox('lb-01')">▶ Watch Project Video</button>
     </div>
 
+    <!-- PROJECT 02 -->
     <div class="project-card">
       <span class="card-category">Manufacturing · Uriarte Talavera</span>
       <div class="card-number">02</div>
@@ -1071,8 +1093,10 @@
         <span class="tag">Team of 70</span>
         <span class="tag">NPS +15</span>
       </div>
+      <button class="project-lb-btn" onclick="openProjectLightbox('lb-02')">▶ Watch Project Video</button>
     </div>
 
+    <!-- PROJECT 03 -->
     <div class="project-card">
       <span class="card-category">Education · UPAEP University</span>
       <div class="card-number">03</div>
@@ -1086,8 +1110,10 @@
         <span class="tag">Digital Tools</span>
         <span class="tag">90%+ Completion</span>
       </div>
+      <button class="project-lb-btn" onclick="openProjectLightbox('lb-03')">▶ Watch Project Video</button>
     </div>
 
+    <!-- PROJECT 04 -->
     <div class="project-card">
       <span class="card-category">IT Operations · ISSSTE</span>
       <div class="card-number">04</div>
@@ -1102,8 +1128,10 @@
         <span class="tag">Public Sector</span>
         <span class="tag">38 Facilities</span>
       </div>
+      <button class="project-lb-btn" onclick="openProjectLightbox('lb-04')">▶ Watch Project Video</button>
     </div>
 
+    <!-- PROJECT 05 -->
     <div class="project-card">
       <span class="card-category">Design & Production · Ceramics</span>
       <div class="card-number">05</div>
@@ -1117,36 +1145,86 @@
         <span class="tag">Artisan Production</span>
         <span class="tag">International Clients</span>
       </div>
-      <a class="cta-btn" href="https://fernandosrsan.wixstudio.com/fsceramics" target="_blank" style="border-color:#5b8fa8; color:#5b8fa8;">Ceramics Site</a>    </div>
-
-    <div class="project-card" style="display: none;">
-      <span class="card-category">Recognition · Design Awards</span>
-      <div class="card-number">06</div>
-      <h3 class="card-title">International Design Recognition</h3>
-      <div class="card-divider"></div>
-      <p class="card-desc">Selected for the 7th Utilitarian Ceramics Biennial at Franz Mayer Museum (Mexico City, 2015–2016). Received Honourable Mention at the International Luggage Design Competition Toyooka '94 — among 1,912 entries from 32 countries.</p>
-      <div class="card-result star">Honourable Mention — 32 countries</div>
-      <div class="card-tags">
-        <span class="tag">Franz Mayer Museum</span>
-        <span class="tag">Ceramics Biennial</span>
-        <span class="tag">Japan '94</span>
-        <span class="tag">Industrial Design</span>
-      </div>
-      <a class="card-link" href="https://fernandosrsan.wixsite.com/fernandosanro/projects" target="_blank">See projects</a>
+      <a class="cta-btn" href="https://fernandosrsan.wixstudio.com/fsceramics" target="_blank" style="border-color:#5b8fa8; color:#5b8fa8;">Ceramics Site</a>
     </div>
 
   </div><!-- /projects-grid -->
-<!-- 
-<div class="projects-cta">
-  <p class="cta-text">These are highlights from a 25-year career across four industries. The full portfolio — including UX design studies, AI workflow projects, and ceramic design work — is available on request.</p>
-  <a class="cta-btn" href="https://fernandosrsan.wixsite.com/fernandosanro" target="_blank">Full Portfolio</a>
-  <a class="cta-btn" href="https://fernandosrsan.wixstudio.com/fsceramics" target="_blank" style="border-color:#5b8fa8; color:#5b8fa8;">Ceramics Site</a>
-</div>
--->
-
 </section>
 
+<!-- ═══════════════════════════════════════════════════
+     PROJECT LIGHTBOXES
+     ═══════════════════════════════════════════════════ -->
+
+<!-- LIGHTBOX 01 — EMEA Video (original, now uses shared system) -->
+<div id="lb-01" class="project-lightbox" onclick="closeProjectLightbox('lb-01')">
+  <div class="project-lightbox-inner" onclick="event.stopPropagation()">
+    <div class="project-lightbox-header">
+      <span class="project-lightbox-label">01 · EMEA Web Product Implementation</span>
+      <button class="project-lightbox-close" onclick="closeProjectLightbox('lb-01')">✕</button>
+    </div>
+    <div class="lb-video-wrap">
+      <video id="lb-01-video" controls>
+        <source src="TP_video_final.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX 02 — Manufacturing & Revenue Scale-Up -->
+<div id="lb-02" class="project-lightbox" onclick="closeProjectLightbox('lb-02')">
+  <div class="project-lightbox-inner" onclick="event.stopPropagation()">
+    <div class="project-lightbox-header">
+      <span class="project-lightbox-label">02 · Forum: "Cultural and Creative Enterprises" · Uriarte Talavera</span>
+      <button class="project-lightbox-close" onclick="closeProjectLightbox('lb-02')">✕</button>
+    </div>
+    <div class="lb-video-wrap">
+      <video id="lb-02-video" controls>
+        <source src="ivec_uriarte.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX 03 — Digital Capability Building -->
+<div id="lb-03" class="project-lightbox" onclick="closeProjectLightbox('lb-03')">
+  <div class="project-lightbox-inner" onclick="event.stopPropagation()">
+    <div class="project-lightbox-header">
+      <span class="project-lightbox-label">03 · Delivery project demo · UPAEP University</span>
+      <button class="project-lightbox-close" onclick="closeProjectLightbox('lb-03')">✕</button>
+    </div>
+    <div class="lb-video-wrap">
+      <video id="lb-03-video" controls>
+        <source src="upaep_hycd.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX 04 — Government IT Transformation -->
+<div id="lb-04" class="project-lightbox" onclick="closeProjectLightbox('lb-04')">
+  <div class="project-lightbox-inner" onclick="event.stopPropagation()">
+    <div class="project-lightbox-header">
+      <span class="project-lightbox-label">04 · Data nodes relocation · ISSSTE</span>
+      <button class="project-lightbox-close" onclick="closeProjectLightbox('lb-04')">✕</button>
+    </div>
+    <div class="lb-video-wrap">
+      <video id="lb-04-video" controls>
+        <source src="voz_datos.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     END LIGHTBOXES
+     ═══════════════════════════════════════════════════ -->
+
 <!-- LINKEDIN POSTS -->
+  <!-- 
 <section style="padding:6rem 4rem; border-top:1px solid var(--border);" id="posts">
   <div class="section-label">Featured Posts</div>
   <h2 class="section-title">Insights & Perspectives</h2>
@@ -1165,8 +1243,9 @@
     </a>
   </div>
 </section>
-
+-->
 <!-- AI WORK VIDEO -->
+ <!--
 <section style="padding:6rem 4rem; border-top:1px solid var(--border);" id="video">
   <div class="section-label">AI In Action</div>
   <h2 class="section-title">See My Work</h2>
@@ -1179,7 +1258,7 @@
       allowfullscreen="" allow="encrypted-media" title="Embedded post"></iframe>
   </div>
 </section>
-
+-->
 <!-- SKILLS -->
 <section class="skills" id="skills">
   <div class="skills-header">
@@ -1253,7 +1332,6 @@
   <div class="section-label">What People Say</div>
   <h2 class="section-title">Recommendations</h2>
   <div class="testimonials-grid">
-
     <div class="testimonial-card">
       <div class="testimonial-quote">"</div>
       <p class="testimonial-text">Working alongside Fernando at Teleperformance was key to the success of our Google Ads HTML implementation project. His strategic vision and ability to optimize processes not only improved operational efficiency but also drove innovation in automation and advanced technical solutions. From day one, Fernando became a technology scrum master, enhancing HTML integration in digital advertising and optimizing workflows with a data-driven approach. His impact was both immediate and long-lasting, solidifying him as an expert in digital transformation.</p>
@@ -1268,7 +1346,6 @@
         </div>
       </div>
     </div>
-
     <div class="testimonial-card">
       <div class="testimonial-quote">"</div>
       <p class="testimonial-text">I had the opportunity to witness Fernando's positive attitude in a very dynamic working environment, where he demonstrated to keep strong relationships with stakeholders along with his ability to remain calm and composed when under pressure. He consistently delivered high-quality work by keeping a customer driven attitude, delivering an excellent customer service.</p>
@@ -1283,7 +1360,6 @@
         </div>
       </div>
     </div>
-
     <div class="testimonial-card">
       <div class="testimonial-quote">"</div>
       <p class="testimonial-text">En mi opinión, Fernando es uno de los expertos en producción de cerámica fina y artesanal más relevantes de México. Su labor al frente del área de producción Uriarte Talavera fue notable, pues modernizó los estándares de calidad de una firma cerámica emblemática y bicentenaria que, sin duda alguna, está entre las más importantes del mundo.</p>
@@ -1298,7 +1374,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -1354,8 +1429,9 @@
   <div class="footer-text">Available for Remote & Hybrid Roles Across Europe</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Body is revealed via CSS animation — JS addClass is a fallback only
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+  // Body reveal fallback
   try {
     window.addEventListener('load', () => { document.body.classList.add('loaded'); });
   } catch(e) {}
@@ -1374,72 +1450,42 @@
     });
   });
 
-    // ── FIX: Testimonial expand/collapse (mobile only)
-    document.querySelectorAll('.testimonial-read-more').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.target.closest('.testimonial-card').classList.toggle('expanded');
-        e.target.textContent = e.target.closest('.testimonial-card').classList.contains('expanded') ? 'Read less ↑' : 'Read more ↓';
-      });
+  // Testimonial expand/collapse (mobile)
+  document.querySelectorAll('.testimonial-read-more').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.target.closest('.testimonial-card').classList.toggle('expanded');
+      e.target.textContent = e.target.closest('.testimonial-card').classList.contains('expanded') ? 'Read less ↑' : 'Read more ↓';
     });
-  </script>
-  
+  });
 
-<!-- VIDEO LIGHTBOX -->
-<div id="video-lightbox" onclick="closeVideoLightbox()" style="
-  display:none;
-  position:fixed; inset:0;
-  background:rgba(0,0,0,0.88);
-  z-index:99999;
-  align-items:center; justify-content:center;
-  padding:1.5rem;
-">
-  <div onclick="event.stopPropagation()" style="
-    position:relative;
-    width:100%; max-width:860px;
-    background:#0d1b2a;
-    border:1px solid rgba(201,168,76,0.3);
-    box-shadow:0 32px 80px rgba(0,0,0,0.8);
-  ">
-    <div style="
-      display:flex; justify-content:space-between; align-items:center;
-      padding:0.8rem 1.2rem;
-      border-bottom:1px solid rgba(201,168,76,0.15);
-    ">
-      <span style="color:#c9a84c; font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase;">EMEA Web Product Implementation</span>
-      <button onclick="closeVideoLightbox()" style="
-        background:none; border:none; cursor:pointer;
-        color:#8a9ab5; font-size:1.3rem; line-height:1; padding:0;
-      ">✕</button>
-    </div>
-    <div style="position:relative; width:100%; aspect-ratio:16/9; background:#000;">
-      <video id="lightbox-video" controls style="width:100%; height:100%; display:block; outline:none;">
-        <source src="TP_video_final.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
-</div>
-
-<script>
-  function openVideoLightbox() {
-    var lb  = document.getElementById('video-lightbox');
-    var vid = document.getElementById('lightbox-video');
-    lb.style.display = 'flex';
+  // ── PROJECT LIGHTBOX SYSTEM ──
+  function openProjectLightbox(id) {
+    var lb = document.getElementById(id);
+    lb.classList.add('is-open');
     document.body.style.overflow = 'hidden';
-    vid.play();
+    // If there's a video inside, play it
+    var vid = lb.querySelector('video');
+    if (vid) vid.play();
   }
-  function closeVideoLightbox() {
-    var lb  = document.getElementById('video-lightbox');
-    var vid = document.getElementById('lightbox-video');
-    lb.style.display = 'none';
+
+  function closeProjectLightbox(id) {
+    var lb = document.getElementById(id);
+    lb.classList.remove('is-open');
     document.body.style.overflow = '';
-    vid.pause();
-    vid.currentTime = 0;
+    // Pause and reset any video
+    var vid = lb.querySelector('video');
+    if (vid) { vid.pause(); vid.currentTime = 0; }
   }
+
+  // Close lightboxes on Escape key
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeVideoLightbox();
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.project-lightbox.is-open').forEach(lb => {
+        closeProjectLightbox(lb.id);
+      });
+    }
   });
 </script>
 
-  </body>
+</body>
 </html>
