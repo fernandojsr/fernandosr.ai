@@ -2040,6 +2040,7 @@ const TRANSLATIONS = {
     cf_success:    `✓ Message sent — I'll be in touch soon!`,
     cf_error:      'Something went wrong. Please try again or email directly.',
     contact_cv:    '⬇ Download My CV',
+    cv_file: 'Fernando_Sanchez-Rodriguez_Resume_EN.pdf',
 
     footer_gdpr: 'This site does not collect personal data or use tracking cookies beyond anonymous analytics (Google Analytics). Contact:',
   },
@@ -2193,6 +2194,7 @@ const TRANSLATIONS = {
     cf_success:    '✓ Nachricht gesendet — ich melde mich bald!',
     cf_error:      'Etwas ist schiefgelaufen. Bitte erneut versuchen oder direkt per E-Mail kontaktieren.',
     contact_cv:    '⬇ Lebenslauf herunterladen',
+    cv_file: 'Fernando_Sanchez-Rodriguez_Resume_DE.pdf',
 
     footer_gdpr: 'Diese Website sammelt keine personenbezogenen Daten und verwendet keine Tracking-Cookies außer anonymen Analysen (Google Analytics). Kontakt:',
   },
@@ -2341,6 +2343,7 @@ const TRANSLATIONS = {
     cf_success:    `✓ Mensaje enviado — ¡me pondré en contacto pronto!`,
     cf_error:      'Algo salió mal. Por favor inténtalo de nuevo o escribe directamente al correo.',
     contact_cv:    '⬇ Descargar CV',
+    cv_file: 'Fernando_Sanchez-Rodriguez_Resume_ES.pdf',
 
     footer_gdpr: 'Este sitio no recopila datos personales ni usa cookies de seguimiento más allá de análisis anónimos (Google Analytics). Contacto:',
   }
@@ -2511,6 +2514,13 @@ function setLang(lang) {
       btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
     });
 
+    document.querySelectorAll('.btn-download').forEach(el => {
+  if (t['cv_file']) {
+    el.href = t['cv_file'];
+    el.setAttribute('download', t['cv_file']);
+  }
+});
+    
      document.body.classList.remove('switching');
   }, 180);
 }
