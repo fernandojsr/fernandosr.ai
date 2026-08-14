@@ -94,7 +94,6 @@
   :root {
     --navy: #0d1b2a;
     --deep: #111d2e;
-    /* Per-section tones */
     --s-stats:  #0e1c30;
     --s-about:  #0a1628;
     --s-mandate:#101f36;
@@ -319,57 +318,6 @@
   .about-text p + p { margin-top: 1.2rem; }
   .highlight { color: var(--cream); }
 
-  /* MANDATE / OPEN TO */
-  .mandate-section {
-    padding: 4rem 4rem;
-    background: var(--s-mandate);
-    border-top: 1px solid var(--border);
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 1rem;
-    align-items: start;
-  }
-  .mandate-header { }
-  .mandate-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-  .mandate-card {
-    padding: 2rem 1.75rem;
-    border: 1px solid var(--border);
-    background: var(--s-about);
-    transition: border-color 0.3s, transform 0.3s;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-  .mandate-card:hover {
-    border-color: var(--gold);
-    transform: translateY(-3px);
-  }
-  .mandate-icon { font-size: 1.3rem; margin-bottom: 0.4rem; }
-  .mandate-card-label {
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-  }
-  .mandate-card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--cream);
-    line-height: 1.25;
-    margin-bottom: 0.3rem;
-  }
-  .mandate-card-desc {
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.75;
-  }
-
   /* EXPERIENCE */
   .experience {
     padding: 6rem 4rem;
@@ -453,40 +401,6 @@
     box-shadow: 0 16px 48px rgba(0,0,0,0.5);
   }
   .project-card:hover::after { opacity: 0.04; }
-  .project-card.featured {
-    grid-column: 1 / -1;
-    flex-direction: row;
-    gap: 3rem;
-    align-items: flex-start;
-    background: linear-gradient(135deg, #19243a 0%, var(--s-proj) 100%);
-    border-color: rgba(201,168,76,0.3);
-    padding: 3rem;
-  }
-  .featured-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .featured-stats {
-    flex: 0 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.8rem;
-    padding-left: 3rem;
-    border-left: 1px solid var(--border);
-    justify-content: center;
-    min-width: 160px;
-  }
-  .hs-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem; color: var(--gold); line-height: 1;
-  }
-  .hs-label {
-    font-size: 0.65rem; color: var(--muted);
-    letter-spacing: 0.1em; text-transform: uppercase;
-    margin-top: 0.2rem;
-  }
   .card-number {
     position: absolute; top: 1.5rem; right: 1.5rem;
     font-family: 'Cormorant Garamond', serif;
@@ -523,7 +437,6 @@
     align-self: flex-start; margin-top: auto;
   }
   .card-result::before { content: '▲'; font-size: 0.55rem; }
-  .card-result.down::before { content: '▼'; }
   .card-result.star::before { content: '★'; }
   .card-tags {
     display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;
@@ -534,23 +447,6 @@
     padding: 3px 9px;
     font-size: 0.65rem; color: var(--muted);
     letter-spacing: 0.05em; text-transform: uppercase;
-  }
-  .card-link {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 0.78rem; color: #5b8fa8;
-    text-decoration: none; font-weight: 500;
-    margin-top: 8px;
-    transition: gap 0.2s;
-  }
-  .card-link:hover { gap: 14px; }
-  .card-link::after { content: '→'; }
-  .projects-cta {
-    display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
-    padding-top: 2rem; margin-top: 2rem;
-    border-top: 1px solid var(--border);
-  }
-  .cta-text {
-    font-size: 0.85rem; color: var(--muted); line-height: 1.7; flex: 1; min-width: 200px;
   }
   .cta-btn {
     display: inline-flex; 
@@ -575,7 +471,6 @@
   .cta-btn:hover { background: var(--gold); color: var(--navy); }
   .cta-btn::after { content: '→'; }
 
-  /* ── PROJECT LIGHTBOX BUTTON (shared style) ── */
   .project-lb-btn {
     margin-top: 0.8rem;
     display: inline-flex; align-items: center; gap: 0.5rem;
@@ -590,7 +485,7 @@
   }
   .project-lb-btn:hover { background: rgba(201,168,76,0.1); }
 
-  /* ── UNIVERSAL PROJECT LIGHTBOX ── */
+  /* UNIVERSAL PROJECT LIGHTBOX */
   .project-lightbox {
     display: none;
     position: fixed; inset: 0;
@@ -622,39 +517,6 @@
     transition: color 0.2s;
   }
   .project-lightbox-close:hover { color: var(--cream); }
-  .project-lightbox-body {
-    padding: 2.5rem;
-  }
-  /* Stats row inside lightbox */
-  .lb-stats {
-    display: flex; gap: 2rem; flex-wrap: wrap;
-    padding: 1.5rem 0;
-    border-top: 1px solid rgba(201,168,76,0.15);
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-    margin: 1.5rem 0;
-  }
-  .lb-stat-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem; color: var(--gold); line-height: 1;
-  }
-  .lb-stat-label {
-    font-size: 0.65rem; color: var(--muted);
-    letter-spacing: 0.1em; text-transform: uppercase;
-    margin-top: 0.2rem;
-  }
-  .lb-desc {
-    font-size: 0.88rem; color: var(--muted); line-height: 1.85;
-  }
-  .lb-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1.5rem; }
-  .lb-tags .tag {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    padding: 4px 10px;
-    font-size: 0.65rem; color: var(--muted);
-    letter-spacing: 0.05em; text-transform: uppercase;
-    border-radius: 1px;
-  }
-  /* Video wrapper inside lightbox */
   .lb-video-wrap {
     position: relative; width: 100%; aspect-ratio: 16/9; background: #000;
   }
@@ -738,12 +600,6 @@
   }
   .footer-text { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.05em; }
 
-  /* POSTS */
-  .posts-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 2rem; margin-top: 3rem; align-items: start;
-  }
-
   /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -756,7 +612,7 @@
   .hero-badges { animation-delay: 0.4s; }
   .hero-btns { animation-delay: 0.5s; }
 
-  /* ── MOBILE MENU TOGGLE BUTTON ── */
+  /* MOBILE MENU */
   .mob-menu-btn {
     display: none;
     background: none;
@@ -767,7 +623,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    margin-left: auto;   /* pushes it to the right */
+    margin-left: auto;
   }
   .mob-menu-btn span {
     display: block;
@@ -780,53 +636,7 @@
   .mob-menu-btn.is-open span:nth-child(2) { opacity: 0; }
   .mob-menu-btn.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  /* ── FULLSCREEN OVERLAY ── */
-  .mob-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: var(--navy);
-    z-index: 1500;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 6rem 2.5rem 3rem;
-    gap: 0;
-  }
-  .mob-overlay.is-open { display: flex; }
-  .mob-overlay a {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    font-weight: 300;
-    color: var(--cream);
-    text-decoration: none;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid var(--border);
-    width: 100%;
-    letter-spacing: 0.03em;
-    transition: color 0.2s;
-  }
-  .mob-overlay a:last-child { border-bottom: none; }
-  .mob-overlay a:hover { color: var(--gold); }
-  .mob-overlay-close {
-    position: absolute;
-    top: 1.2rem; right: 1.25rem;
-    background: none; border: none;
-    cursor: pointer;
-    display: flex; flex-direction: column;
-    gap: 5px; padding: 0.5rem;
-  }
-  .mob-overlay-close span {
-    display: block;
-    width: 24px; height: 2px;
-    background: var(--gold);
-    border-radius: 1px;
-  }
-  .mob-overlay-close span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .mob-overlay-close span:nth-child(2) { opacity: 0; }
-  .mob-overlay-close span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-  /* ── RESPONSIVE 1024px ── */
+  /* RESPONSIVE */
   @media (max-width: 1024px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { gap: 1rem; }
@@ -850,27 +660,14 @@
     .contact { padding: 4rem 2rem; }
     .contact-details { gap: 1.5rem; flex-direction: column; align-items: center; }
     footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
-    .posts-grid { grid-template-columns: 1fr; }
     .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .cert-icon img { width: 80px; height: 80px; }
-    .mandate-section { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 2rem; }
-    .mandate-cards { grid-template-columns: 1fr 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     .projects-section { padding: 4rem 2rem; }
     .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
-    .project-card.featured { grid-column: 1 / -1; flex-direction: column; gap: 1.5rem; }
-    .featured-stats {
-      flex-direction: row; flex-wrap: wrap; gap: 1.5rem;
-      border-left: none; padding-left: 0;
-      border-top: 1px solid var(--border); padding-top: 1.5rem;
-      min-width: unset;
-    }
-    .project-lightbox-body { padding: 1.5rem; }
-    .lb-stats { gap: 1.2rem; }
   }
 
-  /* ── RESPONSIVE 640px (mobile) ── */
-@media (max-width: 640px) {
+  @media (max-width: 640px) {
     html { font-size: 16px; }
     nav { padding: 0.9rem 1.25rem; }
     .mob-menu-btn { display: flex; order: 3; margin-left: 0 !important; }
@@ -900,12 +697,9 @@
     footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
     .projects-section { padding: 3rem 1.5rem; }
     .projects-grid { grid-template-columns: 1fr; gap: 1rem; }
-    .project-card.featured { grid-column: 1; }
-    .projects-cta { flex-direction: column; align-items: flex-start; }
     section[id="certifications"] { padding: 3rem 1.5rem; }
     .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
     .cert-card { padding: 1.25rem 0.75rem; }
-    .cert-icon { margin-bottom: 0.6rem; }
     .cert-icon img { width: 60px; height: 60px; }
     .cert-name { font-size: 0.88rem; }
     .cert-issuer { font-size: 0.62rem; }
@@ -929,61 +723,47 @@
     .testimonial-name { font-size: 0.78rem; }
     .testimonial-role { font-size: 0.63rem; }
     .testimonial-avatar { width: 34px; height: 34px; }
-    section[id="posts"] { padding: 3rem 1.5rem; }
-    section[id="video"] { padding: 3rem 1.5rem; }
-    .mandate-section { padding: 3rem 1.5rem; gap: 1.5rem; }
-    .mandate-cards { grid-template-columns: 1fr; gap: 1rem; }
-    .mandate-card { padding: 1.5rem; }
-    .mandate-card-title { font-size: 1.1rem; }
-    .project-lightbox-body { padding: 1.2rem; }
-    .lb-stats { flex-direction: column; gap: 1rem; }
-    .lb-stat-value { font-size: 1.8rem; }
   }
 
   @media print {
     nav, .hero-btns, .hero::before, .hero-grid,
-    section[id="posts"], section[id="video"],
-    footer, .mob-menu-btn, .mob-overlay { display: none !important; }
+    footer, .mob-menu-btn, #mob-sheet { display: none !important; }
     body { background: #fff; color: #111; font-size: 12pt; opacity: 1; }
     h1 { font-size: 28pt; color: #111; }
     h1 span { color: #8a6914; }
   }
 
-/* LANGUAGE SWITCHER */
-.lang-switcher {
-  display: flex;
-  align-items: center;
-  gap: 0.15rem;
-  margin-left: 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: 2px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-.lang-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 0.35rem 0.65rem;
-  transition: background 0.2s, color 0.2s;
-  border-right: 1px solid var(--border);
-  line-height: 1;
-}
-.lang-btn:last-child { border-right: none; }
-.lang-btn:hover { background: rgba(201,168,76,0.08); color: var(--cream); }
-.lang-btn.active { background: var(--gold); color: var(--navy); font-weight: 600; }
-.lang-fade { transition: opacity 0.2s ease; }
-.lang-fade.switching { opacity: 0; }
-
-/* Fade transition when language switches */
-.lang-fade { transition: opacity 0.2s ease; }
-.lang-fade.switching { opacity: 0; }
+  /* LANGUAGE SWITCHER */
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    margin-left: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0.35rem 0.65rem;
+    transition: background 0.2s, color 0.2s;
+    border-right: 1px solid var(--border);
+    line-height: 1;
+  }
+  .lang-btn:last-child { border-right: none; }
+  .lang-btn:hover { background: rgba(201,168,76,0.08); color: var(--cream); }
+  .lang-btn.active { background: var(--gold); color: var(--navy); font-weight: 600; }
+  .lang-fade { transition: opacity 0.2s ease; }
+  .lang-fade.switching { opacity: 0; }
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -1000,32 +780,30 @@
 <!-- NAV -->
 <nav id="main-nav">
   <a href="#">
-    <img src="FernandoS.PNG" alt="Fernando Sanchez-Rodriguez"
-         style="height: 60px; width: auto; display: block;">
+    <img src="FernandoS.PNG" alt="Fernando Sanchez-Rodriguez" style="height: 60px; width: auto; display: block;">
   </a>
   <button class="mob-menu-btn" id="mob-menu-btn" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links" id="nav-links">
-  <a href="#about"      data-i18n="nav_about">About</a>
-  <a href="#experience" data-i18n="nav_experience">Experience</a>
-  <a href="#projects"   data-i18n="nav_projects">Projects</a>
-  <a href="#skills"     data-i18n="nav_skills">Skills</a>
-  <a href="#contact"    data-i18n="nav_contact">Contact</a>
-</div>
+    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="#experience" data-i18n="nav_experience">Experience</a>
+    <a href="#projects" data-i18n="nav_projects">Projects</a>
+    <a href="#skills" data-i18n="nav_skills">Skills</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+  </div>
 
- <!-- closing .nav-links -->
-<div class="lang-switcher" role="group" aria-label="Language selector">
-  <button class="lang-btn active" onclick="setLang('en')" aria-label="English">
-    <img src="https://flagcdn.com/w20/gb.png" width="20" height="14" alt="EN" style="vertical-align:middle; margin-right:0.3rem;">EN
-  </button>
-  <button class="lang-btn" onclick="setLang('de')" aria-label="Deutsch">
-    <img src="https://flagcdn.com/w20/de.png" width="20" height="14" alt="DE" style="vertical-align:middle; margin-right:0.3rem;">DE
-  </button>
-  <button class="lang-btn" onclick="setLang('es')" aria-label="Español">
-    <img src="https://flagcdn.com/w20/es.png" width="20" height="14" alt="ES" style="vertical-align:middle; margin-right:0.3rem;">ES
-  </button>
-</div>
+  <div class="lang-switcher" role="group" aria-label="Language selector">
+    <button class="lang-btn active" onclick="setLang('en')" aria-label="English">
+      <img src="https://flagcdn.com/w20/gb.png" width="20" height="14" alt="EN" style="vertical-align:middle; margin-right:0.3rem;">EN
+    </button>
+    <button class="lang-btn" onclick="setLang('de')" aria-label="Deutsch">
+      <img src="https://flagcdn.com/w20/de.png" width="20" height="14" alt="DE" style="vertical-align:middle; margin-right:0.3rem;">DE
+    </button>
+    <button class="lang-btn" onclick="setLang('es')" aria-label="Español">
+      <img src="https://flagcdn.com/w20/es.png" width="20" height="14" alt="ES" style="vertical-align:middle; margin-right:0.3rem;">ES
+    </button>
+  </div>
 </nav>
 
 <!-- MOBILE BOTTOM SHEET MENU -->
@@ -1044,12 +822,11 @@
     <span style="color:#c9a84c; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase;">Navigation</span>
     <button id="mob-sheet-close" style="background:none;border:none;cursor:pointer;color:#c9a84c;font-size:1.5rem;line-height:1;padding:0;">✕</button>
   </div>
-  <a href="#about"  data-i18n="mob_about"     onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.15);">About</a>
-  <!-- <a href="#mandate"    data-i18n="mob_mandate" onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.15);">Open To</a> -->
+  <a href="#about" data-i18n="mob_about" onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.15);">About</a>
   <a href="#experience" data-i18n="mob_experience" onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.15);">Experience</a>
-  <a href="#projects"   data-i18n="mob_projects" onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.15);">Projects</a>
-  <a href="#skills"     data-i18n="mob_skills" onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.15);">Skills</a>
-  <a href="#contact"    data-i18n="mob_contact" onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;">Contact</a>
+  <a href="#projects" data-i18n="mob_projects" onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.15);">Projects</a>
+  <a href="#skills" data-i18n="mob_skills" onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.15);">Skills</a>
+  <a href="#contact" data-i18n="mob_contact" onclick="closeMobSheet()" style="display:block;color:#f5f0e8;text-decoration:none;font-size:1.1rem;padding:0.75rem 0;">Contact</a>
 </div>
 <div id="mob-sheet-backdrop" onclick="closeMobSheet()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9998;"></div>
 
@@ -1088,7 +865,6 @@
           width: 6px; height: 6px; border-radius: 50%;
           background: var(--navy);
           display: inline-block;
-          animation: pulse 2s ease-in-out infinite;
         "></span>
         Open to Mandates
       </span>
@@ -1102,14 +878,12 @@
     </div>
     <div class="hero-btns" style="display:flex; flex-wrap:wrap; gap:1rem; max-width:480px;">
       <a href="https://www.linkedin.com/in/fs-creative/" target="_blank" class="btn-outline" data-i18n="hero_cta_li">Let's Connect</a>
-      <a href="Fernando_Sanchez-Rodriguez_Resume.pdf" download="Fernando_Sanchez-Rodriguez_Resume.pdf" class="btn-download" data-i18n="hero_cta_cv">⬇ Download CV</a>
+      <a href="Fernando_Sanchez-Rodriguez_Resume_EN.pdf" download="Fernando_Sanchez-Rodriguez_Resume_EN.pdf" class="btn-download" data-i18n="hero_cta_cv">⬇ Download CV</a>
     </div>
   </div>
   <div class="hero-photo-side">
     <div class="photo-frame">
-      <img src="Fernando_Sanchez.png"
-           alt="Fernando Sanchez-Rodriguez"
-           style="width:100%; height:100%; object-fit:cover; display:block;">
+      <img src="Fernando_Sanchez.png" alt="Fernando Sanchez-Rodriguez" style="width:100%; height:100%; object-fit:cover; display:block;">
     </div>
   </div>
 </section>
@@ -1164,40 +938,6 @@
   </div>
 </section>
 
-<!-- WHAT I'M LOOKING FOR
-<section class="mandate-section" id="mandate">
-  <div class="mandate-header">
-    <div class="section-label">Open To</div>
-    <h2 class="section-title">What I'm<br>looking for</h2>
-  </div>
-  <div class="mandate-cards">
-    <div class="mandate-card">
-      <div class="mandate-icon">🔄</div>
-      <div class="mandate-card-label">Role Type</div>
-      <div class="mandate-card-title">Digital Transformation Lead</div>
-      <p class="mandate-card-desc">Operations Consultant · Change Management Manager · Process Excellence Lead · Digital Adoption Manager</p>
-    </div>
-    <div class="mandate-card">
-      <div class="mandate-icon">🏢</div>
-      <div class="mandate-card-label">Company Type</div>
-      <div class="mandate-card-title">Consulting & Tech-Enabled Services</div>
-      <p class="mandate-card-desc">Boutique or mid-size consultancies · Enterprise software firms · EMEA-facing organisations · Professional services</p>
-    </div>
-    <div class="mandate-card">
-      <div class="mandate-icon">🌍</div>
-      <div class="mandate-card-label">Location</div>
-      <div class="mandate-card-title">Remote or Hybrid · EU-Wide</div>
-      <p class="mandate-card-desc">Based in Bavaria, Germany · DACH, Benelux, Nordics, Southern Europe (ES, IT, PT), and UK all welcome · EU citizen</p>
-    </div>
-    <div class="mandate-card">
-      <div class="mandate-icon">🤝</div>
-      <div class="mandate-card-label">Engagement</div>
-      <div class="mandate-card-title">Permanent, Contract or Freelance</div>
-      <p class="mandate-card-desc">Open to all structures — permanent, fixed-term, or freelance mandate. Results matter more than format.</p>
-    </div>
-  </div> -->
-</section>
-
 <!-- EXPERIENCE -->
 <section class="experience" id="experience">
   <div class="experience-header">
@@ -1205,39 +945,39 @@
     <h2 class="section-title" data-i18n="exp_title">Cross-Industry Depth — Four Sectors, Three Countries</h2>
   </div>
   <div class="timeline">
-        <div class="timeline-item">
-      <div class="timeline-date"    data-i18n="exp2_date">2023 – Present · Bayern, Germany</div>
-      <div class="timeline-role"    data-i18n="exp2_role">Healthcare Operations & Community Care · Professional Integration in Germany</div>
+    <div class="timeline-item">
+      <div class="timeline-date" data-i18n="exp2_date">2023 – Present · Bayern, Germany</div>
+      <div class="timeline-role" data-i18n="exp2_role">Healthcare Operations & Community Care · Professional Integration in Germany</div>
       <div class="timeline-company" data-i18n="exp2_company">AZURIT Seniorenzentrum · Bavaria, Germany</div>
-      <div class="timeline-desc"    data-i18n="exp2_desc">Entered the German elder-care sector with no prior domain experience and sustained 3+ years of continuous employment in a regulated institutional environment, delivering direct care across a 33-resident unit as part of a 3–4-person shift team under strict documentation and compliance standards. Built German-language fluency and DACH professional practice knowledge from the ground up while working full-time shift rotations, completing four Google Career Certificates (AI Essentials, Data Analytics, Business Intelligence, UX Design) in parallel to prepare for a return to operations and implementation roles. Coordinated daily with multidisciplinary care staff, medical professionals, and resident families in a multilingual, high-demand interpersonal setting, sustaining consistent service quality and reliability across the unit despite the language and cultural transition. This period represents a deliberate market-entry strategy: establishing legal residency, professional credibility, and language competence in the DACH region while continuing structured upskilling toward a return to a digital transformation and IT project management career track.</div>
+      <div class="timeline-desc" data-i18n="exp2_desc">Entered the German elder-care sector with no prior domain experience and sustained 3+ years of continuous employment in a regulated institutional environment, delivering direct care across a 33-resident unit as part of a 3–4-person shift team under strict documentation and compliance standards. Built German-language fluency and DACH professional practice knowledge from the ground up while working full-time shift rotations, completing four Google Career Certificates (AI Essentials, Data Analytics, Business Intelligence, UX Design) in parallel to prepare for a return to operations and implementation roles. Coordinated daily with multidisciplinary care staff, medical professionals, and resident families in a multilingual, high-demand interpersonal setting, sustaining consistent service quality and reliability across the unit despite the language and cultural transition. This period represents a deliberate market-entry strategy: establishing legal residency, professional credibility, and language competence in the DACH region while continuing structured upskilling toward a return to a digital transformation and IT project management career track.</div>
       <div class="timeline-tags"><span class="tag">Google AI Essentials</span><span class="tag">Data Analytics</span><span class="tag">Business Intelligence</span><span class="tag">UX Design</span><span class="tag">German B1</span><span class="tag">DACH Integration</span></div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-date"    data-i18n="exp1_date">2022 – 2023 · Lisbon, Portugal</div>
-      <div class="timeline-role"    data-i18n="exp1_role">Web Product Implementation Specialist for Google Specialist</div>
+      <div class="timeline-date" data-i18n="exp1_date">2022 – 2023 · Lisbon, Portugal</div>
+      <div class="timeline-role" data-i18n="exp1_role">Web Product Implementation Specialist for Google</div>
       <div class="timeline-company" data-i18n="exp1_company">Teleperformance / Google</div>
-      <div class="timeline-desc"    data-i18n="exp1_desc">Managed a high-volume Enterprise support caseload for Google's EMEA/LATAM portfolio — 179 cases, spanning 17 CMS platforms and 13 countries — closing 85 cases (47.5% solution rate) at a 7-day median resolution time. Acted as the primary technical point of contact for Enterprise-tier clients navigating complex CMS migrations, plugin conflicts, and platform-specific implementation issues, translating technical constraints into clear guidance for non-technical stakeholders across multiple time zones and languages. Redesigned and reorganized the internal support intranet for clarity and usability, restructuring the knowledge base architecture and search taxonomy to cut internal response times by approximately one-third. Trained and onboarded new hires on case-handling procedures in a multicultural team, developing standardized troubleshooting playbooks that maintained process consistency and service quality as the team scaled. Carried a high WordPress case volume (117 of 179 cases, 65% of total load), becoming the team's de facto WordPress specialist, and achieved a 75% solution rate on Joomla, the strongest-performing platform in the portfolio — well above team average.</div>
+      <div class="timeline-desc" data-i18n="exp1_desc">Managed a high-volume Enterprise support caseload for Google's EMEA/LATAM portfolio — 179 cases, spanning 17 CMS platforms and 13 countries — closing 85 cases (47.5% solution rate) at a 7-day median resolution time. Acted as the primary technical point of contact for Enterprise-tier clients navigating complex CMS migrations, plugin conflicts, and platform-specific implementation issues, translating technical constraints into clear guidance for non-technical stakeholders across multiple time zones and languages. Redesigned and reorganized the internal support intranet for clarity and usability, restructuring the knowledge base architecture and search taxonomy to cut internal response times by approximately one-third. Trained and onboarded new hires on case-handling procedures in a multicultural team, developing standardized troubleshooting playbooks that maintained process consistency and service quality as the team scaled. Carried a high WordPress case volume (117 of 179 cases, 65% of total load), becoming the team's de facto WordPress specialist, and achieved a 75% solution rate on Joomla, the strongest-performing platform in the portfolio — well above team average.</div>
       <div class="timeline-tags"><span class="tag">Google · EMEA</span><span class="tag">KPI Management</span><span class="tag">Process Design</span><span class="tag">Multilingual</span></div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-date"    data-i18n="exp3_date">2012 – 2019 · Puebla, Mexico</div>
-      <div class="timeline-role"    data-i18n="exp3_role">Manufacturing Manager & Commercial Development (B2B Accounts)</div>
+      <div class="timeline-date" data-i18n="exp3_date">2012 – 2019 · Puebla, Mexico</div>
+      <div class="timeline-role" data-i18n="exp3_role">Manufacturing Manager & Commercial Development (B2B Accounts)</div>
       <div class="timeline-company" data-i18n="exp3_company">Uriarte Talavera — Premium Ceramics</div>
-      <div class="timeline-desc"    data-i18n="exp3_desc">Implemented KPI-driven supply chain optimization across a 70-person production floor, restructuring workflow sequencing and material handoffs to reduce production lead time by 20% and lift overall efficiency by 15%. Founded the company's Quality Assurance Department from scratch — defining inspection checkpoints, defect classification, and rework protocols — implemented 5S methodology across the shop floor, and authored the first "Guide for Quality Assurance on Talavera Pieces," a foundational reference that standardized craft-quality evaluation and lifted client satisfaction (NPS) by 15%. Standardized production scheduling and material-flow monitoring, introducing a tracking system that cut average monthly order-backlog delays from 56 days to 11 days (an 80% reduction) and improved on-time fulfillment from 49% to 72%. Designed and implemented an internal website centralizing production data — pulling scheduling, inventory, and quality metrics into a single dashboard — enabling faster continuous-improvement decision-making plant-wide. Managed bespoke production for external clients including Rosewood Hotel Puebla, Pujol Restaurant, and Farca + Grappin Studio, coordinating directly with designers to deliver to exact specifications under real production constraints such as kiln capacity and hand-painting lead times. Grew annual sales revenue 30% over 4 years (average monthly billing up 43%, $1.13M→$1.62M MXN) through a marketing innovation plan covering packaging redesign and social media engagement. Launched a sales administration website with performance dashboards, giving commercial leadership real-time, data-driven visibility into pipeline and account health. Managed international accounts across the Americas and Europe and collaborated with designers like Lance Wyman on bespoke product lines, bridging commercial requirements with production capability.</div>
+      <div class="timeline-desc" data-i18n="exp3_desc">Implemented KPI-driven supply chain optimization across a 70-person production floor, restructuring workflow sequencing and material handoffs to reduce production lead time by 20% and lift overall efficiency by 15%. Founded the company's Quality Assurance Department from scratch — defining inspection checkpoints, defect classification, and rework protocols — implemented 5S methodology across the shop floor, and authored the first "Guide for Quality Assurance on Talavera Pieces," a foundational reference that standardized craft-quality evaluation and lifted client satisfaction (NPS) by 15%. Standardized production scheduling and material-flow monitoring, introducing a tracking system that cut average monthly order-backlog delays from 56 days to 11 days (an 80% reduction) and improved on-time fulfillment from 49% to 72%. Designed and implemented an internal website centralizing production data — pulling scheduling, inventory, and quality metrics into a single dashboard — enabling faster continuous-improvement decision-making plant-wide. Managed bespoke production for external clients including Rosewood Hotel Puebla, Pujol Restaurant, and Farca + Grappin Studio, coordinating directly with designers to deliver to exact specifications under real production constraints such as kiln capacity and hand-painting lead times. Grew annual sales revenue 30% over 4 years (average monthly billing up 43%, $1.13M→$1.62M MXN) through a marketing innovation plan covering packaging redesign and social media engagement. Launched a sales administration website with performance dashboards, giving commercial leadership real-time, data-driven visibility into pipeline and account health. Managed international accounts across the Americas and Europe and collaborated with designers like Lance Wyman on bespoke product lines, bridging commercial requirements with production capability.</div>
       <div class="timeline-tags"><span class="tag">+30% Revenue</span><span class="tag">Lean / 5S</span><span class="tag">Team of 70</span><span class="tag">P&amp;L</span><span class="tag">NPS +15</span></div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-date"    data-i18n="exp4_date">2008 – 2022 · Puebla, Mexico</div>
-      <div class="timeline-role"    data-i18n="exp4_role">Lecturer – Digital Tools & Technology Platforms</div>
+      <div class="timeline-date" data-i18n="exp4_date">2008 – 2022 · Puebla, Mexico</div>
+      <div class="timeline-role" data-i18n="exp4_role">Lecturer – Digital Tools & Technology Platforms</div>
       <div class="timeline-company" data-i18n="exp4_company">UPAEP University</div>
-      <div class="timeline-desc"    data-i18n="exp4_desc">Delivered a 14-year digital competency curriculum covering Microsoft 365 and 15+ collaboration/creative tools, achieving a completion rate above 90% across 1,000+ students spanning multiple faculties and academic levels. Developed original course materials, hands-on lab exercises, and simulation-based learning frameworks from the ground up, iterating the curriculum year over year to keep pace with evolving software platforms while sustaining repeatable, high-quality delivery across 14 consecutive years. Ran concurrently with full-time industry roles in manufacturing and IT operations, requiring sustained time-management discipline and the ability to translate real-world operational experience directly into classroom instruction and student mentorship.</div>
+      <div class="timeline-desc" data-i18n="exp4_desc">Delivered a 14-year digital competency curriculum covering Microsoft 365 and 15+ collaboration/creative tools, achieving a completion rate above 90% across 1,000+ students spanning multiple faculties and academic levels. Developed original course materials, hands-on lab exercises, and simulation-based learning frameworks from the ground up, iterating the curriculum year over year to keep pace with evolving software platforms while sustaining repeatable, high-quality delivery across 14 consecutive years. Ran concurrently with full-time industry roles in manufacturing and IT operations, requiring sustained time-management discipline and the ability to translate real-world operational experience directly into classroom instruction and student mentorship.</div>
       <div class="timeline-tags"><span class="tag">1,000+ Trained</span><span class="tag">Curriculum Design</span><span class="tag">Digital Adoption</span><span class="tag">90%+ Completion</span></div>
     </div>
     <div class="timeline-item" style="padding-bottom:0">
-      <div class="timeline-date"    data-i18n="exp5_date">1995 – 2011 · Puebla, Mexico</div>
-      <div class="timeline-role"    data-i18n="exp5_role">IT Operations Manager</div>
+      <div class="timeline-date" data-i18n="exp5_date">1995 – 2011 · Puebla, Mexico</div>
+      <div class="timeline-role" data-i18n="exp5_role">IT Operations Manager</div>
       <div class="timeline-company" data-i18n="exp5_company">ISSSTE — Mexican State Workers Institute</div>
-      <div class="timeline-desc"    data-i18n="exp5_desc">Directed IT transformation across 38 state healthcare facilities — managing networks, systems, telecommunications, and surveillance infrastructure at delegation level for a large public-sector healthcare network. Led the end-to-end rollout of the ISSSTEMED Electronic Medical Record system, connecting all medical and administrative units to the national Central Office and standardizing patient-record access across the delegation. Oversaw structured cabling and mapping of 370 voice and data nodes, building the physical network backbone that underpinned the digitization effort. Trained 120 government employees as distributed IT supporters, building a decentralized first-line support model that cut response times by 50% through capability building, documentation, and process redesign — leadership carried out across a 16-year span covering the transition from analog to fully networked healthcare IT infrastructure.</div>
+      <div class="timeline-desc" data-i18n="exp5_desc">Directed IT transformation across 38 state healthcare facilities — managing networks, systems, telecommunications, and surveillance infrastructure at delegation level for a large public-sector healthcare network. Led the end-to-end rollout of the ISSSTEMED Electronic Medical Record system, connecting all medical and administrative units to the national Central Office and standardizing patient-record access across the delegation. Oversaw structured cabling and mapping of 370 voice and data nodes, building the physical network backbone that underpinned the digitization effort. Trained 120 government employees as distributed IT supporters, building a decentralized first-line support model that cut response times by 50% through capability building, documentation, and process redesign — leadership carried out across a 16-year span covering the transition from analog to fully networked healthcare IT infrastructure.</div>
       <div class="timeline-tags"><span class="tag">−50% Response Time</span><span class="tag">38 Facilities</span><span class="tag">IT Transformation</span><span class="tag">Team of 25+</span></div>
     </div>
   </div>
@@ -1338,13 +1078,10 @@
       <a class="cta-btn" data-i18n="proj5_link" href="https://fernandosrsan.wixstudio.com/fsceramics" target="_blank" style="border-color:#5b8fa8; color:#5b8fa8;">Ceramics Site</a>
     </div>
 
-  </div><!-- /projects-grid -->
+  </div>
 </section>
-<!-- ═══════════════════════════════════════════════════
-     PROJECT LIGHTBOXES
-     ═══════════════════════════════════════════════════ -->
 
-<!-- LIGHTBOX 01 — EMEA Video (original, now uses shared system) -->
+<!-- LIGHTBOXES -->
 <div id="lb-01" class="project-lightbox" onclick="closeProjectLightbox('lb-01')">
   <div class="project-lightbox-inner" onclick="event.stopPropagation()">
     <div class="project-lightbox-header">
@@ -1360,7 +1097,6 @@
   </div>
 </div>
 
-<!-- LIGHTBOX 02 — Manufacturing & Revenue Scale-Up -->
 <div id="lb-02" class="project-lightbox" onclick="closeProjectLightbox('lb-02')">
   <div class="project-lightbox-inner" onclick="event.stopPropagation()">
     <div class="project-lightbox-header">
@@ -1376,7 +1112,6 @@
   </div>
 </div>
 
-<!-- LIGHTBOX 03 — Digital Capability Building -->
 <div id="lb-03" class="project-lightbox" onclick="closeProjectLightbox('lb-03')">
   <div class="project-lightbox-inner" onclick="event.stopPropagation()">
     <div class="project-lightbox-header">
@@ -1392,7 +1127,6 @@
   </div>
 </div>
 
-<!-- LIGHTBOX 04 — Government IT Transformation -->
 <div id="lb-04" class="project-lightbox" onclick="closeProjectLightbox('lb-04')">
   <div class="project-lightbox-inner" onclick="event.stopPropagation()">
     <div class="project-lightbox-header">
@@ -1408,44 +1142,6 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
-     END LIGHTBOXES
-     ═══════════════════════════════════════════════════ -->
-
-<!-- LINKEDIN POSTS 
-<section style="padding:6rem 4rem; border-top:1px solid var(--border); background:var(--s-posts);" id="posts">
-  <div class="section-label">Featured Posts</div>
-  <h2 class="section-title">Insights & Perspectives</h2>
-  <div class="posts-grid">
-    <a href="https://www.linkedin.com/posts/fs-creative_your-post-id" target="_blank" style="display:block; cursor:pointer;">
-      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7396858200962084864?collapsed=1"
-        height="450" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-    </a>
-    <a href="https://www.linkedin.com/posts/fs-creative_your-post-id" target="_blank" style="display:block; cursor:pointer;">
-      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7371937615857532928?collapsed=1"
-        height="450" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-    </a>
-    <a href="https://www.linkedin.com/posts/fs-creative_your-post-id" target="_blank" style="display:block; cursor:pointer;">
-      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7371927206916382721?collapsed=1"
-        height="450" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-    </a>
-  </div>
-</section>
-
-AI WORK VIDEO 
-<section style="padding:6rem 4rem; border-top:1px solid var(--border); background:var(--s-video);" id="video">
-  <div class="section-label">AI In Action</div>
-  <h2 class="section-title">See My Work</h2>
-  <p style="color:var(--muted); font-size:0.85rem; max-width:600px; margin:1rem 0 3rem; line-height:1.8;">
-    A glimpse into my AI work — real tools, real workflows, hands-on execution.
-  </p>
-  <div style="max-width:800px; border:1px solid var(--border); overflow:hidden;">
-    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7371932075941117952?compact=1"
-      height="450" width="100%" frameborder="0"
-      allowfullscreen="" allow="encrypted-media" title="Embedded post"></iframe>
-  </div>
-</section>
--->
 <!-- SKILLS -->
 <section class="skills" id="skills">
   <div class="skills-header">
@@ -1539,8 +1235,9 @@ AI WORK VIDEO
       <button class="testimonial-read-more" aria-label="Expand testimonial">Read more ↓</button>
       <div class="testimonial-author">
         <div class="testimonial-avatar">
-        <img src="https://media.licdn.com/dms/image/v2/D4D35AQEP_PVVZXadbw/profile-framedphoto-shrink_100_100/B4DZm2QtnBJgAo-/0/1759699458820?e=1773154800&v=beta&t=AoxwjcVpRqRGPh_z1cI_P35EKHO3CV4fotUl19ni4Gk" alt="Michela Di Noia" onerror="this.style.display='none'; this.parentElement.innerHTML='👤';">        </div>
-          <div>
+          <img src="https://media.licdn.com/dms/image/v2/D4D35AQEP_PVVZXadbw/profile-framedphoto-shrink_100_100/B4DZm2QtnBJgAo-/0/1759699458820?e=1773154800&v=beta&t=AoxwjcVpRqRGPh_z1cI_P35EKHO3CV4fotUl19ni4Gk" alt="Michela Di Noia" onerror="this.style.display='none'; this.parentElement.innerHTML='👤';">
+        </div>
+        <div>
           <div class="testimonial-name" data-i18n="test2_name">Michela Di Noia</div>
           <div class="testimonial-role" data-i18n="test2_role">Operations Supervisor · Teleperformance</div>
         </div>
@@ -1585,8 +1282,8 @@ AI WORK VIDEO
     <div class="lang-item">
       <div class="lang-flag"><img src="https://flagcdn.com/48x36/de.png" alt="German" style="height:36px; width:auto;"></div>
       <div class="lang-name" data-i18n="lang3_name">German</div>
-      <div class="lang-level" data-i18n="lang3_level">A2 — Conversational</div>
-      <div class="lang-bar"><div class="lang-fill" style="width:55%"></div></div>
+      <div class="lang-level" data-i18n="lang3_level">B1 — Intermediate</div>
+      <div class="lang-bar"><div class="lang-fill" style="width:65%"></div></div>
     </div>
   </div>
 </section>
@@ -1597,10 +1294,8 @@ AI WORK VIDEO
   <h2 class="contact-title" data-i18n="contact_title">Let's Build Something<br><span>Better Together</span></h2>
   <p class="contact-sub" data-i18n="contact_sub">Open to operational leadership, digital transformation, and innovation consulting roles across the EU — remote or hybrid.</p>
 
-   <!-- Contact details row -->
   <div class="contact-details">
     <div class="contact-item"><span>📧</span><a href="mailto:fernandosr.san@gmail.com" style="color:var(--muted); text-decoration:none;">fernandosr.san@gmail.com</a></div>
-   <!-- <div class="contact-item"><span>📞</span><span>(+49) 176 4806 8696</span></div> -->
     <div class="contact-item"><span>💬</span><a href="https://www.linkedin.com/messaging/compose/?recipient=fs-creative" target="_blank" data-i18n="contact_li" style="color:var(--muted); text-decoration:none;">Message me on LinkedIn</a></div>
   </div>
   <div class="contact-details" style="justify-content:center; margin-top:0.5rem;">
@@ -1608,199 +1303,67 @@ AI WORK VIDEO
     <div class="contact-item"><span>🔗</span><a href="https://www.linkedin.com/in/fs-creative" target="_blank" style="color:var(--muted); text-decoration:none;">linkedin.com/in/fs-creative</a></div>
   </div>
   
-  <!-- ── FORMSPREE CONTACT FORM ── -->
-  <!-- Replace YOUR_FORMSPREE_ID with your actual endpoint ID from formspree.io -->
-  <form
-  id="contact-form"
-  action="https://formspree.io/f/xnjbyaaa"
-  method="POST"
-  style="
-    max-width: 620px;
-    margin: 0 auto 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    text-align: left;
-  "
->
-  <!-- Row: Name + Email -->
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-    <div style="display:flex; flex-direction:column; gap:0.4rem;">
-      <label for="cf-name" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold);">
-        <span data-i18n="cf_name">Name</span>
-      </label>
-      <input
-        id="cf-name"
-        type="text"
-        name="name"
-        required
-        placeholder="Your name"
-        data-i18n="cf_name_ph"
-        style="
-          background: var(--deep);
-          border: 1px solid var(--border);
-          color: var(--cream);
-          padding: 0.75rem 1rem;
-          font-family: 'DM Sans', sans-serif;
-          font-size: 0.88rem;
-          outline: none;
-          transition: border-color 0.2s;
-          width: 100%;
-        "
-        onfocus="this.style.borderColor='var(--gold)'"
-        onblur="this.style.borderColor='var(--border)'"
-      >
+  <form id="contact-form" action="https://formspree.io/f/xnjbyaaa" method="POST" style="max-width: 620px; margin: 0 auto 2rem; display: flex; flex-direction: column; gap: 1rem; text-align: left;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+      <div style="display:flex; flex-direction:column; gap:0.4rem;">
+        <label for="cf-name" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold);">
+          <span data-i18n="cf_name">Name</span>
+        </label>
+        <input id="cf-name" type="text" name="name" required placeholder="Your name" data-i18n="cf_name_ph" style="background: var(--deep); border: 1px solid var(--border); color: var(--cream); padding: 0.75rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s; width: 100%;">
+      </div>
+      <div style="display:flex; flex-direction:column; gap:0.4rem;">
+        <label for="cf-email" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold);">
+          <span data-i18n="cf_email">Email</span>
+        </label>
+        <input id="cf-email" type="email" name="email" required placeholder="your@email.com" data-i18n="cf_email_ph" style="background: var(--deep); border: 1px solid var(--border); color: var(--cream); padding: 0.75rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s; width: 100%;">
+      </div>
     </div>
+
     <div style="display:flex; flex-direction:column; gap:0.4rem;">
-      <label for="cf-email" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold);">
-        <span data-i18n="cf_email">Email</span>
+      <label for="cf-subject" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold);">
+        <span data-i18n="cf_subject">Subject</span>
       </label>
-      <input
-        id="cf-email"
-        type="email"
-        name="email"
-        required
-        placeholder="your@email.com"
-        data-i18n="cf_email_ph"
-        style="
-          background: var(--deep);
-          border: 1px solid var(--border);
-          color: var(--cream);
-          padding: 0.75rem 1rem;
-          font-family: 'DM Sans', sans-serif;
-          font-size: 0.88rem;
-          outline: none;
-          transition: border-color 0.2s;
-          width: 100%;
-        "
-        onfocus="this.style.borderColor='var(--gold)'"
-        onblur="this.style.borderColor='var(--border)'"
-      >
+      <input id="cf-subject" type="text" name="subject" placeholder="What's this about?" data-i18n="cf_subject_ph" style="background: var(--deep); border: 1px solid var(--border); color: var(--cream); padding: 0.75rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s; width: 100%;">
     </div>
+
+    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+      <label for="cf-message" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold);">
+        <span data-i18n="cf_message">Message</span>
+      </label>
+      <textarea id="cf-message" name="message" required rows="5" placeholder="Tell me about your project or opportunity..." data-i18n="cf_msg_ph" style="background: var(--deep); border: 1px solid var(--border); color: var(--cream); padding: 0.75rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; outline: none; resize: vertical; transition: border-color 0.2s; width: 100%;"></textarea>
+    </div>
+
+    <button type="submit" id="cf-submit" data-i18n="cf_submit" style="padding: 0.9rem 2rem; background: var(--gold); color: var(--navy); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.3s; font-family: 'DM Sans', sans-serif; align-self: center; min-width: 220px;">Send Message</button>
+
+    <p id="cf-success" data-i18n="cf_success" style="display:none; text-align:center; color:var(--gold); font-size:0.85rem; letter-spacing:0.05em;">
+      ✓ Message sent — I'll be in touch soon!
+    </p>
+    <p id="cf-error" data-i18n="cf_error" style="display:none; text-align:center; color:#e07070; font-size:0.85rem;">
+      Something went wrong. Please try again or email directly.
+    </p>
+  </form>
+
+  <div style="display:flex; justify-content:center;">
+    <a href="Fernando_Sanchez-Rodriguez_Resume_EN.pdf" download="Fernando_Sanchez-Rodriguez_Resume_EN.pdf" class="btn-download" data-i18n="contact_cv" style="padding:0.9rem 2rem; font-size:0.7rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; min-width:220px; max-width:220px; width:220px; flex:none; justify-content:center;">⬇ Download My CV</a>
   </div>
-
-  <!-- Subject -->
-  <div style="display:flex; flex-direction:column; gap:0.4rem;">
-    <label for="cf-subject" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold);">
-      <span data-i18n="cf_subject">Subject</span>
-    </label>
-    <input
-      id="cf-subject"
-      type="text"
-      name="subject"
-      placeholder="What's this about?"
-      data-i18n="cf_subject_ph"
-      style="
-        background: var(--deep);
-        border: 1px solid var(--border);
-        color: var(--cream);
-        padding: 0.75rem 1rem;
-        font-family: 'DM Sans', sans-serif;
-        font-size: 0.88rem;
-        outline: none;
-        transition: border-color 0.2s;
-        width: 100%;
-      "
-      onfocus="this.style.borderColor='var(--gold)'"
-      onblur="this.style.borderColor='var(--border)'"
-    >
-  </div>
-
-  <!-- Message -->
-  <div style="display:flex; flex-direction:column; gap:0.4rem;">
-    <label for="cf-message" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold);">
-      <span data-i18n="cf_message">Message</span>
-    </label>
-    <textarea
-      id="cf-message"
-      name="message"
-      required
-      rows="5"
-      placeholder="Tell me about your project or opportunity..."
-      data-i18n="cf_msg_ph"
-      style="
-        background: var(--deep);
-        border: 1px solid var(--border);
-        color: var(--cream);
-        padding: 0.75rem 1rem;
-        font-family: 'DM Sans', sans-serif;
-        font-size: 0.88rem;
-        outline: none;
-        resize: vertical;
-        transition: border-color 0.2s;
-        width: 100%;
-      "
-      onfocus="this.style.borderColor='var(--gold)'"
-      onblur="this.style.borderColor='var(--border)'"
-    ></textarea>
-  </div>
-
-  <!-- Submit -->
-  <button
-    type="submit"
-    id="cf-submit"
-    data-i18n="cf_submit"
-    style="
-      padding: 0.9rem 2rem;
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      transition: background 0.3s;
-      font-family: 'DM Sans', sans-serif;
-      align-self: center;
-      min-width: 220px;
-    "
-    onmouseover="this.style.background='var(--gold-light)'"
-    onmouseout="this.style.background='var(--gold)'"
-  >Send Message</button>
-
-  <!-- Feedback messages -->
-  <p id="cf-success" data-i18n="cf_success" style="display:none; text-align:center; color:var(--gold); font-size:0.85rem; letter-spacing:0.05em;">
-    ✓ Message sent — I'll be in touch soon!
-  </p>
-  <p id="cf-error" data-i18n="cf_error" style="display:none; text-align:center; color:#e07070; font-size:0.85rem;">
-    Something went wrong. Please try again or email directly.
-  </p>
-</form>
-
-<!-- CV download -->
-<div style="display:flex; justify-content:center;">
-  <a href="Fernando_Sanchez-Rodriguez_Resume.pdf"
-     download="Fernando_Sanchez-Rodriguez_Resume.pdf"
-     class="btn-download"
-     data-i18n="contact_cv"
-     style="padding:0.9rem 2rem; font-size:0.7rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; min-width:220px; max-width:220px; width:220px; flex:none; justify-content:center;">⬇ Download My CV</a>
-</div>
 </section>
 
 <footer>
   <div class="footer-text">
-    © <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear())</script> Fernando Sanchez-Rodriguez · Bayern, Germany · EU Citizen ·
-    <a href="https://www.linkedin.com/in/fs-creative" target="_blank" style="
-      color:var(--muted); text-decoration:none;
-      transition: color 0.2s;
-    "
-    onmouseover="this.style.color='var(--gold)'"
-    onmouseout="this.style.color='var(--muted)'">LinkedIn</a>
+    © <script>document.write(new Date().getFullYear())</script> Fernando Sanchez-Rodriguez · Bayern, Germany · EU Citizen ·
+    <a href="https://www.linkedin.com/in/fs-creative" target="_blank" style="color:var(--muted); text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">LinkedIn</a>
   </div>
   <span class="footer-text" style="font-size:0.65rem; color:var(--muted); opacity:0.7; text-align:center;">
-    This site does not collect personal data or use tracking cookies beyond anonymous analytics (Google Analytics). 
-    Contact: <a href="/cdn-cgi/l/email-protection#c3a5a6b1ada2ada7acb0b1edb0a2ad83a4aea2aaafeda0acae" style="color:var(--muted); text-decoration:none;"><span class="__cf_email__" data-cfemail="82e4e7f0ece3ece6edf1f0acf1e3ecc2e5efe3ebeeace1edef">[email&#160;protected]</span></a>
+    <span data-i18n="footer_gdpr">This site does not collect personal data or use tracking cookies beyond anonymous analytics (Google Analytics). Contact:</span>
+    <a href="mailto:fernandosr.san@gmail.com" style="color:var(--muted); text-decoration:none;">fernandosr.san@gmail.com</a>
   </span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Body reveal fallback
+<script>
   try {
     window.addEventListener('load', () => { document.body.classList.add('loaded'); });
   } catch(e) {}
 
-  // Scroll spy
   const sections = document.querySelectorAll('section[id]');
   const scrollNavLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
@@ -1814,43 +1377,48 @@ AI WORK VIDEO
     });
   });
 
-  // Testimonial expand/collapse (mobile)
   document.querySelectorAll('.testimonial-read-more').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      e.target.closest('.testimonial-card').classList.toggle('expanded');
-      e.target.textContent = e.target.closest('.testimonial-card').classList.contains('expanded') ? 'Read less ↑' : 'Read more ↓';
+      const card = e.target.closest('.testimonial-card');
+      card.classList.toggle('expanded');
+      e.target.textContent = card.classList.contains('expanded') ? 'Read less ↑' : 'Read more ↓';
     });
   });
 
-  // ── PROJECT LIGHTBOX SYSTEM ──
   function openProjectLightbox(id) {
-    var lb = document.getElementById(id);
+    const lb = document.getElementById(id);
+    if (!lb) return;
     lb.classList.add('is-open');
     document.body.style.overflow = 'hidden';
-    // If there's a video inside, play it
-    var vid = lb.querySelector('video');
+    const vid = lb.querySelector('video');
     if (vid) vid.play();
   }
 
   function closeProjectLightbox(id) {
-    var lb = document.getElementById(id);
+    const lb = document.getElementById(id);
+    if (!lb) return;
     lb.classList.remove('is-open');
     document.body.style.overflow = '';
-    // Pause and reset any video
-    var vid = lb.querySelector('video');
+    const vid = lb.querySelector('video');
     if (vid) { vid.pause(); vid.currentTime = 0; }
   }
 
-  // ── FORMSPREE ASYNC SUBMIT ──
-  var contactForm = document.getElementById('contact-form');
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.project-lightbox.is-open').forEach(lb => {
+        closeProjectLightbox(lb.id);
+      });
+    }
+  });
+
+  const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', async function(e) {
       e.preventDefault();
-      var btn = document.getElementById('cf-submit');
-      var successMsg = document.getElementById('cf-success');
-      var errorMsg = document.getElementById('cf-error');
+      const btn = document.getElementById('cf-submit');
+      const successMsg = document.getElementById('cf-success');
+      const errorMsg = document.getElementById('cf-error');
 
-      // Button loading state
       btn.textContent = 'Sending…';
       btn.disabled = true;
       btn.style.opacity = '0.7';
@@ -1858,7 +1426,7 @@ AI WORK VIDEO
       errorMsg.style.display = 'none';
 
       try {
-        var response = await fetch(contactForm.action, {
+        const response = await fetch(contactForm.action, {
           method: 'POST',
           body: new FormData(contactForm),
           headers: { 'Accept': 'application/json' }
@@ -1880,18 +1448,10 @@ AI WORK VIDEO
       }
     });
   }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.project-lightbox.is-open').forEach(lb => {
-        closeProjectLightbox(lb.id);
-      });
-    }
-  });
 </script>
 
 <script>
 const TRANSLATIONS = {
-
   en: {
     nav_about:      'About',
     nav_experience: 'Experience',
@@ -1901,7 +1461,7 @@ const TRANSLATIONS = {
 
     hero_eyebrow:   'Digital Transformation &amp; Operations Consultant · EMEA',
     hero_badge:     'Open to Mandates',
-    hero_subtitle:  'The consultant who has actually run the operations. 25 years turning complexity into measurable outcomes — across government IT, manufacturing, and education, in three countries and three languages. I help organisations design smarter processes, build digital capability, and lead change that sticks. Based in Bavaria. Available for consulting and leadership mandates across Europe.',
+    hero_subtitle:  'The consultant who has actually run the operations. 25 years turning complexity into measurable outcomes — across government IT, manufacturing, sales, and education, in three countries and three languages. I help organisations design smarter processes, build digital capability, and lead change that sticks. Based in Bavaria. Available for consulting and leadership mandates across Europe.',
     hero_badge_eu:  '🌍 EU Citizen · ES / EN / DE',
     hero_badge_loc: '📍 Bavaria · Remote &amp; Hybrid EU',
     hero_badge_ai:  '🤖 Google Certified · AI &amp; BI',
@@ -1929,17 +1489,17 @@ const TRANSLATIONS = {
     exp2_date:    '2023 – Present · Bayern, Germany',
     exp2_role:    'Healthcare Operations & Community Care · Professional Integration in Germany',
     exp2_company: 'AZURIT Seniorenzentrum · Bavaria, Germany',
-    exp2_desc:    'Entered the German elder-care sector with no prior domain experience and sustained 3+ years of continuous employment in a regulated institutional environment, delivering direct care across a 33-resident unit as part of a 3–4-person shift team under strict documentation and compliance standards. Built German-language fluency and DACH professional practice knowledge from the ground up while working full-time shift rotations, completing four Google Career Certificates (AI Essentials, Data Analytics, Business Intelligence, UX Design) in parallel to prepare for a return to operations and implementation roles. Coordinated daily with multidisciplinary care staff, medical professionals, and resident families in a multilingual, high-demand interpersonal setting, sustaining consistent service quality and reliability across the unit despite the language and cultural transition. This period represents a deliberate market-entry strategy: establishing legal residency, professional credibility, and language competence in the DACH region while continuing structured upskilling toward a return to a digital transformation and IT project management career track',
+    exp2_desc:    'Entered the German elder-care sector with no prior domain experience and sustained 3+ years of continuous employment in a regulated institutional environment, delivering direct care across a 33-resident unit as part of a 3–4-person shift team under strict documentation and compliance standards. Built German-language fluency and DACH professional practice knowledge from the ground up while working full-time shift rotations, completing four Google Career Certificates (AI Essentials, Data Analytics, Business Intelligence, UX Design) in parallel to prepare for a return to operations and implementation roles. Coordinated daily with multidisciplinary care staff, medical professionals, and resident families in a multilingual, high-demand interpersonal setting, sustaining consistent service quality and reliability across the unit despite the language and cultural transition. This period represents a deliberate market-entry strategy: establishing legal residency, professional credibility, and language competence in the DACH region while continuing structured upskilling toward a return to a digital transformation and IT project management career track.',
 
     exp1_date:    '2022 – 2023 · Lisbon, Portugal',
     exp1_role:    'Web Product Implementation Specialist for Google',
     exp1_company: 'Teleperformance / Google',
-    exp1_desc:    'Managed a high-volume Enterprise support caseload for Google's EMEA/LATAM portfolio — 179 cases, spanning 17 CMS platforms and 13 countries — closing 85 cases (47.5% solution rate) at a 7-day median resolution time. Redesigned and reorganized the internal support intranet for clarity and usability, cutting internal response times by approximately one-third. Trained and onboarded new hires on case-handling procedures in a multicultural team, maintaining process consistency and service quality. Carried a high WordPress case volume (117 of 179 cases, 65% of total load) and achieved a 75% solution rate on Joomla, the strongest-performing platform.',
+    exp1_desc:    `Managed a high-volume Enterprise support caseload for Google's EMEA/LATAM portfolio — 179 cases, spanning 17 CMS platforms and 13 countries — closing 85 cases (47.5% solution rate) at a 7-day median resolution time. Redesigned and reorganized the internal support intranet for clarity and usability, cutting internal response times by approximately one-third. Trained and onboarded new hires on case-handling procedures in a multicultural team, maintaining process consistency and service quality. Carried a high WordPress case volume (117 of 179 cases, 65% of total load) and achieved a 75% solution rate on Joomla, the strongest-performing platform.`,
 
     exp3_date:    '2012 – 2019 · Puebla, Mexico',
     exp3_role:    'Manufacturing Manager & Commercial Development (B2B Accounts)',
     exp3_company: 'Uriarte Talavera — Premium Ceramics',
-    exp3_desc:    'Implemented KPI-driven supply chain optimization across a 70-person production floor, restructuring workflow sequencing and material handoffs to reduce production lead time by 20% and lift overall efficiency by 15%. Founded the company's Quality Assurance Department from scratch — defining inspection checkpoints, defect classification, and rework protocols — implemented 5S methodology across the shop floor, and authored the first "Guide for Quality Assurance on Talavera Pieces," a foundational reference that standardized craft-quality evaluation and lifted client satisfaction (NPS) by 15%. Standardized production scheduling and material-flow monitoring, introducing a tracking system that cut average monthly order-backlog delays from 56 days to 11 days (an 80% reduction) and improved on-time fulfillment from 49% to 72%. Designed and implemented an internal website centralizing production data — pulling scheduling, inventory, and quality metrics into a single dashboard — enabling faster continuous-improvement decision-making plant-wide. Managed bespoke production for external clients including Rosewood Hotel Puebla, Pujol Restaurant, and Farca + Grappin Studio, coordinating directly with designers to deliver to exact specifications under real production constraints such as kiln capacity and hand-painting lead times. Grew annual sales revenue 30% over 4 years (average monthly billing up 43%, $1.13M→$1.62M MXN) through a marketing innovation plan covering packaging redesign and social media engagement. Launched a sales administration website with performance dashboards, giving commercial leadership real-time, data-driven visibility into pipeline and account health. Managed international accounts across the Americas and Europe and collaborated with designers like Lance Wyman on bespoke product lines, bridging commercial requirements with production capability.',
+    exp3_desc:    'Implemented KPI-driven supply chain optimization across a 70-person production floor, restructuring workflow sequencing and material handoffs to reduce production lead time by 20% and lift overall efficiency by 15%. Founded the company\'s Quality Assurance Department from scratch — defining inspection checkpoints, defect classification, and rework protocols — implemented 5S methodology across the shop floor, and authored the first "Guide for Quality Assurance on Talavera Pieces," a foundational reference that standardized craft-quality evaluation and lifted client satisfaction (NPS) by 15%. Standardized production scheduling and material-flow monitoring, introducing a tracking system that cut average monthly order-backlog delays from 56 days to 11 days (an 80% reduction) and improved on-time fulfillment from 49% to 72%. Designed and implemented an internal website centralizing production data — pulling scheduling, inventory, and quality metrics into a single dashboard — enabling faster continuous-improvement decision-making plant-wide. Managed bespoke production for external clients including Rosewood Hotel Puebla, Pujol Restaurant, and Farca + Grappin Studio, coordinating directly with designers to deliver to exact specifications under real production constraints such as kiln capacity and hand-painting lead times. Grew annual sales revenue 30% over 4 years (average monthly billing up 43%, $1.13M→$1.62M MXN) through a marketing innovation plan covering packaging redesign and social media engagement. Launched a sales administration website with performance dashboards, giving commercial leadership real-time, data-driven visibility into pipeline and account health. Managed international accounts across the Americas and Europe and collaborated with designers like Lance Wyman on bespoke product lines, bridging commercial requirements with production capability.',
 
     exp4_date:    '2008 – 2022 · Puebla, Mexico',
     exp4_role:    'Lecturer – Digital Tools & Technology Platforms',
@@ -1975,7 +1535,7 @@ const TRANSLATIONS = {
 
     proj4_cat:    'IT Operations · ISSSTE',
     proj4_title:  'Government IT Service Transformation',
-    proj4_desc:   'Led a multi-site IT overhaul across 38 state healthcare facilities, managing a team of 25+ technicians. I implemented structured training programs, standardized workflows, and a training model that reduced response times across the entire network — without increasing headcount.',
+    proj4_desc:   'Led a multi-site IT overhaul across 38 state healthcare facilities, managing a team of 25+ technicians. Introduced structured training programs, standardized workflows, and a training model that reduced response times across the entire network — without increasing headcount.',
     proj4_result: '50% faster IT response time',
     proj4_video:  '▶ Watch Project Video',
 
@@ -2020,7 +1580,7 @@ const TRANSLATIONS = {
     lang2_name:  'English',
     lang2_level: 'C1 — Professional',
     lang3_name:  'German',
-    lang3_level: 'A2 — Conversational',
+    lang3_level: 'B1 — Intermediate',
 
     contact_label: 'Get In Touch',
     contact_title: `Let's Build Something<br><span>Better Together</span>`,
@@ -2045,7 +1605,6 @@ const TRANSLATIONS = {
     footer_gdpr: 'This site does not collect personal data or use tracking cookies beyond anonymous analytics (Google Analytics). Contact:',
   },
 
-  // ── GERMAN ────────────────────────────────────────────────────
   de: {
     nav_about:      'Über mich',
     nav_experience: 'Erfahrung',
@@ -2129,13 +1688,13 @@ const TRANSLATIONS = {
 
     proj4_cat:    'IT-Betrieb · ISSSTE',
     proj4_title:  'IT-Transformation im öffentlichen Sektor',
-    proj4_desc:   'Leitung einer standortübergreifenden IT-Modernisierung in 38 staatlichen Gesundheitseinrichtungen mit einem Team von über 25 Technikern. Ich implementierte strukturierte Schulungsprogramme, standardisierte Arbeitsabläufe und ein Schulungsmodell, das die Reaktionszeiten im gesamten Netzwerk verkürzte – ohne die Mitarbeiterzahl zu erhöhen.',
+    proj4_desc:   'Leitung einer standortübergreifenden IT-Modernisierung in 38 staatlichen Gesundheitseinrichtungen mit einem Team von über 25 Technikern. Implementierung strukturierter Schulungsprogramme, standardisierter Arbeitsabläufe und eines Schulungsmodells, das die Reaktionszeiten im gesamten Netzwerk verkürzte – ohne die Mitarbeiterzahl zu erhöhen.',
     proj4_result: '50% schnellere IT-Reaktionszeit',
     proj4_video:  '▶ Projektvideo ansehen',
 
     proj5_cat:    'Design &amp; Produktion · Keramik',
     proj5_title:  'Premiumkundenprojekte — Rosewood, Zürich &amp; Lance Wyman',
-    proj5_desc:   'Geführt Design und Fertigung maßgeschneiderter Keramikkollektionen für internationale Kunden: Talavera-Fliesen für Rosewood Hotels Puebla, Bodeninstallationen für Zurich Insurance Mexiko und eine gemeinsam mit Designer Lance Wyman entwickelte Fusionskollektion.',
+    proj5_desc:   'Leitung von Design und Fertigung maßgeschneiderter Keramikkollektionen für internationale Kunden: Talavera-Fliesen für Rosewood Hotels Puebla, Bodeninstallationen für Zurich Insurance Mexiko und eine gemeinsam mit Designer Lance Wyman entwickelte Fusionskollektion.',
     proj5_result: 'Luxus- &amp; institutionelle Kunden',
     proj5_link:   'Keramik-Website',
 
@@ -2174,7 +1733,7 @@ const TRANSLATIONS = {
     lang2_name:  'Englisch',
     lang2_level: 'C1 — Professionell',
     lang3_name:  'Deutsch',
-    lang3_level: 'A2 — Konversationssicher',
+    lang3_level: 'B1 — Mittelstufe',
 
     contact_label: 'Kontakt',
     contact_title: `Lassen Sie uns gemeinsam<br><span>etwas Besseres aufbauen</span>`,
@@ -2199,7 +1758,6 @@ const TRANSLATIONS = {
     footer_gdpr: 'Diese Website sammelt keine personenbezogenen Daten und verwendet keine Tracking-Cookies außer anonymen Analysen (Google Analytics). Kontakt:',
   },
 
-  // ── SPANISH ───────────────────────────────────────────────────
   es: {
     nav_about:      'Sobre mí',
     nav_experience: 'Experiencia',
@@ -2209,7 +1767,7 @@ const TRANSLATIONS = {
 
     hero_eyebrow:   'Consultor de Transformación Digital &amp; Operaciones · EMEA',
     hero_badge:     'Abierto a nuevas oportunidades',
-    hero_subtitle:  'Consultor con 25 años de experiencia practica en el manejo de operaciones y en la obtencion de resultados medibles. Mi trayectoria abarca transformacion en los sectores de TI gubernamental, manufactura, ventas y educacion, en tres paises e idiomas distintos. Me especialzo en ayudar a las organizaciones a optimizar procesos, desarrollar capacidades digitales y guiar cambios sostenibles. Ubicado en Baviera. Disponible para mandatos de consultoría y liderazgo en toda Europa.',
+    hero_subtitle:  'Consultor con 25 años de experiencia práctica en el manejo de operaciones y en la obtención de resultados medibles. Mi trayectoria abarca transformación en los sectores de TI gubernamental, manufactura, ventas y educación, en tres países e idiomas distintos. Me especializo en ayudar a las organizaciones a optimizar procesos, desarrollar capacidades digitales y guiar cambios sostenibles. Ubicado en Baviera. Disponible para mandatos de consultoría y liderazgo en toda Europa.',
     hero_badge_eu:  '🌍 Ciudadano UE · ES / EN / DE',
     hero_badge_loc: '📍 Baviera · Remoto &amp; Híbrido UE',
     hero_badge_ai:  '🤖 Certificado por Google · IA &amp; BI',
@@ -2225,7 +1783,7 @@ const TRANSLATIONS = {
 
     about_label:  'Sobre mí',
     about_title:  'El consultor que ha dirigido las operaciones de verdad',
-    about_p1:     `La mayoría de los consultores asesoran desde afuera. Yo he estado adentro — gestionando <span class="highlight">38 instalaciones gubernamentales</span>, liderando un <span class="highlight">equipo de producción de 70 personas</span>, construyendo planes de estudio digitales desde cero e implementando sistemas de KPI que han perdurado aund después de mi salida. Esa profundidad operativa es lo que aporto a cada proyecto.`,
+    about_p1:     `La mayoría de los consultores asesoran desde afuera. Yo he estado adentro — gestionando <span class="highlight">38 instalaciones gubernamentales</span>, liderando un <span class="highlight">equipo de producción de 70 personas</span>, construyendo planes de estudio digitales desde cero e implementando sistemas de KPI que han perdurado aún después de mi salida. Esa profundidad operativa es lo que aporto a cada proyecto.`,
     about_p2:     'Mi trayectoria abarca el diseño industrial, las operaciones de TI, la gestión de manufactura y la formación a gran escala — en México, Portugal y Alemania. Sé cómo se ve cuando las mejoras de procesos no se adoptan, cuando las herramientas digitales se despliegan sin que las personas estén preparadas, y cuando la gestión del cambio es una idea de último momento. Yo cierro esas brechas.',
     about_p3:     `Hoy combino esa experiencia práctica con capacidades estructuradas en IA y datos — <span class="highlight">Certificados de Carrera Google</span> en Análisis de Datos, Diseño UX, Inteligencia Artificial e Inteligencia de Negocios — para ayudar a las organizaciones a moverse más rápido y de forma más inteligente. Trilingüe en español, inglés y alemán. Ciudadano de la UE. Ubicado en Baviera, disponible para ofertas remotas e híbridas en toda Europa.`,
     about_cta_exp:  'Ver mi experiencia →',
@@ -2237,12 +1795,12 @@ const TRANSLATIONS = {
     exp2_date:    '2023 – Presente · Baviera, Alemania',
     exp2_role:    'Soporte en Operaciones de Salud y Atención Comunitaria · Integración Profesional en Alemania',
     exp2_company: 'AZURIT Seniorenzentrum · Baviera, Alemania',
-    exp2_desc:    ' Ingresé al sector alemán de la atención a adultos mayores sin experiencia previa y me he mantenido en el empleo por más de 3 años de manera continua en un entorno institucional regulado, brindando atención directa a una unidad de 33 residentes como parte de un equipo de turno de 3 a 4 personas. He desarrollado el manejo del idioma alemán y he adquirido conocimientos sobre las prácticas profesionales en la región DACH mientras trabajaba a tiempo completo y completaba de manera paralela 4 Certificados Profesionales de Google —Inteligencia Artificial, Análisis de Datos, Business Intelligence y Diseño UX— con la intención de prepararme para regresar al mercado de operaciones e informática. Trabajo con personal multidisciplinario y con familiares, en un entorno interpersonal multilingüe y de alta exigencia, manteniendo una calidad de servicio constante en toda la unidad.',
+    exp2_desc:    'Ingresé al sector alemán de la atención a adultos mayores sin experiencia previa y me he mantenido en el empleo por más de 3 años de manera continua en un entorno institucional regulado, brindando atención directa a una unidad de 33 residentes como parte de un equipo de turno de 3 a 4 personas. He desarrollado el manejo del idioma alemán y he adquirido conocimientos sobre las prácticas profesionales en la región DACH mientras trabajaba a tiempo completo y completaba de manera paralela 4 Certificados Profesionales de Google —Inteligencia Artificial, Análisis de Datos, Business Intelligence y Diseño UX— con la intención de prepararme para regresar al mercado de operaciones e informática. Trabajo con personal multidisciplinario y con familiares, en un entorno interpersonal multilingüe y de alta exigencia, manteniendo una calidad de servicio constante en toda la unidad.',
     
     exp1_date:    '2022 – 2023 · Lisboa, Portugal',
     exp1_role:    'Especialista en Implementación de Productos Web para Google',
     exp1_company: 'Teleperformance / Google',
-    exp1_desc:    'Gestioné una cartera de casos de soporte empresarial de alto volumen para la cartera EMEA/LATAM de Google: 179 casos, correspondientes a 17 plataformas CMS y 13 países. Cerré 85 casos, con una tasa de resolución del 47,5% y un tiempo promedio de resolución de 7 días. Rediseñé y reorganizé la intranet interna de soporte para mejorar su claridad y usabilidad, reduciendo aproximadamente en un tercio los tiempos de respuesta internos. Capacité e incorporé a nuevos colaboradores en los procedimientos de gestión de casos dentro de un equipo multicultural, manteniendo la consistencia de los procesos y la calidad del servicio. Gestioné un elevado volumen de casos de WordPress (117 de 179 casos, el 65 % de la carga total) y logré una tasa de resolución del 75 % en Joomla, la plataforma con mejor rendimiento.',
+    exp1_desc:    'Gestioné una cartera de casos de soporte empresarial de alto volumen para la cartera EMEA/LATAM de Google: 179 casos, correspondientes a 17 plataformas CMS y 13 países. Cerré 85 casos, con una tasa de resolución del 47,5% y un tiempo promedio de resolución de 7 días. Rediseñé y organicé la intranet interna de soporte para mejorar su claridad y usabilidad, reduciendo aproximadamente en un tercio los tiempos de respuesta internos. Capacité e incorporé a nuevos colaboradores en los procedimientos de gestión de casos dentro de un equipo multicultural, manteniendo la consistencia de los procesos y la calidad del servicio. Gestioné un elevado volumen de casos de WordPress (117 de 179 casos, el 65 % de la carga total) y logré una tasa de resolución del 75 % en Joomla, la plataforma con mejor rendimiento.',
     
     exp3_date:    '2012 – 2019 · Puebla, México',
     exp3_role:    'Gerente de Manufactura y Desarrollo Comercial — Cuentas B2B',
@@ -2314,7 +1872,7 @@ const TRANSLATIONS = {
     test1_text: 'Working alongside Fernando at Teleperformance was key to the success of our Google Ads HTML implementation project. His strategic vision and ability to optimize processes not only improved operational efficiency but also drove innovation in automation and advanced technical solutions. From day one, Fernando became a technology scrum master, enhancing HTML integration in digital advertising and optimizing workflows with a data-driven approach. His impact was both immediate and long-lasting, solidifying him as an expert in digital transformation.',
     test1_name: 'Rui Florez',
     test1_role: 'Líder de Diseño de Procesos IA · Qualitest',
-    test2_text: 'I had the opportunity to witness Fernando\'s positive attitude in a very dynamic working environment, where he demonstrated to keep strong relationships with stakeholders along with his ability to remain calm and composed under pressure. He consistently delivered high-quality work by keeping a customer driven attitude, delivering an excellent customer service.',
+    test2_text: `I had the opportunity to witness Fernando's positive attitude in a very dynamic working environment, where he demonstrated to keep strong relationships with stakeholders along with his ability to remain calm and composed under pressure. He consistently delivered high-quality work by keeping a customer driven attitude, delivering an excellent customer service.`,
     test2_name: 'Michela Di Noia',
     test2_role: 'Supervisora de Operaciones · Teleperformance',
     test3_text: 'En mi opinión, Fernando es uno de los expertos en producción de cerámica fina y artesanal más relevantes de México. Su labor al frente del área de producción Uriarte Talavera fue notable, pues modernizó los estándares de calidad de una firma cerámica emblemática y bicentenaria que, sin duda alguna, está entre las más importantes del mundo.',
@@ -2322,18 +1880,18 @@ const TRANSLATIONS = {
     test3_role: 'Socio Director · RPA',
 
     lang_label:  'Idiomas',
-    lang_title:  'Trilingue',
+    lang_title:  'Trilingüe',
     lang1_name:  'Español',
     lang1_level: 'Nativo',
     lang2_name:  'Inglés',
     lang2_level: 'C1 — Profesional',
     lang3_name:  'Alemán',
-    lang3_level: 'A2 — Conversacional',
+    lang3_level: 'B1 — Intermedio',
 
     contact_label: 'Contacto',
     contact_title: `Construyamos algo<br><span>mejor juntos</span>`,
     contact_sub:   'Abierto a roles de liderazgo operativo, transformación digital y consultoría de innovación en la UE — remoto o híbrido.',
-    contact_li:    'Escribeme por LinkedIn',
+    contact_li:    'Escríbeme por LinkedIn',
     cf_name:       'Nombre',
     cf_email:      'Correo electrónico',
     cf_subject:    'Asunto',
@@ -2354,7 +1912,6 @@ const TRANSLATIONS = {
   }
 };
 
-// ── DATA ATTRIBUTES MAP ─────────────────────────────────────────
 const CONTENT_MAP = [
   ['[data-i18n="nav_about"]',      'html', 'nav_about'],
   ['[data-i18n="nav_experience"]', 'html', 'nav_experience'],
@@ -2414,29 +1971,29 @@ const CONTENT_MAP = [
   ['[data-i18n="proj_subtitle"]', 'html', 'proj_subtitle'],
   ['[data-i18n="proj1_cat"]',    'html', 'proj1_cat'],
   ['[data-i18n="proj1_title"]',  'html', 'proj1_title'],
-  ['[data-i18n="proj1_desc"]',   'html', 'proj1_desc'],
+  ['[data-i18n="proj1_desc"]',    'html', 'proj1_desc'],
   ['[data-i18n="proj1_result"]', 'html', 'proj1_result'],
   ['[data-i18n="proj1_video"]',  'html', 'proj1_video'],
   ['[data-i18n="proj2_cat"]',    'html', 'proj2_cat'],
   ['[data-i18n="proj2_title"]',  'html', 'proj2_title'],
-  ['[data-i18n="proj2_desc"]',   'html', 'proj2_desc'],
+  ['[data-i18n="proj2_desc"]',    'html', 'proj2_desc'],
   ['[data-i18n="proj2_result"]', 'html', 'proj2_result'],
   ['[data-i18n="proj2_video"]',  'html', 'proj2_video'],
   ['[data-i18n="proj3_cat"]',    'html', 'proj3_cat'],
   ['[data-i18n="proj3_title"]',  'html', 'proj3_title'],
-  ['[data-i18n="proj3_desc"]',   'html', 'proj3_desc'],
+  ['[data-i18n="proj3_desc"]',    'html', 'proj3_desc'],
   ['[data-i18n="proj3_result"]', 'html', 'proj3_result'],
   ['[data-i18n="proj3_video"]',  'html', 'proj3_video'],
   ['[data-i18n="proj4_cat"]',    'html', 'proj4_cat'],
   ['[data-i18n="proj4_title"]',  'html', 'proj4_title'],
-  ['[data-i18n="proj4_desc"]',   'html', 'proj4_desc'],
+  ['[data-i18n="proj4_desc"]',    'html', 'proj4_desc'],
   ['[data-i18n="proj4_result"]', 'html', 'proj4_result'],
   ['[data-i18n="proj4_video"]',  'html', 'proj4_video'],
   ['[data-i18n="proj5_cat"]',    'html', 'proj5_cat'],
   ['[data-i18n="proj5_title"]',  'html', 'proj5_title'],
-  ['[data-i18n="proj5_desc"]',   'html', 'proj5_desc'],
+  ['[data-i18n="proj5_desc"]',    'html', 'proj5_desc'],
   ['[data-i18n="proj5_result"]', 'html', 'proj5_result'],
-  ['[data-i18n="proj5_link"]',   'html', 'proj5_link'],
+  ['[data-i18n="proj5_link"]',    'html', 'proj5_link'],
   ['[data-i18n="skills_label"]', 'html', 'skills_label'],
   ['[data-i18n="skills_title"]', 'html', 'skills_title'],
   ['[data-i18n="skill1"]',  'html', 'skill1'],
@@ -2470,26 +2027,25 @@ const CONTENT_MAP = [
   ['[data-i18n="lang2_level"]', 'html', 'lang2_level'],
   ['[data-i18n="lang3_name"]',  'html', 'lang3_name'],
   ['[data-i18n="lang3_level"]', 'html', 'lang3_level'],
-  ['[data-i18n="contact_label"]', 'html',        'contact_label'],
-  ['[data-i18n="contact_title"]', 'html',        'contact_title'],
-  ['[data-i18n="contact_sub"]',   'html',        'contact_sub'],
-  ['[data-i18n="contact_li"]',    'html',        'contact_li'],
-  ['[data-i18n="cf_name"]',       'html',        'cf_name'],
-  ['[data-i18n="cf_email"]',      'html',        'cf_email'],
-  ['[data-i18n="cf_subject"]',    'html',        'cf_subject'],
-  ['[data-i18n="cf_message"]',    'html',        'cf_message'],
+  ['[data-i18n="contact_label"]', 'html', 'contact_label'],
+  ['[data-i18n="contact_title"]', 'html', 'contact_title'],
+  ['[data-i18n="contact_sub"]',   'html', 'contact_sub'],
+  ['[data-i18n="contact_li"]',    'html', 'contact_li'],
+  ['[data-i18n="cf_name"]',       'html', 'cf_name'],
+  ['[data-i18n="cf_email"]',      'html', 'cf_email'],
+  ['[data-i18n="cf_subject"]',    'html', 'cf_subject'],
+  ['[data-i18n="cf_message"]',    'html', 'cf_message'],
   ['[data-i18n="cf_name_ph"]',    'placeholder', 'cf_name_ph'],
   ['[data-i18n="cf_email_ph"]',   'placeholder', 'cf_email_ph'],
   ['[data-i18n="cf_subject_ph"]', 'placeholder', 'cf_subject_ph'],
   ['[data-i18n="cf_msg_ph"]',     'placeholder', 'cf_msg_ph'],
-  ['[data-i18n="cf_submit"]',     'html',        'cf_submit'],
-  ['[data-i18n="cf_success"]',    'html',        'cf_success'],
-  ['[data-i18n="cf_error"]',      'html',        'cf_error'],
-  ['[data-i18n="contact_cv"]',    'html',        'contact_cv'],
-  ['[data-i18n="footer_gdpr"]',   'html',        'footer_gdpr'],
+  ['[data-i18n="cf_submit"]',     'html', 'cf_submit'],
+  ['[data-i18n="cf_success"]',    'html', 'cf_success'],
+  ['[data-i18n="cf_error"]',      'html', 'cf_error'],
+  ['[data-i18n="contact_cv"]',    'html', 'contact_cv'],
+  ['[data-i18n="footer_gdpr"]',   'html', 'footer_gdpr'],
 ];
 
-// ── ENGINE ──────────────────────────────────────────────────────
 let currentLang = 'en';
 
 function setLang(lang) {
@@ -2520,13 +2076,13 @@ function setLang(lang) {
     });
 
     document.querySelectorAll('.btn-download').forEach(el => {
-  if (t['cv_file']) {
-    el.href = t['cv_file'];
-    el.setAttribute('download', t['cv_file']);
-  }
-});
+      if (t['cv_file']) {
+        el.href = t['cv_file'];
+        el.setAttribute('download', t['cv_file']);
+      }
+    });
     
-     document.body.classList.remove('switching');
+    document.body.classList.remove('switching');
   }, 180);
 }
 </script>
