@@ -318,7 +318,7 @@
   .about-text p + p { margin-top: 1.2rem; }
   .highlight { color: var(--cream); }
 
-  /* EXPERIENCE */
+  /* EXPERIENCE & TIMELINE */
   .experience {
     padding: 6rem 4rem;
     background: var(--s-exp);
@@ -331,7 +331,7 @@
     left: 0; top: 0; bottom: 0;
     width: 1px; background: var(--border);
   }
-  .timeline-item { padding: 0 0 3rem 3rem; position: relative; }
+  .timeline-item { padding: 0 0 3.5rem 3rem; position: relative; }
   .timeline-item::before {
     content: ''; position: absolute;
     left: -4px; top: 6px;
@@ -349,8 +349,38 @@
     font-size: 1.8rem; font-weight: 600;
     color: var(--cream); margin-bottom: 0.2rem;
   }
-  .timeline-company { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.8rem; letter-spacing: 0.05em; }
-  .timeline-desc { font-size: 1rem; color: var(--muted); line-height: 1.8; max-width: 850px; }
+  .timeline-company { font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; letter-spacing: 0.05em; }
+  .timeline-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.8; max-width: 880px; }
+  
+  /* Timeline custom bullet styling */
+  .timeline-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .timeline-list li {
+    position: relative;
+    padding-left: 1.4rem;
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+  .timeline-list li::before {
+    content: '▪';
+    position: absolute;
+    left: 0.1rem;
+    top: -0.05rem;
+    color: var(--gold);
+    font-size: 0.85rem;
+  }
+  .timeline-list li strong {
+    color: var(--cream);
+    font-weight: 500;
+  }
+
   .timeline-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
   .tag {
     padding: 0.2rem 0.7rem;
@@ -485,7 +515,7 @@
   }
   .project-lb-btn:hover { background: rgba(201,168,76,0.1); }
 
-  /* UNIVERSAL PROJECT LIGHTBOX */
+  /* LIGHTBOX */
   .project-lightbox {
     display: none;
     position: fixed; inset: 0;
@@ -945,41 +975,86 @@
     <h2 class="section-title" data-i18n="exp_title">Cross-Industry Depth — Four Sectors, Three Countries</h2>
   </div>
   <div class="timeline">
+    
+    <!-- EXPERIENCE 2 (Current) -->
     <div class="timeline-item">
       <div class="timeline-date" data-i18n="exp2_date">2023 – Present · Bayern, Germany</div>
       <div class="timeline-role" data-i18n="exp2_role">Healthcare Operations & Community Care · Professional Integration in Germany</div>
       <div class="timeline-company" data-i18n="exp2_company">AZURIT Seniorenzentrum · Bavaria, Germany</div>
-      <div class="timeline-desc" data-i18n="exp2_desc">Entered the German elder-care sector with no prior domain experience and sustained 3+ years of continuous employment in a regulated institutional environment, delivering direct care across a 33-resident unit as part of a 3–4-person shift team under strict documentation and compliance standards. Built German-language fluency and DACH professional practice knowledge from the ground up while working full-time shift rotations, completing four Google Career Certificates (AI Essentials, Data Analytics, Business Intelligence, UX Design) in parallel to prepare for a return to operations and implementation roles. Coordinated daily with multidisciplinary care staff, medical professionals, and resident families in a multilingual, high-demand interpersonal setting, sustaining consistent service quality and reliability across the unit despite the language and cultural transition. This period represents a deliberate market-entry strategy: establishing legal residency, professional credibility, and language competence in the DACH region while continuing structured upskilling toward a return to a digital transformation and IT project management career track.</div>
+      <div class="timeline-desc" data-i18n="exp2_desc">
+        <ul class="timeline-list">
+          <li><strong>Institutional Integration:</strong> Entered the German healthcare and elder-care sector with no prior domain background, sustaining 3+ years of continuous service within a highly regulated institutional environment under strict compliance and documentation standards.</li>
+          <li><strong>Unit Care & Multidisciplinary Coordination:</strong> Delivered direct care and service across a 33-resident unit within a 3–4 person shift team, collaborating daily with healthcare professionals, administrative teams, and families.</li>
+          <li><strong>Language Fluency & DACH Professional Practice:</strong> Developed practical German fluency and professional competencies from the ground up while maintaining a demanding full-time operational rotation.</li>
+          <li><strong>Concurrent Upskilling:</strong> Completed 4 Google Career Certificates (AI Essentials, Data Analytics, Business Intelligence, UX Design) to establish strategic capability for returning to enterprise digital transformation and IT operations.</li>
+        </ul>
+      </div>
       <div class="timeline-tags"><span class="tag">Google AI Essentials</span><span class="tag">Data Analytics</span><span class="tag">Business Intelligence</span><span class="tag">UX Design</span><span class="tag">German B1</span><span class="tag">DACH Integration</span></div>
     </div>
+
+    <!-- EXPERIENCE 1 (Teleperformance / Google) -->
     <div class="timeline-item">
       <div class="timeline-date" data-i18n="exp1_date">2022 – 2023 · Lisbon, Portugal</div>
       <div class="timeline-role" data-i18n="exp1_role">Web Product Implementation Specialist for Google</div>
       <div class="timeline-company" data-i18n="exp1_company">Teleperformance / Google</div>
-      <div class="timeline-desc" data-i18n="exp1_desc">Managed a high-volume Enterprise support caseload for Google's EMEA/LATAM portfolio — 179 cases, spanning 17 CMS platforms and 13 countries — closing 85 cases (47.5% solution rate) at a 7-day median resolution time. Acted as the primary technical point of contact for Enterprise-tier clients navigating complex CMS migrations, plugin conflicts, and platform-specific implementation issues, translating technical constraints into clear guidance for non-technical stakeholders across multiple time zones and languages. Redesigned and reorganized the internal support intranet for clarity and usability, restructuring the knowledge base architecture and search taxonomy to cut internal response times by approximately one-third. Trained and onboarded new hires on case-handling procedures in a multicultural team, developing standardized troubleshooting playbooks that maintained process consistency and service quality as the team scaled. Carried a high WordPress case volume (117 of 179 cases, 65% of total load), becoming the team's de facto WordPress specialist, and achieved a 75% solution rate on Joomla, the strongest-performing platform in the portfolio — well above team average.</div>
+      <div class="timeline-desc" data-i18n="exp1_desc">
+        <ul class="timeline-list">
+          <li><strong>Enterprise Support Portfolio:</strong> Managed a high-volume implementation caseload for Google's EMEA/LATAM portfolio, handling 179 complex cases across 17 CMS platforms and 13 countries with a 47.5% resolution rate and 7-day median resolution time.</li>
+          <li><strong>Platform Specialization:</strong> Served as the team's primary technical lead for WordPress integrations (117 of 179 cases, 65% of total volume) and achieved an exceptional 75% resolution rate on Joomla.</li>
+          <li><strong>Knowledge Architecture & Efficiency:</strong> Redesigned and reorganized the internal support intranet and troubleshooting taxonomy, reducing internal response times by approximately 33%.</li>
+          <li><strong>Team Capability Building:</strong> Authored standardized troubleshooting playbooks and led onboarding for new team members across a multicultural, multilingual operations unit.</li>
+        </ul>
+      </div>
       <div class="timeline-tags"><span class="tag">Google · EMEA</span><span class="tag">KPI Management</span><span class="tag">Process Design</span><span class="tag">Multilingual</span></div>
     </div>
+
+    <!-- EXPERIENCE 3 (Uriarte Talavera) -->
     <div class="timeline-item">
       <div class="timeline-date" data-i18n="exp3_date">2012 – 2019 · Puebla, Mexico</div>
       <div class="timeline-role" data-i18n="exp3_role">Manufacturing Manager & Commercial Development (B2B Accounts)</div>
       <div class="timeline-company" data-i18n="exp3_company">Uriarte Talavera — Premium Ceramics</div>
-      <div class="timeline-desc" data-i18n="exp3_desc">Implemented KPI-driven supply chain optimization across a 70-person production floor, restructuring workflow sequencing and material handoffs to reduce production lead time by 20% and lift overall efficiency by 15%. Founded the company's Quality Assurance Department from scratch — defining inspection checkpoints, defect classification, and rework protocols — implemented 5S methodology across the shop floor, and authored the first "Guide for Quality Assurance on Talavera Pieces," a foundational reference that standardized craft-quality evaluation and lifted client satisfaction (NPS) by 15%. Standardized production scheduling and material-flow monitoring, introducing a tracking system that cut average monthly order-backlog delays from 56 days to 11 days (an 80% reduction) and improved on-time fulfillment from 49% to 72%. Designed and implemented an internal website centralizing production data — pulling scheduling, inventory, and quality metrics into a single dashboard — enabling faster continuous-improvement decision-making plant-wide. Managed bespoke production for external clients including Rosewood Hotel Puebla, Pujol Restaurant, and Farca + Grappin Studio, coordinating directly with designers to deliver to exact specifications under real production constraints such as kiln capacity and hand-painting lead times. Grew annual sales revenue 30% over 4 years (average monthly billing up 43%, $1.13M→$1.62M MXN) through a marketing innovation plan covering packaging redesign and social media engagement. Launched a sales administration website with performance dashboards, giving commercial leadership real-time, data-driven visibility into pipeline and account health. Managed international accounts across the Americas and Europe and collaborated with designers like Lance Wyman on bespoke product lines, bridging commercial requirements with production capability.</div>
+      <div class="timeline-desc" data-i18n="exp3_desc">
+        <ul class="timeline-list">
+          <li><strong>Plant Operations & Lean 5S:</strong> Directed shop-floor operations and supply chain optimization across a 70-person workforce, cutting production lead times by 20% and increasing operational efficiency by 15%.</li>
+          <li><strong>Quality Assurance Department:</strong> Founded the company's first Quality Assurance Department, authoring the standard "Guide for Quality Assurance on Talavera Pieces" and increasing customer satisfaction (NPS) by 15 points.</li>
+          <li><strong>Backlog & Fulfillment Optimization:</strong> Implemented material-flow tracking and scheduling dashboards, slashing average monthly order backlog delays from 56 to 11 days (an 80% reduction) and improving on-time delivery from 49% to 72%.</li>
+          <li><strong>Revenue Growth & Client Management:</strong> Drove a 30% increase in annual revenue over 4 years through marketing innovation and packaging redesign; oversaw bespoke production lines for premier accounts including Rosewood Hotels, Pujol Restaurant, and designer Lance Wyman.</li>
+        </ul>
+      </div>
       <div class="timeline-tags"><span class="tag">+30% Revenue</span><span class="tag">Lean / 5S</span><span class="tag">Team of 70</span><span class="tag">P&amp;L</span><span class="tag">NPS +15</span></div>
     </div>
+
+    <!-- EXPERIENCE 4 (UPAEP) -->
     <div class="timeline-item">
       <div class="timeline-date" data-i18n="exp4_date">2008 – 2022 · Puebla, Mexico</div>
       <div class="timeline-role" data-i18n="exp4_role">Lecturer – Digital Tools & Technology Platforms</div>
       <div class="timeline-company" data-i18n="exp4_company">UPAEP University</div>
-      <div class="timeline-desc" data-i18n="exp4_desc">Delivered a 14-year digital competency curriculum covering Microsoft 365 and 15+ collaboration/creative tools, achieving a completion rate above 90% across 1,000+ students spanning multiple faculties and academic levels. Developed original course materials, hands-on lab exercises, and simulation-based learning frameworks from the ground up, iterating the curriculum year over year to keep pace with evolving software platforms while sustaining repeatable, high-quality delivery across 14 consecutive years. Ran concurrently with full-time industry roles in manufacturing and IT operations, requiring sustained time-management discipline and the ability to translate real-world operational experience directly into classroom instruction and student mentorship.</div>
+      <div class="timeline-desc" data-i18n="exp4_desc">
+        <ul class="timeline-list">
+          <li><strong>Curriculum Design & Delivery:</strong> Developed and led a 14-year digital competency program covering Microsoft 365 and 15+ collaborative platforms, consistently achieving a course completion rate above 90% across 1,000+ students.</li>
+          <li><strong>Simulation & Methodological Innovation:</strong> Engineered original simulation-based laboratory exercises, updating the curriculum continually to reflect modern industry technologies.</li>
+          <li><strong>Cross-Disciplinary Execution:</strong> Delivered training programs concurrently alongside full-time executive roles in manufacturing and IT operations, translating real-world operational challenges directly into practical instruction.</li>
+        </ul>
+      </div>
       <div class="timeline-tags"><span class="tag">1,000+ Trained</span><span class="tag">Curriculum Design</span><span class="tag">Digital Adoption</span><span class="tag">90%+ Completion</span></div>
     </div>
+
+    <!-- EXPERIENCE 5 (ISSSTE) -->
     <div class="timeline-item" style="padding-bottom:0">
       <div class="timeline-date" data-i18n="exp5_date">1995 – 2011 · Puebla, Mexico</div>
       <div class="timeline-role" data-i18n="exp5_role">IT Operations Manager</div>
       <div class="timeline-company" data-i18n="exp5_company">ISSSTE — Mexican State Workers Institute</div>
-      <div class="timeline-desc" data-i18n="exp5_desc">Directed IT transformation across 38 state healthcare facilities — managing networks, systems, telecommunications, and surveillance infrastructure at delegation level for a large public-sector healthcare network. Led the end-to-end rollout of the ISSSTEMED Electronic Medical Record system, connecting all medical and administrative units to the national Central Office and standardizing patient-record access across the delegation. Oversaw structured cabling and mapping of 370 voice and data nodes, building the physical network backbone that underpinned the digitization effort. Trained 120 government employees as distributed IT supporters, building a decentralized first-line support model that cut response times by 50% through capability building, documentation, and process redesign — leadership carried out across a 16-year span covering the transition from analog to fully networked healthcare IT infrastructure.</div>
+      <div class="timeline-desc" data-i18n="exp5_desc">
+        <ul class="timeline-list">
+          <li><strong>Multi-Site Infrastructure Leadership:</strong> Directed regional IT operations and telecommunications across 38 public healthcare facilities, leading a team of 25+ technical specialists.</li>
+          <li><strong>Electronic Health Records Rollout:</strong> Led the end-to-end regional deployment of the ISSSTEMED Electronic Medical Record system, connecting all regional clinics to the national Central Office.</li>
+          <li><strong>Network Modernization:</strong> Directed the structured cabling and mapping of 370 voice and data nodes, building the fundamental infrastructure backbone for digital services.</li>
+          <li><strong>Distributed Support Architecture:</strong> Built and trained a decentralized network of 120 distributed IT supporters across facilities, cutting IT incident response times by 50%.</li>
+        </ul>
+      </div>
       <div class="timeline-tags"><span class="tag">−50% Response Time</span><span class="tag">38 Facilities</span><span class="tag">IT Transformation</span><span class="tag">Team of 25+</span></div>
     </div>
+
   </div>
 </section>
 
@@ -1231,7 +1306,7 @@
     </div>
     <div class="testimonial-card">
       <div class="testimonial-quote">"</div>
-      <p class="testimonial-text" data-i18n="test2_text">I had the opportunity to witness Fernando's positive attitude in a very dynamic working environment, where he demonstrated to keep strong relationships with stakeholders along with his ability to remain calm and composed when under pressure. He consistently delivered high-quality work by keeping a customer driven attitude, delivering an excellent customer service.</p>
+      <p class="testimonial-text" data-i18n="test2_text">I had the opportunity to witness Fernando's positive attitude in a very dynamic working environment, where he demonstrated to keep strong relationships with stakeholders along with his ability to remain calm and composed under pressure. He consistently delivered high-quality work by keeping a customer driven attitude, delivering an excellent customer service.</p>
       <button class="testimonial-read-more" aria-label="Expand testimonial">Read more ↓</button>
       <div class="testimonial-author">
         <div class="testimonial-avatar">
@@ -1489,27 +1564,51 @@ const TRANSLATIONS = {
     exp2_date:    '2023 – Present · Bayern, Germany',
     exp2_role:    'Healthcare Operations & Community Care · Professional Integration in Germany',
     exp2_company: 'AZURIT Seniorenzentrum · Bavaria, Germany',
-    exp2_desc:    'Entered the German elder-care sector with no prior domain experience and sustained 3+ years of continuous employment in a regulated institutional environment, delivering direct care across a 33-resident unit as part of a 3–4-person shift team under strict documentation and compliance standards. Built German-language fluency and DACH professional practice knowledge from the ground up while working full-time shift rotations, completing four Google Career Certificates (AI Essentials, Data Analytics, Business Intelligence, UX Design) in parallel to prepare for a return to operations and implementation roles. Coordinated daily with multidisciplinary care staff, medical professionals, and resident families in a multilingual, high-demand interpersonal setting, sustaining consistent service quality and reliability across the unit despite the language and cultural transition. This period represents a deliberate market-entry strategy: establishing legal residency, professional credibility, and language competence in the DACH region while continuing structured upskilling toward a return to a digital transformation and IT project management career track.',
+    exp2_desc:    `<ul class="timeline-list">
+      <li><strong>Institutional Integration:</strong> Entered the German healthcare and elder-care sector with no prior domain background, sustaining 3+ years of continuous service within a highly regulated institutional environment under strict compliance and documentation standards.</li>
+      <li><strong>Unit Care & Multidisciplinary Coordination:</strong> Delivered direct care and service across a 33-resident unit within a 3–4 person shift team, collaborating daily with healthcare professionals, administrative teams, and families.</li>
+      <li><strong>Language Fluency & DACH Professional Practice:</strong> Developed practical German fluency and professional competencies from the ground up while maintaining a demanding full-time operational rotation.</li>
+      <li><strong>Concurrent Upskilling:</strong> Completed 4 Google Career Certificates (AI Essentials, Data Analytics, Business Intelligence, UX Design) to establish strategic capability for returning to enterprise digital transformation and IT operations.</li>
+    </ul>`,
 
     exp1_date:    '2022 – 2023 · Lisbon, Portugal',
     exp1_role:    'Web Product Implementation Specialist for Google',
     exp1_company: 'Teleperformance / Google',
-    exp1_desc:    `Managed a high-volume Enterprise support caseload for Google's EMEA/LATAM portfolio — 179 cases, spanning 17 CMS platforms and 13 countries — closing 85 cases (47.5% solution rate) at a 7-day median resolution time. Redesigned and reorganized the internal support intranet for clarity and usability, cutting internal response times by approximately one-third. Trained and onboarded new hires on case-handling procedures in a multicultural team, maintaining process consistency and service quality. Carried a high WordPress case volume (117 of 179 cases, 65% of total load) and achieved a 75% solution rate on Joomla, the strongest-performing platform.`,
+    exp1_desc:    `<ul class="timeline-list">
+      <li><strong>Enterprise Support Portfolio:</strong> Managed a high-volume implementation caseload for Google's EMEA/LATAM portfolio, handling 179 complex cases across 17 CMS platforms and 13 countries with a 47.5% resolution rate and 7-day median resolution time.</li>
+      <li><strong>Platform Specialization:</strong> Served as the team's primary technical lead for WordPress integrations (117 of 179 cases, 65% of total volume) and achieved an exceptional 75% resolution rate on Joomla.</li>
+      <li><strong>Knowledge Architecture & Efficiency:</strong> Redesigned and reorganized the internal support intranet and troubleshooting taxonomy, reducing internal response times by approximately 33%.</li>
+      <li><strong>Team Capability Building:</strong> Authored standardized troubleshooting playbooks and led onboarding for new team members across a multicultural, multilingual operations unit.</li>
+    </ul>`,
 
     exp3_date:    '2012 – 2019 · Puebla, Mexico',
     exp3_role:    'Manufacturing Manager & Commercial Development (B2B Accounts)',
     exp3_company: 'Uriarte Talavera — Premium Ceramics',
-    exp3_desc:    'Implemented KPI-driven supply chain optimization across a 70-person production floor, restructuring workflow sequencing and material handoffs to reduce production lead time by 20% and lift overall efficiency by 15%. Founded the company\'s Quality Assurance Department from scratch — defining inspection checkpoints, defect classification, and rework protocols — implemented 5S methodology across the shop floor, and authored the first "Guide for Quality Assurance on Talavera Pieces," a foundational reference that standardized craft-quality evaluation and lifted client satisfaction (NPS) by 15%. Standardized production scheduling and material-flow monitoring, introducing a tracking system that cut average monthly order-backlog delays from 56 days to 11 days (an 80% reduction) and improved on-time fulfillment from 49% to 72%. Designed and implemented an internal website centralizing production data — pulling scheduling, inventory, and quality metrics into a single dashboard — enabling faster continuous-improvement decision-making plant-wide. Managed bespoke production for external clients including Rosewood Hotel Puebla, Pujol Restaurant, and Farca + Grappin Studio, coordinating directly with designers to deliver to exact specifications under real production constraints such as kiln capacity and hand-painting lead times. Grew annual sales revenue 30% over 4 years (average monthly billing up 43%, $1.13M→$1.62M MXN) through a marketing innovation plan covering packaging redesign and social media engagement. Launched a sales administration website with performance dashboards, giving commercial leadership real-time, data-driven visibility into pipeline and account health. Managed international accounts across the Americas and Europe and collaborated with designers like Lance Wyman on bespoke product lines, bridging commercial requirements with production capability.',
+    exp3_desc:    `<ul class="timeline-list">
+      <li><strong>Plant Operations & Lean 5S:</strong> Directed shop-floor operations and supply chain optimization across a 70-person workforce, cutting production lead times by 20% and increasing operational efficiency by 15%.</li>
+      <li><strong>Quality Assurance Department:</strong> Founded the company's first Quality Assurance Department, authoring the standard "Guide for Quality Assurance on Talavera Pieces" and increasing customer satisfaction (NPS) by 15 points.</li>
+      <li><strong>Backlog & Fulfillment Optimization:</strong> Implemented material-flow tracking and scheduling dashboards, slashing average monthly order backlog delays from 56 to 11 days (an 80% reduction) and improving on-time delivery from 49% to 72%.</li>
+      <li><strong>Revenue Growth & Client Management:</strong> Drove a 30% increase in annual revenue over 4 years through marketing innovation and packaging redesign; oversaw bespoke production lines for premier accounts including Rosewood Hotels, Pujol Restaurant, and designer Lance Wyman.</li>
+    </ul>`,
 
     exp4_date:    '2008 – 2022 · Puebla, Mexico',
     exp4_role:    'Lecturer – Digital Tools & Technology Platforms',
     exp4_company: 'UPAEP University',
-    exp4_desc:    'Delivered a 14-year digital competency curriculum covering Microsoft 365 and 15+ collaboration/creative tools, achieving a completion rate above 90% across 1,000+ students spanning multiple faculties and academic levels. Developed original course materials, hands-on lab exercises, and simulation-based learning frameworks from the ground up, iterating the curriculum year over year to keep pace with evolving software platforms while sustaining repeatable, high-quality delivery across 14 consecutive years. Ran concurrently with full-time industry roles in manufacturing and IT operations, requiring sustained time-management discipline and the ability to translate real-world operational experience directly into classroom instruction and student mentorship.',
+    exp4_desc:    `<ul class="timeline-list">
+      <li><strong>Curriculum Design & Delivery:</strong> Developed and led a 14-year digital competency program covering Microsoft 365 and 15+ collaborative platforms, consistently achieving a course completion rate above 90% across 1,000+ students.</li>
+      <li><strong>Simulation & Methodological Innovation:</strong> Engineered original simulation-based laboratory exercises, updating the curriculum continually to reflect modern industry technologies.</li>
+      <li><strong>Cross-Disciplinary Execution:</strong> Delivered training programs concurrently alongside full-time executive roles in manufacturing and IT operations, translating real-world operational challenges directly into practical instruction.</li>
+    </ul>`,
 
     exp5_date:    '1995 – 2011 · Puebla, Mexico',
     exp5_role:    'IT Operations Manager',
     exp5_company: 'ISSSTE — Mexican State Workers Institute',
-    exp5_desc:    'Directed IT transformation across 38 state healthcare facilities — managing networks, systems, telecommunications, and surveillance infrastructure at delegation level for a large public-sector healthcare network. Led the end-to-end rollout of the ISSSTEMED Electronic Medical Record system, connecting all medical and administrative units to the national Central Office and standardizing patient-record access across the delegation. Oversaw structured cabling and mapping of 370 voice and data nodes, building the physical network backbone that underpinned the digitization effort. Trained 120 government employees as distributed IT supporters, building a decentralized first-line support model that cut response times by 50% through capability building, documentation, and process redesign — leadership carried out across a 16-year span covering the transition from analog to fully networked healthcare IT infrastructure.',
+    exp5_desc:    `<ul class="timeline-list">
+      <li><strong>Multi-Site Infrastructure Leadership:</strong> Directed regional IT operations and telecommunications across 38 public healthcare facilities, leading a team of 25+ technical specialists.</li>
+      <li><strong>Electronic Health Records Rollout:</strong> Led the end-to-end regional deployment of the ISSSTEMED Electronic Medical Record system, connecting all regional clinics to the national Central Office.</li>
+      <li><strong>Network Modernization:</strong> Directed the structured cabling and mapping of 370 voice and data nodes, building the fundamental infrastructure backbone for digital services.</li>
+      <li><strong>Distributed Support Architecture:</strong> Built and trained a decentralized network of 120 distributed IT supporters across facilities, cutting IT incident response times by 50%.</li>
+    </ul>`,
 
     proj_label:    'Selected Projects',
     proj_title:    'Work that moved the needle',
@@ -1642,27 +1741,51 @@ const TRANSLATIONS = {
     exp2_date:    '2023 – Heute · Bayern, Deutschland',
     exp2_role:    'Gesundheitswesen und gemeinschaftliche Pflege Betreuung · Berufliche Integration in Deutschland',
     exp2_company: 'AZURIT Seniorenzentrum · Bayern, Deutschland',
-    exp2_desc:    'Einstieg in den deutschen Altenpflegebereich ohne vorherige Branchenerfahrung und mehr als drei Jahre kontinuierliche Beschäftigung in einem regulierten institutionellen Umfeld; direkte Pflege und Betreuung einer Wohngruppe mit 33 Bewohnerinnen und Bewohnern als Teil eines Schichtteams aus 3 bis 4 Personen. Aufbau von Deutschkenntnissen und Weiterentwicklung des Verständnisses für die berufliche Praxis im DACH-Raum während einer Vollzeitbeschäftigung; paralleler Abschluss von vier Google Career Certificates in den Bereichen Künstliche Intelligenz, Datenanalyse, Business Intelligence und UX-Design zur Vorbereitung auf die Rückkehr in Operations- und Implementierungsfunktionen. Tägliche Zusammenarbeit mit interdisziplinären Betreuungsteams und Angehörigen in einem mehrsprachigen und anspruchsvollen zwischenmenschlichen Umfeld; Sicherstellung einer konstanten Servicequalität innerhalb der gesamten Wohngruppe.',
+    exp2_desc:    `<ul class="timeline-list">
+      <li><strong>Institutionelle Integration:</strong> Einstieg in den regulierten deutschen Altenpflegebereich ohne vorherige Branchenerfahrung; mehr als 3 Jahre kontinuierliche Beschäftigung unter strengen Qualitäts- und Dokumentationsstandards.</li>
+      <li><strong>Betreuung & Interdisziplinäre Kooperation:</strong> Direkte Pflege und Betreuung einer Wohngruppe mit 33 Bewohnern im Schichtteam (3–4 Personen) in täglicher Abstimmung mit Fachpersonal und Angehörigen.</li>
+      <li><strong>Sprachkompetenz & DACH-Praxis:</strong> Systematischer Aufbau verhandlungssicherer Deutschkenntnisse und beruflicher Praxis im DACH-Raum während einer Vollzeit-Schichttätigkeit.</li>
+      <li><strong>Strategische Weiterbildung:</strong> Paralleler Abschluss von 4 Google Career Certificates (KI Essentials, Datenanalyse, Business Intelligence, UX-Design) zur gezielten Vorbereitung auf Führungspositionen in IT & digitaler Transformation.</li>
+    </ul>`,
 
     exp1_date:    '2022 – 2023 · Lissabon, Portugal',
     exp1_role:    'Spezialist für die Implementierung von Webprodukten für Google',
     exp1_company: 'Teleperformance / Google',
-    exp1_desc:    'Betreuung eines umfangreichen Enterprise-Support-Fallbestands für Googles EMEA-/LATAM-Portfolio: 179 Fälle innerhalb von 93 Arbeitstagen, verteilt auf 17 CMS-Plattformen und 13 Länder; Abschluss von 85 Fällen mit einer Lösungsquote von 47,5% und einer medianen Lösungszeit von 7 Tagen. Neugestaltung und Reorganisation des internen Support-Intranets zur Verbesserung von Übersichtlichkeit und Benutzerfreundlichkeit; Verkürzung interner Reaktionszeiten um etwa ein Drittel. Schulung und Einarbeitung neuer Mitarbeitender in Verfahren zur Fallbearbeitung innerhalb eines multikulturellen Teams; Sicherstellung einheitlicher Prozesse und einer konstanten Servicequalität. Bewältigte ein hohes Aufkommen an WordPress-Fällen (117 von 179 Fällen, 65 % des Gesamtvolumens) und erzielte eine Lösungsquote von 75 % bei Joomla, der Plattform mit der besten Performance.',
-  
+    exp1_desc:    `<ul class="timeline-list">
+      <li><strong>Enterprise-Support Portfolio:</strong> Betreuung von 179 komplexen Implementierungsfällen für Googles EMEA/LATAM-Portfolio über 17 CMS-Plattformen und 13 Länder (47,5 % Lösungsquote, 7 Tage mediane Lösungszeit).</li>
+      <li><strong>Plattform-Spezialisierung:</strong> Hauptansprechpartner für WordPress-Integrationen (117 Fälle, 65 % des Gesamtaufkommens) sowie Spitzen-Lösungsquote von 75 % bei Joomla.</li>
+      <li><strong>Prozessoptimierung & Wissensmanagement:</strong> Neustrukturierung des internen Support-Intranets und der Taxonomie, wodurch die internen Bearbeitungszeiten um ca. ein Drittel verkürzt wurden.</li>
+      <li><strong>Team-Onboarding:</strong> Entwicklung standardisierter Troubleshooting-Playbooks und Einarbeitung neuer Mitarbeiter im internationalen Team.</li>
+    </ul>`,
+
     exp3_date:    '2012 – 2019 · Puebla, Mexiko',
     exp3_role:    'Produktionsleiter und Leiter Geschäftsentwicklung — B2B-Kunden',
     exp3_company: 'Uriarte Talavera — Premiumkeramik',
-    exp3_desc:    'Implementierung einer KPI-basierten Optimierung der Lieferkette in einer Produktionsumgebung mit 70 Mitarbeitenden; Reduzierung der Produktionsdurchlaufzeiten um 20% und Steigerung der Gesamteffizienz um 15%. Aufbau der ersten Qualitätssicherungsabteilung des Unternehmens von Grund auf, Einführung der 5S-Methode und Erstellung des ersten Leitfadens zur Qualitätssicherung von Talavera-Produkten; Verbesserung der Kundenzufriedenheit (NPS). Standardisierung der Produktionsplanung und Überwachung des Materialflusses; Reduzierung der durchschnittlichen monatlichen Verzögerungen bei Auftragsrückständen von 56 auf 11 Tage — eine Reduzierung um 80% — sowie Steigerung der termingerechten Auftragserfüllung von 49% auf 72%. Konzeption und Implementierung einer internen Website zur Zentralisierung von Produktionsdaten; dadurch schnellere Entscheidungen zur kontinuierlichen Verbesserung im gesamten Werk. Steuerung der kundenspezifischen Produktion für externe Kunden, darunter Rosewood Hotel Puebla, das Restaurant Pujol und Farca + Grappin Studio; Umsetzung von Designvorgaben unter gegebenen Produktionsrestriktionen. Steigerung des jährlichen Umsatzes um 30% innerhalb von vier Jahren — einschließlich einer Erhöhung der durchschnittlichen monatlichen Abrechnung um 43% von 1,13 Mio. auf 1,62 Mio. MXN — durch einen Marketing-Innovationsplan mit Neugestaltung der Verpackungen und verstärkter Interaktion in sozialen Medien. Einführung einer Website für die Vertriebsadministration mit Performance-Dashboards; dadurch Bereitstellung einer datengestützten Echtzeit-Übersicht für die Vertriebsleitung. Betreuung internationaler Kunden in Nord-, Mittel- und Südamerika sowie Europa und Zusammenarbeit mit Designern wie Lance Wyman an kundenspezifischen Produktlinien.',
+    exp3_desc:    `<ul class="timeline-list">
+      <li><strong>Produktionsleitung & Lean 5S:</strong> Operative Leitung und Lieferkettenoptimierung einer 70-köpfigen Fertigungsmannschaft; Durchlaufzeiten um 20 % gesenkt und Gesamteffizienz um 15 % gesteigert.</li>
+      <li><strong>Qualitätssicherung:</strong> Aufbau der ersten QS-Abteilung des Unternehmens, Verfassen des Qualitätsleitfadens für Talavera-Keramik und Steigerung des NPS um 15 Punkte.</li>
+      <li><strong>Rückstands- & Liefertreue-Optimierung:</strong> Einführung digitaler Tracking-Dashboards; Auftragsrückstände um 80 % reduziert (von 56 auf 11 Tage) und pünktliche Lieferungen von 49 % auf 72 % gesteigert.</li>
+      <li><strong>Umsatzwachstum & B2B-Projekte:</strong> 30 % Umsatzsteigerung über 4 Jahre; Steuerung exklusiver Großaufträge für internationale Kunden wie Rosewood Hotels, Restaurant Pujol und Designer Lance Wyman.</li>
+    </ul>`,
 
     exp4_date:    '2008 – 2022 · Puebla, Mexiko',
     exp4_role:    'Dozent — Digitale Tools und Technologieplattformen',
     exp4_company: 'UPAEP Universität',
-    exp4_desc:    'Entwicklung und Durchführung eines 14-jährigen Curriculums für digitale Kompetenzen mit Microsoft 365 und mehr als 15 Tools für Zusammenarbeit und kreative Anwendungen; Erreichen einer Abschlussquote von über 90% bei mehr als 1.000 Studierenden. Entwicklung eigener Lehrmaterialien und simulationsbasierter Lernkonzepte, die über 14 Jahre hinweg wiederholt und erfolgreich eingesetzt wurden.',
+    exp4_desc:    `<ul class="timeline-list">
+      <li><strong>Curriculum-Entwicklung:</strong> 14 Jahre Konzeption und Durchführung praxisorientierter Lehrprogramme für Microsoft 365 und 15+ Kollaborations-Tools mit über 90 % Abschlussquote bei 1.000+ Absolventen.</li>
+      <li><strong>Praxisnahe Methodik:</strong> Entwicklung simulationsbasierter Labormodule mit kontinuierlicher technologischer Aktualisierung über den gesamten Zeitraum.</li>
+      <li><strong>Doppelqualifikation:</strong> Parallele Durchführung der Lehrtätigkeit neben vollen Führungsrollen in Industrie und IT-Betrieb zur direkten Praxisvermittlung.</li>
+    </ul>`,
 
     exp5_date:    '1995 – 2011 · Puebla, Mexiko',
     exp5_role:    'IT Operations Manager',
     exp5_company: 'ISSSTE — Mexikanisches Institut für Staatsbedienstete',
-    exp5_desc:    'Leitung der IT-Transformation in 38 staatlichen Gesundheitseinrichtungen; Verantwortung für Netzwerke, Systeme, Telekommunikation sowie Videoüberwachungsinfrastruktur auf Ebene der regionalen Verwaltung. Leitung des vollständigen Rollouts des elektronischen medizinischen Dokumentationssystems ISSSTEMED; Anbindung aller medizinischen und administrativen Einheiten an die nationale Zentrale. Überwachung der strukturierten Verkabelung und Kartierung von 370 Sprach- und Datennetzknoten. Schulung von 120 Regierungsmitarbeitenden zu dezentralen IT-Supportkräften; Reduzierung der Reaktionszeiten um 50% durch Kompetenzaufbau und Prozessneugestaltung.',
+    exp5_desc:    `<ul class="timeline-list">
+      <li><strong>Standortübergreifende IT-Leitung:</strong> Führung der regionalen IT- und Telekommunikationsinfrastruktur für 38 öffentliche Gesundheitseinrichtungen mit einem Team von 25+ Technikern.</li>
+      <li><strong>Einführung elektronischer Patientenakten:</strong> Gesamtverantwortung für den regionalen Rollout des ISSSTEMED-Systems mit vollständiger Vernetzung aller Einheiten zur Zentrale.</li>
+      <li><strong>Netzwerk-Modernisierung:</strong> Strukturierte Verkabelung und Dokumentation von 370 Sprach- und Datenknoten als Grundlage der Digitalisierung.</li>
+      <li><strong>Dezentraler IT-Support:</strong> Aufbau und Schulung eines Netzes von 120 First-Line-Supportkräften in den Einrichtungen; Reduzierung der Störungsreaktionszeiten um 50 %.</li>
+    </ul>`,
 
     proj_label:    'Ausgewählte Projekte',
     proj_title:    'Arbeit, die Wirkung zeigt',
@@ -1795,27 +1918,51 @@ const TRANSLATIONS = {
     exp2_date:    '2023 – Presente · Baviera, Alemania',
     exp2_role:    'Soporte en Operaciones de Salud y Atención Comunitaria · Integración Profesional en Alemania',
     exp2_company: 'AZURIT Seniorenzentrum · Baviera, Alemania',
-    exp2_desc:    'Ingresé al sector alemán de la atención a adultos mayores sin experiencia previa y me he mantenido en el empleo por más de 3 años de manera continua en un entorno institucional regulado, brindando atención directa a una unidad de 33 residentes como parte de un equipo de turno de 3 a 4 personas. He desarrollado el manejo del idioma alemán y he adquirido conocimientos sobre las prácticas profesionales en la región DACH mientras trabajaba a tiempo completo y completaba de manera paralela 4 Certificados Profesionales de Google —Inteligencia Artificial, Análisis de Datos, Business Intelligence y Diseño UX— con la intención de prepararme para regresar al mercado de operaciones e informática. Trabajo con personal multidisciplinario y con familiares, en un entorno interpersonal multilingüe y de alta exigencia, manteniendo una calidad de servicio constante en toda la unidad.',
+    exp2_desc:    `<ul class="timeline-list">
+      <li><strong>Integración Institucional:</strong> Inserción en el sector regulado de atención a adultos mayores en Alemania sin experiencia previa en el área, manteniendo más de 3 años de servicio continuo bajo estrictos estándares de cumplimiento y documentación.</li>
+      <li><strong>Atención en Unidad y Coordinación:</strong> Brindé atención directa en una unidad de 33 residentes como parte de un equipo de turno (3–4 personas), coordinando con personal médico, directivo y familiares.</li>
+      <li><strong>Dominio del Idioma y Práctica DACH:</strong> Desarrollo práctico de la fluidez en alemán y comprensión profunda de la cultura laboral en la región DACH durante un rol operativo a tiempo completo.</li>
+      <li><strong>Upskilling Simultáneo:</strong> Conclusión en paralelo de 4 Certificados Profesionales de Google (IA, Data Analytics, BI y UX) orientados al retorno a la consultoría y transformación digital en Europa.</li>
+    </ul>`,
     
     exp1_date:    '2022 – 2023 · Lisboa, Portugal',
     exp1_role:    'Especialista en Implementación de Productos Web para Google',
     exp1_company: 'Teleperformance / Google',
-    exp1_desc:    'Gestioné una cartera de casos de soporte empresarial de alto volumen para la cartera EMEA/LATAM de Google: 179 casos, correspondientes a 17 plataformas CMS y 13 países. Cerré 85 casos, con una tasa de resolución del 47,5% y un tiempo promedio de resolución de 7 días. Rediseñé y organicé la intranet interna de soporte para mejorar su claridad y usabilidad, reduciendo aproximadamente en un tercio los tiempos de respuesta internos. Capacité e incorporé a nuevos colaboradores en los procedimientos de gestión de casos dentro de un equipo multicultural, manteniendo la consistencia de los procesos y la calidad del servicio. Gestioné un elevado volumen de casos de WordPress (117 de 179 casos, el 65 % de la carga total) y logré una tasa de resolución del 75 % en Joomla, la plataforma con mejor rendimiento.',
+    exp1_desc:    `<ul class="timeline-list">
+      <li><strong>Gestión de Casos Enterprise:</strong> Gestión de 179 casos de implementación de alta complejidad para la cartera EMEA/LATAM de Google en 17 plataformas CMS y 13 países (47.5% de resolución, 7 días de mediana de resolución).</li>
+      <li><strong>Especialización Técnica:</strong> Referente técnico del equipo en migraciones e integraciones WordPress (117 casos, 65% del volumen total) y tasa de resolución líder del 75% en Joomla.</li>
+      <li><strong>Arquitectura del Conocimiento:</strong> Rediseño y reorganización de la intranet de soporte y su taxonomía de búsqueda, reduciendo en aproximadamente un 33% los tiempos de respuesta internos.</li>
+      <li><strong>Capacitación de Equipos:</strong> Creación de manuales de resolución estandarizados e incorporación/mentoría de nuevos especialistas en un entorno multinacional.</li>
+    </ul>`,
     
     exp3_date:    '2012 – 2019 · Puebla, México',
     exp3_role:    'Gerente de Manufactura y Desarrollo Comercial — Cuentas B2B',
     exp3_company: 'Uriarte Talavera — Cerámica Premium',
-    exp3_desc:    'Implementé la optimización de la cadena de suministro basada en indicadores clave de desempeño (KPI) en una planta de producción de 70 personas, reduciendo en un 20% los tiempos de producción y aumentando en un 15% la eficiencia general. Fundé el Departamento de Aseguramiento de la Calidad, implementé la metodología 5S y redacté la Guía para el Aseguramiento de la Calidad en Piezas de Talavera, mejorando la satisfacción de los clientes (NPS). Estandaricé la programación de la producción y el monitoreo del flujo de materiales, reduciendo de 56 a 11 días el retraso promedio mensual de los pedidos pendientes —una reducción del 80%— y mejorando el cumplimiento puntual de los pedidos del 49% al 72%. Diseñé e implementé un sitio web interno que centralizó los datos de producción y permitió tomar decisiones de mejora continua con mayor rapidez en toda la planta. Gestioné la producción personalizada para clientes como Rosewood Hotel Puebla, Restaurante Pujol y Farca + Grappin Studio, cumpliendo especificaciones de diseño bajo restricciones de producción. Incrementé los ingresos anuales por ventas en un 30% durante cuatro años —con un aumento del 43% en la facturación mensual promedio, de 1,13 millones a 1,62 millones de MXN— mediante un plan de innovación de marketing que incluyó el rediseño de empaques y estrategias en redes sociales. Lancé un sitio web de administración de ventas con paneles de control de desempeño, proporcionando a la dirección comercial visibilidad en tiempo real basada en datos. Gestioné cuentas internacionales en América y Europa y colaboré con diseñadores como Lance Wyman en líneas de productos personalizados.',
+    exp3_desc:    `<ul class="timeline-list">
+      <li><strong>Dirección de Planta y Lean 5S:</strong> Optimización de la cadena de suministro y planta productiva con 70 colaboradores, reduciendo tiempos de entrega un 20% e incrementando la eficiencia operativa un 15%.</li>
+      <li><strong>Aseguramiento de la Calidad:</strong> Creación del Departamento de QA, redacción de la guía estándar de calidad y aumento de la satisfacción de clientes (NPS) en 15 puntos.</li>
+      <li><strong>Control de Flujos y Tiempos:</strong> Implementación de dashboards de seguimiento; reducción del 80% en retrasos mensuales (de 56 a 11 días) y mejora del cumplimiento puntual de órdenes del 49% al 72%.</li>
+      <li><strong>Desarrollo de Negocio y Cuentas Premium:</strong> Crecimiento del 30% en ventas anuales en 4 años (+43% en facturación mensual promedio); dirección de producción bespoke para firmas como Hoteles Rosewood, Restaurante Pujol y Lance Wyman.</li>
+    </ul>`,
     
     exp4_date:    '2008 – 2022 · Puebla, México',
     exp4_role:    'Profesor — Herramientas Digitales y Plataformas Tecnológicas',
     exp4_company: 'Universidad UPAEP',
-    exp4_desc:    'Impartí durante 14 años un plan de estudios de competencias digitales sobre Microsoft 365 y más de 15 herramientas de colaboración y creación de contenidos, alcanzando una tasa de finalización superior al 90% entre más de 1.000 estudiantes. Desarrollé materiales didácticos originales y marcos de aprendizaje basados en simulaciones, cuya aplicación se mantuvo de forma consistente durante 14 años.',
+    exp4_desc:    `<ul class="timeline-list">
+      <li><strong>Diseño Curricular y Docencia:</strong> Creación e impartición durante 14 años del programa de competencias digitales en Microsoft 365 y 15+ plataformas colaborativas, logrando más del 90% de finalización con 1,000+ estudiantes.</li>
+      <li><strong>Metodología Basada en Simulación:</strong> Desarrollo de prácticas de laboratorio y entornos de simulación actualizados anualmente al ritmo de la industria tecnológica.</li>
+      <li><strong>Enfoque Práctico-Operativo:</strong> Impartición simultánea mientras ejercía roles ejecutivos de tiempo completo en manufactura y TI, vinculando casos reales de negocio con el aula.</li>
+    </ul>`,
     
     exp5_date:    '1995 – 2011 · Puebla, México',
     exp5_role:    'Gerente de Operaciones TI',
     exp5_company: 'ISSSTE — Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado',
-    exp5_desc:    'Dirigí la transformación de TI en 38 centros estatales de salud, gestionando redes, sistemas, telecomunicaciones e infraestructura de videovigilancia a nivel de la delegación. Lideré el despliegue integral del sistema de expediente médico electrónico ISSSTEMED, conectando todas las unidades médicas y administrativas con la Oficina Central nacional. Supervisé el cableado estructurado y el mapeo de 370 nodos de voz y datos. Capacité a 120 empleados gubernamentales como personal de soporte de TI distribuido, reduciendo los tiempos de respuesta en un 50% mediante el desarrollo de capacidades y el rediseño de procesos.',
+    exp5_desc:    `<ul class="timeline-list">
+      <li><strong>Liderazgo de Infraestructura Multisede:</strong> Dirección de operaciones de TI, redes y telecomunicaciones para 38 instalaciones públicas de salud a nivel regional, liderando un equipo de 25+ especialistas.</li>
+      <li><strong>Despliegue de Expediente Médico:</strong> Liderazgo del despliegue regional del sistema electrónico ISSSTEMED, conectando todas las clínicas con la Oficina Central nacional.</li>
+      <li><strong>Modernización de Redes:</strong> Supervisión del cableado estructurado y mapeo de 370 nodos de voz y datos como base física de la digitalización institucional.</li>
+      <li><strong>Soporte Distribuido y Optimización:</strong> Creación y formación de una red de 120 enlaces de soporte técnico distribuido, recortando los tiempos de respuesta ante incidencias en un 50%.</li>
+    </ul>`,
     
     proj_label:    'Proyectos Destacados',
     proj_title:    'Trabajo con resultados reales',
