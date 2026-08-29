@@ -552,6 +552,67 @@
   }
   .lb-video-wrap video { width: 100%; height: 100%; display: block; outline: none; }
 
+  .project-lightbox-inner.has-gallery { max-height: 90vh; display: flex; flex-direction: column; }
+  .lb-gallery-wrap { overflow-y: auto; padding: 1.6rem; }
+  .lb-gallery-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem;
+  }
+  .lb-proj {
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+    overflow: hidden;
+  }
+  .lb-proj img { width: 100%; display: block; border-bottom: 1px solid var(--border); }
+  .lb-proj-body { padding: 1rem 1.1rem 1.2rem; }
+  .lb-proj-meta {
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.4rem;
+  }
+  .lb-proj-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 600; color: var(--cream); margin-bottom: 0.4rem;
+  }
+  .lb-proj-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+
+  /* APPLIED PRACTICE */
+  .applied-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+  }
+  .applied-card {
+    background: var(--deep, #111d2e); border: 1px solid var(--border);
+    padding: 2.2rem 1.7rem; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; gap: 10px;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+  .applied-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.5); }
+  .applied-title {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600;
+    color: var(--cream); line-height: 1.25;
+  }
+  .applied-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.7; flex: 1; }
+  .applied-cta-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 0.6rem; }
+  .applied-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    border: 1px solid #5b8fa8; color: #5b8fa8;
+    background: transparent; padding: 0.42rem 0.8rem; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    text-decoration: none; white-space: nowrap; border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+  .applied-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--navy, #0d1b2a); }
+  .applied-btn.solid { background: #F0F4F5; border-color: #2C3E50; color: #2C3E50; }
+  .applied-btn.solid:hover { background: var(--gold); border-color: var(--gold); color: var(--navy, #0d1b2a); }
+  .applied-btn.secondary { border-color: var(--gold); color: var(--gold); }
+  .applied-btn.secondary:hover { background: rgba(201,168,76,0.1); color: var(--gold); }
+
+  @media (max-width: 1100px) {
+    .applied-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .applied-grid { grid-template-columns: 1fr; }
+  }
+
   /* SKILLS */
   .skills { padding: 6rem 4rem; border-top: 1px solid var(--border); background: var(--s-skills); }
   .skills-header { margin-bottom: 3rem; }
@@ -1153,6 +1214,23 @@
       <a class="cta-btn" data-i18n="proj5_link" href="https://fernandosrsan.wixstudio.com/fsceramics" target="_blank" style="border-color:#5b8fa8; color:#5b8fa8;">Ceramics Site</a>
     </div>
 
+    <!-- PROJECT 06 -->
+    <div class="project-card">
+      <span class="card-category">Design &amp; Consulting · Product Packaging</span>
+      <div class="card-number">06</div>
+      <h3 class="card-title">HARMO Design</h3>
+      <div class="card-divider"></div>
+      <p class="card-desc">Worked as designer and business lead for a part-time packaging and industrial design consultancy, serving clients including Uriarte Talavera, BUAP, Malak Chocolates and L'Apero Wine. Despite strong client work, the studio had no online presence — every project came through word-of-mouth referrals.</p>
+      <div class="card-result star">First online presence built</div>
+      <div class="card-tags">
+        <span class="tag">Packaging Design</span>
+        <span class="tag">Industrial Design</span>
+        <span class="tag">Client Management</span>
+      </div>
+      <button class="project-lb-btn" onclick="openProjectLightbox('lb-06')">◱ View Selected Work</button>
+      <a class="cta-btn" href="https://harmo3ddiseno.wixsite.com/harmodiseno" target="_blank" style="border-color:#5b8fa8; color:#5b8fa8;">HARMO Site</a>
+    </div>
+
   </div>
 </section>
 
@@ -1213,6 +1291,139 @@
         <source src="voz_datos_ok.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
+    </div>
+  </div>
+</div>
+
+<div id="lb-06" class="project-lightbox" onclick="closeProjectLightbox('lb-06')">
+  <div class="project-lightbox-inner has-gallery" onclick="event.stopPropagation()">
+    <div class="project-lightbox-header">
+      <span class="project-lightbox-label">06 · Selected Work · HARMO Design</span>
+      <button class="project-lightbox-close" onclick="closeProjectLightbox('lb-06')">✕</button>
+    </div>
+    <div class="lb-gallery-wrap">
+      <div class="lb-gallery-grid">
+        <div class="lb-proj">
+          <div class="lb-proj-body">
+            <div class="lb-proj-meta">Packaging · 2015 &amp; 2016</div>
+            <div class="lb-proj-title">Uriarte Talavera</div>
+            <div class="lb-proj-desc">Certified Talavera piece package: laser-cut wooden box, sliding lid, sawdust base. A second box referenced artist Enrique Luis Ventosa.</div>
+          </div>
+        </div>
+        <div class="lb-proj">
+          <div class="lb-proj-body">
+            <div class="lb-proj-meta">Graduation Invitation · 2017</div>
+            <div class="lb-proj-title">BUAP School of Medicine</div>
+            <div class="lb-proj-desc">Traditional, elegant invitation for the 2012–2017 Medicine class, delivered on a tight budget.</div>
+          </div>
+        </div>
+        <div class="lb-proj">
+          <div class="lb-proj-body">
+            <div class="lb-proj-meta">Packaging · 2020</div>
+            <div class="lb-proj-title">Malak Chocolates</div>
+            <div class="lb-proj-desc">Two-size laser-cut wooden box line with blue ink finish — premium, reusable packaging.</div>
+          </div>
+        </div>
+        <div class="lb-proj">
+          <div class="lb-proj-body">
+            <div class="lb-proj-meta">Packaging · 2018</div>
+            <div class="lb-proj-title">L'Apero Wine</div>
+            <div class="lb-proj-desc">Custom wine box built to spec for a cohesive product-and-packaging experience.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="lb-ux-video" class="project-lightbox" onclick="closeProjectLightbox('lb-ux-video')">
+  <div class="project-lightbox-inner" onclick="event.stopPropagation()">
+    <div class="project-lightbox-header">
+      <span class="project-lightbox-label">UX Design · Google Career Certificate Showcase</span>
+      <button class="project-lightbox-close" onclick="closeProjectLightbox('lb-ux-video')">✕</button>
+    </div>
+    <div class="lb-video-wrap">
+      <video id="lb-ux-video-el" controls>
+        <source src="Google_certificate_UX.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+
+<div id="lb-ux-gallery" class="project-lightbox" onclick="closeProjectLightbox('lb-ux-gallery')">
+  <div class="project-lightbox-inner has-gallery" onclick="event.stopPropagation()">
+    <div class="project-lightbox-header">
+      <span class="project-lightbox-label">UX Case Study · Movie Art App (Madrid)</span>
+      <button class="project-lightbox-close" onclick="closeProjectLightbox('lb-ux-gallery')">✕</button>
+    </div>
+    <div class="lb-gallery-wrap">
+      <div class="lb-gallery-grid">
+        <div class="lb-proj">
+          <img src="ux-case-study/01-product.jpg" alt="Product overview">
+          <div class="lb-proj-body">
+            <div class="lb-proj-meta">01 · The Product</div>
+            <div class="lb-proj-title">Experience Art Cinema</div>
+            <div class="lb-proj-desc">An app to search and discover art-house films — a category underserved by mainstream movie apps.</div>
+          </div>
+        </div>
+        <div class="lb-proj">
+          <img src="ux-case-study/02-persona.jpg" alt="User persona">
+          <div class="lb-proj-body">
+            <div class="lb-proj-meta">02 · Research</div>
+            <div class="lb-proj-title">Persona: Clara Santiago</div>
+            <div class="lb-proj-desc">Goals, frustrations, and behavior shaping the design direction.</div>
+          </div>
+        </div>
+        <div class="lb-proj">
+          <img src="ux-case-study/03-journeymap.jpg" alt="Journey map">
+          <div class="lb-proj-body">
+            <div class="lb-proj-meta">03 · Journey Mapping</div>
+            <div class="lb-proj-title">Mapping Clara's Path</div>
+            <div class="lb-proj-desc">From searching for reviews to buying a ticket — surfacing improvement opportunities.</div>
+          </div>
+        </div>
+        <div class="lb-proj">
+          <img src="ux-case-study/04-wireframes.jpg" alt="Digital wireframes">
+          <div class="lb-proj-body">
+            <div class="lb-proj-meta">04 · Wireframing</div>
+            <div class="lb-proj-title">From Paper to Digital</div>
+            <div class="lb-proj-desc">Digital wireframes with intuitive, grouped navigation for browsing screenings.</div>
+          </div>
+        </div>
+        <div class="lb-proj">
+          <img src="ux-case-study/05-lofi.jpg" alt="Low fidelity prototype">
+          <div class="lb-proj-body">
+            <div class="lb-proj-meta">05 · Prototyping</div>
+            <div class="lb-proj-title">Low-Fidelity Prototype</div>
+            <div class="lb-proj-desc">A full user flow built for usability testing before visual design.</div>
+          </div>
+        </div>
+        <div class="lb-proj">
+          <img src="ux-case-study/06-mockups.jpg" alt="Key mockups">
+          <div class="lb-proj-body">
+            <div class="lb-proj-meta">06 · Visual Design</div>
+            <div class="lb-proj-title">Key Mockups</div>
+            <div class="lb-proj-desc">Final visual language: dark cinematic palette and bold yellow accents.</div>
+          </div>
+        </div>
+        <div class="lb-proj">
+          <img src="ux-case-study/07-hifi.jpg" alt="High fidelity prototype">
+          <div class="lb-proj-body">
+            <div class="lb-proj-meta">07 · Final Prototype</div>
+            <div class="lb-proj-title">High-Fidelity Flow</div>
+            <div class="lb-proj-desc">The complete, polished flow from welcome to booking confirmation.</div>
+          </div>
+        </div>
+        <div class="lb-proj">
+          <img src="ux-case-study/08-takeaways.jpg" alt="Takeaways">
+          <div class="lb-proj-body">
+            <div class="lb-proj-meta">08 · Impact</div>
+            <div class="lb-proj-title">Takeaways</div>
+            <div class="lb-proj-desc">"I love being able to find all the cinema I like in one place." — user feedback.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1282,6 +1493,83 @@
       <div class="cert-issuer">Google · Coursera</div>
       <div class="cert-year">2023 – 2025</div>
     </div>
+  </div>
+</section>
+
+<!-- APPLIED PRACTICE -->
+<section style="padding:6rem 4rem; background:var(--s-proj); border-top:1px solid var(--border);" id="applied-practice">
+  <div class="section-label">Applied Practice</div>
+  <h2 class="section-title">From Certificate to Capstone</h2>
+  <p class="projects-subtitle">Real projects built during each Google Career Certificate — turning coursework into working dashboards, apps, and case studies.</p>
+
+  <div class="applied-grid">
+
+    <!-- AP 01 — DATA ANALYTICS -->
+    <div class="applied-card">
+      <span class="card-category">Data Analytics</span>
+      <h3 class="applied-title">Tile Sales Analysis, Europe 2024–2025</h3>
+      <div class="card-divider"></div>
+      <p class="applied-desc">Built an R analysis pipeline to explore ceramic tile sales trends across European markets, comparing Spain's regions against the rest of Europe by sector. Delivered as a published interactive site.</p>
+      <div class="card-tags">
+        <span class="tag">R</span>
+        <span class="tag">ggplot2</span>
+        <span class="tag">dplyr</span>
+      </div>
+      <div class="applied-cta-row">
+        <a class="applied-btn" href="https://sites.google.com/view/dashboardr/inicio" target="_blank">Dashboard</a>
+        <a class="applied-btn" href="https://sites.google.com/view/programmingr/inicio" target="_blank">Report</a>
+      </div>
+    </div>
+
+    <!-- AP 02 — BUSINESS INTELLIGENCE -->
+    <div class="applied-card">
+      <span class="card-category">Business Intelligence</span>
+      <h3 class="applied-title">European Tile Sales Performance, 2020–2024</h3>
+      <div class="card-divider"></div>
+      <p class="applied-desc">Designed an interactive Tableau dashboard from an 8,640-row dataset to answer real business questions: top markets, YoY growth, and product/segment breakdowns — with 4 executive KPIs and live filters.</p>
+      <div class="card-tags">
+        <span class="tag">Tableau</span>
+        <span class="tag">KPI Design</span>
+        <span class="tag">YoY Analysis</span>
+      </div>
+      <div class="applied-cta-row">
+        <a class="applied-btn solid" href="https://public.tableau.com/app/profile/fernando.sanchez2628/viz/TilesTableauExcercise/Dashboard1#1" target="_blank">Tableau Dashboard</a>
+      </div>
+    </div>
+
+    <!-- AP 03 — AI ESSENTIALS -->
+    <div class="applied-card">
+      <span class="card-category">AI Essentials</span>
+      <h3 class="applied-title">German Studio — AI-Assisted Language App</h3>
+      <div class="card-divider"></div>
+      <p class="applied-desc">Designed and built a functional German-learning web app — 2,000+ words, flashcards, quizzes, games, audio — using LLMs as a development copilot for structured content generation, with human review at every step.</p>
+      <div class="card-tags">
+        <span class="tag">Prompt Engineering</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Human-in-the-Loop</span>
+      </div>
+      <div class="applied-cta-row">
+        <a class="applied-btn solid" href="https://fernandojsr.github.io/german-studio/" target="_blank">Live App</a>
+      </div>
+    </div>
+
+    <!-- AP 04 — UX DESIGN -->
+    <div class="applied-card">
+      <span class="card-category">UX Design</span>
+      <h3 class="applied-title">Movie Art App (Madrid)</h3>
+      <div class="card-divider"></div>
+      <p class="applied-desc">End-to-end UX case study solving a real gap: finding art-house cinema in one place. Also included a second project, a healthy-food e-commerce site ("Cocina Saludable"), applying the same research-to-prototype process.</p>
+      <div class="card-tags">
+        <span class="tag">User Research</span>
+        <span class="tag">Wireframing</span>
+        <span class="tag">Usability Testing</span>
+      </div>
+      <div class="applied-cta-row">
+        <button class="applied-btn" onclick="openProjectLightbox('lb-ux-video')">▶ Watch Video</button>
+        <button class="applied-btn secondary" onclick="openProjectLightbox('lb-ux-gallery')">◱ Case Study</button>
+      </div>
+    </div>
+
   </div>
 </section>
 
