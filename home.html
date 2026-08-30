@@ -552,6 +552,21 @@
   }
   .lb-video-wrap video { width: 100%; height: 100%; display: block; outline: none; }
 
+  .project-lightbox-inner.has-pdf { width: 100%; max-width: 980px; max-height: 92vh; display: flex; flex-direction: column; }
+  .lb-pdf-wrap { flex: 1; min-height: 0; background: #1a1a1a; }
+  .lb-pdf-wrap iframe { width: 100%; height: 100%; min-height: 78vh; border: none; display: block; }
+  .lb-pdf-fallback {
+    display: block; text-align: center;
+    padding: 0.7rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: #c9a84c; text-decoration: none;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    background: #0d1b2a;
+  }
+  .lb-pdf-fallback:hover { background: rgba(201,168,76,0.08); }
+
   .project-lightbox-inner.has-gallery { max-height: 90vh; display: flex; flex-direction: column; }
   .lb-gallery-wrap { overflow-y: auto; padding: 1.6rem; }
   .lb-gallery-grid {
@@ -1143,6 +1158,7 @@
         <span class="tag">Cross-functional</span>
       </div>
       <button class="project-lb-btn" data-i18n="proj1_video" onclick="openProjectLightbox('lb-01')">▶ Watch Project Video</button>
+      <button class="project-lb-btn" data-i18n="proj1_case" onclick="openProjectLightbox('lb-case-01')">📄 View Case Study</button>
     </div>
 
     <!-- PROJECT 02 -->
@@ -1160,6 +1176,7 @@
         <span class="tag">NPS +15</span>
       </div>
       <button class="project-lb-btn" data-i18n="proj2_video" onclick="openProjectLightbox('lb-02')">▶ Watch Project Video</button>
+      <button class="project-lb-btn" data-i18n="proj2_case" onclick="openProjectLightbox('lb-case-02')">📄 View Case Study</button>
     </div>
 
     <!-- PROJECT 03 -->
@@ -1177,6 +1194,7 @@
         <span class="tag">90%+ Completion</span>
       </div>
       <button class="project-lb-btn" data-i18n="proj3_video" onclick="openProjectLightbox('lb-03')">▶ Watch Project Video</button>
+      <button class="project-lb-btn" data-i18n="proj3_case" onclick="openProjectLightbox('lb-case-03')">📄 View Case Study</button>
     </div>
 
     <!-- PROJECT 04 -->
@@ -1195,6 +1213,7 @@
         <span class="tag">38 Facilities</span>
       </div>
       <button class="project-lb-btn" data-i18n="proj4_video" onclick="openProjectLightbox('lb-04')">▶ Watch Project Video</button>
+      <button class="project-lb-btn" data-i18n="proj4_case" onclick="openProjectLightbox('lb-case-04')">📄 View Case Study</button>
     </div>
 
     <!-- PROJECT 05 -->
@@ -1250,6 +1269,19 @@
   </div>
 </div>
 
+<div id="lb-case-01" class="project-lightbox" onclick="closeProjectLightbox('lb-case-01')">
+  <div class="project-lightbox-inner has-pdf" onclick="event.stopPropagation()">
+    <div class="project-lightbox-header">
+      <span class="project-lightbox-label">Case Study · EMEA Web Product Implementation</span>
+      <button class="project-lightbox-close" onclick="closeProjectLightbox('lb-case-01')">✕</button>
+    </div>
+    <div class="lb-pdf-wrap">
+      <iframe src="case-studies/CaseStudy_Google_Teleperformance.pdf" title="Case Study: EMEA Web Product Implementation"></iframe>
+    </div>
+    <a class="lb-pdf-fallback" href="case-studies/CaseStudy_Google_Teleperformance.pdf" target="_blank" rel="noopener" data-i18n="pdf_fallback">↗ Open PDF in New Tab</a>
+  </div>
+</div>
+
 <div id="lb-02" class="project-lightbox" onclick="closeProjectLightbox('lb-02')">
   <div class="project-lightbox-inner" onclick="event.stopPropagation()">
     <div class="project-lightbox-header">
@@ -1262,6 +1294,19 @@
         Your browser does not support the video tag.
       </video>
     </div>
+  </div>
+</div>
+
+<div id="lb-case-02" class="project-lightbox" onclick="closeProjectLightbox('lb-case-02')">
+  <div class="project-lightbox-inner has-pdf" onclick="event.stopPropagation()">
+    <div class="project-lightbox-header">
+      <span class="project-lightbox-label">Case Study · Revenue &amp; Quality Scale-Up</span>
+      <button class="project-lightbox-close" onclick="closeProjectLightbox('lb-case-02')">✕</button>
+    </div>
+    <div class="lb-pdf-wrap">
+      <iframe src="case-studies/CaseStudy_Uriarte_Talavera.pdf" title="Case Study: Uriarte Talavera"></iframe>
+    </div>
+    <a class="lb-pdf-fallback" href="case-studies/CaseStudy_Uriarte_Talavera.pdf" target="_blank" rel="noopener" data-i18n="pdf_fallback">↗ Open PDF in New Tab</a>
   </div>
 </div>
 
@@ -1280,6 +1325,19 @@
   </div>
 </div>
 
+<div id="lb-case-03" class="project-lightbox" onclick="closeProjectLightbox('lb-case-03')">
+  <div class="project-lightbox-inner has-pdf" onclick="event.stopPropagation()">
+    <div class="project-lightbox-header">
+      <span class="project-lightbox-label">Case Study · Digital Capability Building at Scale</span>
+      <button class="project-lightbox-close" onclick="closeProjectLightbox('lb-case-03')">✕</button>
+    </div>
+    <div class="lb-pdf-wrap">
+      <iframe src="case-studies/CaseStudy_UPAEP_LnD.pdf" title="Case Study: UPAEP Learning & Development"></iframe>
+    </div>
+    <a class="lb-pdf-fallback" href="case-studies/CaseStudy_UPAEP_LnD.pdf" target="_blank" rel="noopener" data-i18n="pdf_fallback">↗ Open PDF in New Tab</a>
+  </div>
+</div>
+
 <div id="lb-04" class="project-lightbox" onclick="closeProjectLightbox('lb-04')">
   <div class="project-lightbox-inner" onclick="event.stopPropagation()">
     <div class="project-lightbox-header">
@@ -1292,6 +1350,19 @@
         Your browser does not support the video tag.
       </video>
     </div>
+  </div>
+</div>
+
+<div id="lb-case-04" class="project-lightbox" onclick="closeProjectLightbox('lb-case-04')">
+  <div class="project-lightbox-inner has-pdf" onclick="event.stopPropagation()">
+    <div class="project-lightbox-header">
+      <span class="project-lightbox-label">Case Study · Government IT Service Transformation</span>
+      <button class="project-lightbox-close" onclick="closeProjectLightbox('lb-case-04')">✕</button>
+    </div>
+    <div class="lb-pdf-wrap">
+      <iframe src="case-studies/CaseStudy_ISSSTE_IT_Operations.pdf" title="Case Study: ISSSTE IT Operations"></iframe>
+    </div>
+    <a class="lb-pdf-fallback" href="case-studies/CaseStudy_ISSSTE_IT_Operations.pdf" target="_blank" rel="noopener" data-i18n="pdf_fallback">↗ Open PDF in New Tab</a>
   </div>
 </div>
 
@@ -1907,24 +1978,29 @@ const TRANSLATIONS = {
     proj1_desc:   'Supported EMEA clients in deploying web-based products in a KPI-driven environment on behalf of Google. Mentored new hires and contributed to onboarding optimization across a multilingual team.',
     proj1_result: 'Multi-country rollout',
     proj1_video:  '▶ Watch Project Video',
+    proj1_case:   '📄 View Case Study',
 
     proj2_cat:    'Managing · Uriarte Talavera',
     proj2_title:  'Revenue &amp; Quality Scale-Up',
     proj2_desc:   'Managed all production lines of a premium ceramics company with 70 people. Implemented 5S and KPI dashboards to raise output quality, reduce lead times by 20%, and grow revenue by 30% — while elevating NPS by 15 points.',
     proj2_result: '+30% revenue growth',
     proj2_video:  '▶ Watch Project Video',
+    proj2_case:   '📄 View Case Study',
 
     proj3_cat:    'Education · UPAEP University',
     proj3_title:  'Digital Capability Building at Scale',
     proj3_desc:   'Over 14 years, designed and delivered hands-on training programs in digital tools and collaborative platforms, reaching 1,000+ students with 90%+ course completion rates — developing a structured methodology that became a standard.',
     proj3_result: '1,000+ professionals trained',
     proj3_video:  '▶ Watch Project Video',
+    proj3_case:   '📄 View Case Study',
 
     proj4_cat:    'IT Operations · ISSSTE',
     proj4_title:  'Government IT Service Transformation',
     proj4_desc:   'Led a multi-site IT overhaul across 38 state healthcare facilities, managing a team of 25+ technicians. Introduced structured training programs, standardized workflows, and a training model that reduced response times across the entire network — without increasing headcount.',
     proj4_result: '50% faster IT response time',
     proj4_video:  '▶ Watch Project Video',
+    proj4_case:   '📄 View Case Study',
+    pdf_fallback: '↗ Open PDF in New Tab',
 
     proj5_cat:    'Design &amp; Production · Ceramics',
     proj5_title:  'Premium Client Projects — Rosewood, Zurich &amp; Lance Wyman',
@@ -2084,24 +2160,29 @@ const TRANSLATIONS = {
     proj1_desc:   'Unterstützung von EMEA-Kunden bei der Einführung webbasierter Produkte in einem KPI-gesteuerten Umfeld im Auftrag von Google. Betreuung neuer Mitarbeiter und Beitrag zur Onboarding-Optimierung in einem mehrsprachigen Team.',
     proj1_result: 'Rollout in mehreren Ländern',
     proj1_video:  '▶ Projektvideo ansehen',
+    proj1_case:   '📄 Fallstudie ansehen',
 
     proj2_cat:    'Management · Uriarte Talavera',
     proj2_title:  'Umsatz- &amp; Qualitätssteigerung',
     proj2_desc:   'Leitung aller Produktionslinien eines Premiumkeramikunternehmens mit 70 Mitarbeitern. Implementierung von 5S und KPI-Dashboards zur Steigerung der Ausgabequalität, Reduzierung der Lieferzeiten um 20 % und Umsatzsteigerung um 30 % — bei gleichzeitiger Steigerung des NPS um 15 Punkte.',
     proj2_result: '+30% Umsatzwachstum',
     proj2_video:  '▶ Projektvideo ansehen',
+    proj2_case:   '📄 Fallstudie ansehen',
 
     proj3_cat:    'Bildung · UPAEP Universität',
     proj3_title:  'Digitaler Kompetenzaufbau',
     proj3_desc:   'Über 14 Jahre wurden praxisorientierte Schulungsprogramme für digitale Tools und kollaborative Plattformen entwickelt und durchgeführt, die über 1.000 Studierende mit Abschlussquoten von über 90 % erreichten — eine strukturierte Methodik, die zum Standard wurde.',
     proj3_result: 'Über 1.000 ausgebildete Fachkräfte',
     proj3_video:  '▶ Projektvideo ansehen',
+    proj3_case:   '📄 Fallstudie ansehen',
 
     proj4_cat:    'IT-Betrieb · ISSSTE',
     proj4_title:  'IT-Transformation im öffentlichen Sektor',
     proj4_desc:   'Leitung einer standortübergreifenden IT-Modernisierung in 38 staatlichen Gesundheitseinrichtungen mit einem Team von über 25 Technikern. Implementierung strukturierter Schulungsprogramme, standardisierter Arbeitsabläufe und eines Schulungsmodells, das die Reaktionszeiten im gesamten Netzwerk verkürzte – ohne die Mitarbeiterzahl zu erhöhen.',
     proj4_result: '50% schnellere IT-Reaktionszeit',
     proj4_video:  '▶ Projektvideo ansehen',
+    proj4_case:   '📄 Fallstudie ansehen',
+    pdf_fallback: '↗ PDF in neuem Tab öffnen',
 
     proj5_cat:    'Design &amp; Produktion · Keramik',
     proj5_title:  'Premiumkundenprojekte — Rosewood, Zürich &amp; Lance Wyman',
@@ -2261,24 +2342,29 @@ const TRANSLATIONS = {
     proj1_desc:   'Apoyé a clientes de la región EMEA en el despliegue de productos web en un entorno impulsado por KPI en nombre de Google. Capacité a nuevos integrantes del proyecto y contribuí a la optimización del onboarding en un equipo multilingüe.',
     proj1_result: 'Despliegue en múltiples países',
     proj1_video:  '▶ Ver video del proyecto',
+    proj1_case:   '📄 Ver caso de estudio',
 
     proj2_cat:    'Operaciones · Uriarte Talavera',
     proj2_title:  'Crecimiento de Ingresos &amp; Calidad',
     proj2_desc:   'Gestioné las líneas de producción de una empresa premium de cerámica, teniendo a mi cargo a 70 personas. Implementé 5S y dashboards de KPI para elevar la calidad del producto, reducir tiempos de entrega en un 20 % y hacer crecer los ingresos en un 30 % — mientras mejoraba el NPS en 15 puntos.',
     proj2_result: '+30% crecimiento de ingresos',
     proj2_video:  '▶ Ver video del proyecto',
+    proj2_case:   '📄 Ver caso de estudio',
 
     proj3_cat:    'Educación · Universidad UPAEP',
     proj3_title:  'Desarrollo de Capacidades Digitales',
     proj3_desc:   'Durante 14 años, diseñé e impartí programas prácticos de entrenamiento en herramientas digitales y plataformas colaborativas, alcanzando a más de 1.000 estudiantes, con tasas de finalización de curso mayores al 90 % — desarrollando una metodología estructurada que se convirtió en estándar.',
     proj3_result: 'Más de 1.000 profesionales formados',
     proj3_video:  '▶ Ver video del proyecto',
+    proj3_case:   '📄 Ver caso de estudio',
 
     proj4_cat:    'Operaciones TI · ISSSTE',
     proj4_title:  'Transformación de los Servicios de TI Gubernamentales',
     proj4_desc:   'Lideré una renovación de TI multisede en 38 instalaciones de salud estatales, gestionando un equipo de más de 25 técnicos. Introduje programas de entrenamiento estructurados, flujos de trabajo estandarizados y un modelo de capacitación que redujo tiempos de respuesta en toda la red — sin aumentar el personal.',
     proj4_result: '50% más rápido en respuesta TI',
     proj4_video:  '▶ Ver video del proyecto',
+    proj4_case:   '📄 Ver caso de estudio',
+    pdf_fallback: '↗ Abrir PDF en una nueva pestaña',
 
     proj5_cat:    'Diseño &amp; Producción · Cerámica',
     proj5_title:  'Proyectos para Clientes Premium — Rosewood, Zurich &amp; Lance Wyman',
