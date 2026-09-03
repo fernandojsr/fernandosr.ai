@@ -983,8 +983,8 @@
       <span class="badge" data-i18n="hero_badge_ai">🤖 Google Certified · AI &amp; BI</span>
     </div>
     <div class="hero-btns" style="display:flex; flex-wrap:wrap; gap:1rem; max-width:480px;">
-      <a href="https://www.linkedin.com/in/fs-creative/" target="_blank" class="btn-outline" data-i18n="hero_cta_li">Let's Connect</a>
-      <a href="Fernando_Sanchez-Rodriguez_Resume_EN.pdf" download="Fernando_Sanchez-Rodriguez_Resume_EN.pdf" class="btn-download" data-i18n="hero_cta_cv">⬇ Download CV</a>
+      <a href="https://www.linkedin.com/in/fs-creative/" target="_blank" class="btn-outline" data-i18n="hero_cta_li" onclick="gtag('event','connect_click',{'method':'linkedin'})">Let's Connect</a>
+      <a href="Fernando_Sanchez-Rodriguez_Resume_EN.pdf" download="Fernando_Sanchez-Rodriguez_Resume_EN.pdf" class="btn-download" data-i18n="hero_cta_cv" onclick="gtag('event','cv_download',{'location':'hero'})">⬇ Download CV</a>
     </div>
   </div>
   <div class="hero-photo-side">
@@ -1157,8 +1157,8 @@
         <span class="tag">Mentoring</span>
         <span class="tag">Cross-functional</span>
       </div>
-      <button class="project-lb-btn" data-i18n="proj1_video" onclick="openProjectLightbox('lb-01')">▶ Watch Project Video</button>
-      <button class="project-lb-btn" data-i18n="proj1_case" onclick="openProjectLightbox('lb-case-01')">📄 View Case Study</button>
+      <button class="project-lb-btn" data-i18n="proj1_video" onclick="gtag('event','watch_video',{'project':'google_teleperformance'});openProjectLightbox('lb-01')">▶ Watch Project Video</button>
+      <button class="project-lb-btn" data-i18n="proj1_case" onclick="gtag('event','view_case_study',{'project':'google_teleperformance'});openProjectLightbox('lb-case-01')">📄 View Case Study</button>
     </div>
 
     <!-- PROJECT 02 -->
@@ -1175,8 +1175,8 @@
         <span class="tag">Team of 70</span>
         <span class="tag">NPS +15</span>
       </div>
-      <button class="project-lb-btn" data-i18n="proj2_video" onclick="openProjectLightbox('lb-02')">▶ Watch Project Video</button>
-      <button class="project-lb-btn" data-i18n="proj2_case" onclick="openProjectLightbox('lb-case-02')">📄 View Case Study</button>
+      <button class="project-lb-btn" data-i18n="proj2_video" onclick="gtag('event','watch_video',{'project':'uriarte_talavera'});openProjectLightbox('lb-02')">▶ Watch Project Video</button>
+      <button class="project-lb-btn" data-i18n="proj2_case" onclick="gtag('event','view_case_study',{'project':'uriarte_talavera'});openProjectLightbox('lb-case-02')">📄 View Case Study</button>
     </div>
 
     <!-- PROJECT 03 -->
@@ -1193,8 +1193,8 @@
         <span class="tag">Digital Tools</span>
         <span class="tag">90%+ Completion</span>
       </div>
-      <button class="project-lb-btn" data-i18n="proj3_video" onclick="openProjectLightbox('lb-03')">▶ Watch Project Video</button>
-      <button class="project-lb-btn" data-i18n="proj3_case" onclick="openProjectLightbox('lb-case-03')">📄 View Case Study</button>
+      <button class="project-lb-btn" data-i18n="proj3_video" onclick="gtag('event','watch_video',{'project':'upaep'});openProjectLightbox('lb-03')">▶ Watch Project Video</button>
+      <button class="project-lb-btn" data-i18n="proj3_case" onclick="gtag('event','view_case_study',{'project':'upaep'});openProjectLightbox('lb-case-03')">📄 View Case Study</button>
     </div>
 
     <!-- PROJECT 04 -->
@@ -1212,8 +1212,8 @@
         <span class="tag">Public Sector</span>
         <span class="tag">38 Facilities</span>
       </div>
-      <button class="project-lb-btn" data-i18n="proj4_video" onclick="openProjectLightbox('lb-04')">▶ Watch Project Video</button>
-      <button class="project-lb-btn" data-i18n="proj4_case" onclick="openProjectLightbox('lb-case-04')">📄 View Case Study</button>
+      <button class="project-lb-btn" data-i18n="proj4_video" onclick="gtag('event','watch_video',{'project':'issste'});openProjectLightbox('lb-04')">▶ Watch Project Video</button>
+      <button class="project-lb-btn" data-i18n="proj4_case" onclick="gtag('event','view_case_study',{'project':'issste'});openProjectLightbox('lb-case-04')">📄 View Case Study</button>
     </div>
 
     <!-- PROJECT 05 -->
@@ -1246,7 +1246,7 @@
         <span class="tag" data-i18n="proj6_tag2">Industrial Design</span>
         <span class="tag" data-i18n="proj6_tag3">Client Management</span>
       </div>
-      <button class="project-lb-btn" data-i18n="proj6_video" onclick="openProjectLightbox('lb-06')">◱ View Selected Work</button>
+      <button class="project-lb-btn" data-i18n="proj6_video" onclick="gtag('event','view_gallery',{'project':'harmo_design'});openProjectLightbox('lb-06')">◱ View Selected Work</button>
       <a class="cta-btn" data-i18n="proj6_link" href="https://harmo3ddiseno.wixsite.com/harmodiseno" target="_blank" style="border-color:#5b8fa8; color:#5b8fa8;">HARMO Site</a>
     </div>
 
@@ -1636,8 +1636,8 @@
         <span class="tag">Usability Testing</span>
       </div>
       <div class="applied-cta-row">
-        <button class="applied-btn" data-i18n="ap4_btn1" onclick="openProjectLightbox('lb-ux-video')">▶ Watch Video</button>
-        <button class="applied-btn secondary" data-i18n="ap4_btn2" onclick="openProjectLightbox('lb-ux-gallery')">◱ Case Study</button>
+        <button class="applied-btn" data-i18n="ap4_btn1" onclick="gtag('event','watch_video',{'project':'ux_movie_art_app'});openProjectLightbox('lb-ux-video')">▶ Watch Video</button>
+        <button class="applied-btn secondary" data-i18n="ap4_btn2" onclick="gtag('event','view_case_study',{'project':'ux_movie_art_app'});openProjectLightbox('lb-ux-gallery')">◱ Case Study</button>
       </div>
     </div>
 
@@ -1778,7 +1778,7 @@
   </form>
 
   <div style="display:flex; justify-content:center;">
-    <a href="Fernando_Sanchez-Rodriguez_Resume_EN.pdf" download="Fernando_Sanchez-Rodriguez_Resume_EN.pdf" class="btn-download" data-i18n="contact_cv" style="padding:0.9rem 2rem; font-size:0.7rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; min-width:220px; max-width:220px; width:220px; flex:none; justify-content:center;">⬇ Download My CV</a>
+    <a href="Fernando_Sanchez-Rodriguez_Resume_EN.pdf" download="Fernando_Sanchez-Rodriguez_Resume_EN.pdf" class="btn-download" data-i18n="contact_cv" onclick="gtag('event','cv_download',{'location':'footer'})" style="padding:0.9rem 2rem; font-size:0.7rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; min-width:220px; max-width:220px; width:220px; flex:none; justify-content:center;">⬇ Download My CV</a>
   </div>
 </section>
 
